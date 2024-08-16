@@ -1,0 +1,7 @@
+
+
+@media screen and (max-width: 700px){
+    .login-image{
+        display: none;
+    }
+}

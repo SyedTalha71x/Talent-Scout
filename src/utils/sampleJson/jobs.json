@@ -1,0 +1,134 @@
+[
+    {
+        "company": "Apple",
+        "location": "New York, US",
+        "role": "Senior Mern Stack Developer",
+        "type": "Full Time",
+        "time": "10 minutes ago",
+        "description": "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Cupiditate dolor quis iure officiis, deleniti at nam amet. Repudiandae velit enim ut nisi consequuntur ea, dicta porro et veritatis corporis reiciendis?",
+        "skills": ["React", "TypeScript"],
+        "salary": "$500/Hour",
+        "img": "https://images.pexels.com/photos/544295/pexels-photo-544295.jpeg?auto=compress&cs=tinysrgb&w=600"
+    },
+    {
+        "company": "Apple",
+        "location": "New York, US",
+        "role": "Senior Mern Stack Developer",
+        "type": "Full Time",
+        "time": "10 minutes ago",
+        "description": "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Cupiditate dolor quis iure officiis, deleniti at nam amet. Repudiandae velit enim ut nisi consequuntur ea, dicta porro et veritatis corporis reiciendis?",
+        "skills": ["React", "TypeScript"],
+        "salary": "$500/Hour",
+        "img": "https://images.pexels.com/photos/544295/pexels-photo-544295.jpeg?auto=compress&cs=tinysrgb&w=600"
+    },
+    {
+        "company": "Apple",
+        "location": "New York, US",
+        "role": "Senior Mern Stack Developer",
+        "type": "Full Time",
+        "time": "10 minutes ago",
+        "description": "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Cupiditate dolor quis iure officiis, deleniti at nam amet. Repudiandae velit enim ut nisi consequuntur ea, dicta porro et veritatis corporis reiciendis?",
+        "skills": ["React", "TypeScript"],
+        "salary": "$500/Hour",
+        "img": "https://images.pexels.com/photos/544295/pexels-photo-544295.jpeg?auto=compress&cs=tinysrgb&w=600"
+    },
+    {
+        "company": "Apple",
+        "location": "New York, US",
+        "role": "Senior Mern Stack Developer",
+        "type": "Full Time",
+        "time": "10 minutes ago",
+        "description": "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Cupiditate dolor quis iure officiis, deleniti at nam amet. Repudiandae velit enim ut nisi consequuntur ea, dicta porro et veritatis corporis reiciendis?",
+        "skills": ["React", "TypeScript"],
+        "salary": "$500/Hour",
+        "img": "https://images.pexels.com/photos/544295/pexels-photo-544295.jpeg?auto=compress&cs=tinysrgb&w=600"
+    },
+    {
+        "company": "Apple",
+        "location": "New York, US",
+        "role": "Senior Mern Stack Developer",
+        "type": "Full Time",
+        "time": "10 minutes ago",
+        "description": "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Cupiditate dolor quis iure officiis, deleniti at nam amet. Repudiandae velit enim ut nisi consequuntur ea, dicta porro et veritatis corporis reiciendis?",
+        "skills": ["React", "TypeScript"],
+        "salary": "$500/Hour",
+        "img": "https://images.pexels.com/photos/544295/pexels-photo-544295.jpeg?auto=compress&cs=tinysrgb&w=600"
+    },
+    {
+        "company": "Apple",
+        "location": "New York, US",
+        "role": "Senior Mern Stack Developer",
+        "type": "Full Time",
+        "time": "10 minutes ago",
+        "description": "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Cupiditate dolor quis iure officiis, deleniti at nam amet. Repudiandae velit enim ut nisi consequuntur ea, dicta porro et veritatis corporis reiciendis?",
+        "skills": ["React", "TypeScript"],
+        "salary": "$500/Hour",
+        "img": "https://images.pexels.com/photos/544295/pexels-photo-544295.jpeg?auto=compress&cs=tinysrgb&w=600"
+    },
+    {
+        "company": "Apple",
+        "location": "New York, US",
+        "role": "Senior Mern Stack Developer",
+        "type": "Full Time",
+        "time": "10 minutes ago",
+        "description": "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Cupiditate dolor quis iure officiis, deleniti at nam amet. Repudiandae velit enim ut nisi consequuntur ea, dicta porro et veritatis corporis reiciendis?",
+        "skills": ["React", "TypeScript"],
+        "salary": "$500/Hour",
+        "img": "https://images.pexels.com/photos/544295/pexels-photo-544295.jpeg?auto=compress&cs=tinysrgb&w=600"
+    },
+    {
+        "company": "Apple",
+        "location": "New York, US",
+        "role": "Senior Mern Stack Developer",
+        "type": "Full Time",
+        "time": "10 minutes ago",
+        "description": "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Cupiditate dolor quis iure officiis, deleniti at nam amet. Repudiandae velit enim ut nisi consequuntur ea, dicta porro et veritatis corporis reiciendis?",
+        "skills": ["React", "TypeScript"],
+        "salary": "$500/Hour",
+        "img": "https://images.pexels.com/photos/544295/pexels-photo-544295.jpeg?auto=compress&cs=tinysrgb&w=600"
+    },
+    {
+        "company": "Apple",
+        "location": "New York, US",
+        "role": "Senior Mern Stack Developer",
+        "type": "Full Time",
+        "time": "10 minutes ago",
+        "description": "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Cupiditate dolor quis iure officiis, deleniti at nam amet. Repudiandae velit enim ut nisi consequuntur ea, dicta porro et veritatis corporis reiciendis?",
+        "skills": ["React", "TypeScript"],
+        "salary": "$500/Hour",
+        "img": "https://images.pexels.com/photos/544295/pexels-photo-544295.jpeg?auto=compress&cs=tinysrgb&w=600"
+    },
+    {
+        "company": "Apple",
+        "location": "New York, US",
+        "role": "Senior Mern Stack Developer",
+        "type": "Full Time",
+        "time": "10 minutes ago",
+        "description": "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Cupiditate dolor quis iure officiis, deleniti at nam amet. Repudiandae velit enim ut nisi consequuntur ea, dicta porro et veritatis corporis reiciendis?",
+        "skills": ["React", "TypeScript"],
+        "salary": "$500/Hour",
+        "img": "https://images.pexels.com/photos/544295/pexels-photo-544295.jpeg?auto=compress&cs=tinysrgb&w=600"
+    },
+    {
+        "company": "Apple",
+        "location": "New York, US",
+        "role": "Senior Mern Stack Developer",
+        "type": "Full Time",
+        "time": "10 minutes ago",
+        "description": "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Cupiditate dolor quis iure officiis, deleniti at nam amet. Repudiandae velit enim ut nisi consequuntur ea, dicta porro et veritatis corporis reiciendis?",
+        "skills": ["React", "TypeScript"],
+        "salary": "$500/Hour",
+        "img": "https://images.pexels.com/photos/544295/pexels-photo-544295.jpeg?auto=compress&cs=tinysrgb&w=600"
+    },
+    {
+        "company": "Apple",
+        "location": "New York, US",
+        "role": "Senior Mern Stack Developer",
+        "type": "Full Time",
+        "time": "10 minutes ago",
+        "description": "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Cupiditate dolor quis iure officiis, deleniti at nam amet. Repudiandae velit enim ut nisi consequuntur ea, dicta porro et veritatis corporis reiciendis?",
+        "skills": ["React", "TypeScript"],
+        "salary": "$500/Hour",
+        "img": "https://images.pexels.com/photos/544295/pexels-photo-544295.jpeg?auto=compress&cs=tinysrgb&w=600"
+    }
+]
