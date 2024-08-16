@@ -7,7 +7,7 @@ import { generateToken } from "@/utils/Security/security"
 
 const JWT_SECRET = process.env.JWT_SECRET;
 
-export const authOptions = {
+const authOptions = {
     providers: [
         GoogleProvider({
             clientId: process.env.GOOGLE_CLIENT_ID ?? "",
@@ -36,7 +36,6 @@ export const authOptions = {
                         });
                         await existingUser.save();
                     } else {
-                        // Update existing user's details if necessary
                         existingUser.providerId = account.providerAccountId;
                         existingUser.profileUrl = account.profile?.url;
                         existingUser.avatarUrl = account.profile?.avatar_url;
@@ -44,7 +43,6 @@ export const authOptions = {
                         await existingUser.save();
                     }
 
-                    // Generate a JWT token
                     const token = generateToken(existingUser._id, existingUser.email, JWT_SECRET, '1hr')
                     user.token = token;
                     return true;
@@ -57,7 +55,6 @@ export const authOptions = {
             return false;
         },
         async jwt({ token, user }) {
-            // Persist the JWT token in the session
             if (user) {
                 token.userId = user._id;
                 token.email = user.email;
@@ -66,7 +63,6 @@ export const authOptions = {
             return token;
         },
         async session({ session, token }) {
-            // Add the JWT token to the session
             if (token) {
                 session.userId = token.userId;
                 session.email = token.email;
@@ -77,5 +73,6 @@ export const authOptions = {
     },
 };
 
-export const handler = NextAuth(authOptions);
+const handler = NextAuth(authOptions);
+
 export { handler as GET, handler as POST };
