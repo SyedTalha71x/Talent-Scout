@@ -58,8 +58,8 @@ const Page = () => {
     return (
         <div className="mt-[6%] ">
             <div className="text-center max-w-3xl mx-auto">
-                <h2 className="text-gray-800 text-4xl font-extrabold">Our Testimonials</h2>
-                <p className="text-gray-600 text-md leading-relaxed mt-4">Real Stories, Real Success: Hear from Our Happy Clients</p>
+                <h2 className="sm:text-3xl text-2xl font-extrabold title-font text-gray-800">Our Testimonials</h2>
+                <p className="text-base leading-relaxed w-full mt-3 mx-auto text-gray-500">Real Stories, Real Success: Hear from Our Happy Clients</p>
             </div>
 
             <motion.div
@@ -69,9 +69,9 @@ const Page = () => {
                 variants={{
                     hidden: { opacity: 0, y: 50 },
                     visible: { opacity: 1, y: 0, transition: { duration: 0.8 } }
-                }} className="grid md:grid-cols-3 gap-6 max-w-6xl max-md:gap-16 max-md:max-w-lg mx-auto mt-[6%]">
+                }} className="grid md:grid-cols-3 gap-6 max-w-6xl max-md:gap-16 max-md:max-w-lg mx-auto p-6 lg:mt-[6%] md:mt-[5%] sm:mt-[4%] mt-[4%]">
                 {testimonials.map((testimonial, index) => (
-                    <div key={index} className="w-full p-6 rounded-lg mx-auto shadow-[0_4px_14px_-6px_rgba(93,96,127,0.4)] relative bg-slate-100">
+                    <div key={index} className="w-full p-6 rounded-lg lg:mt-0 md:mt-0 sm:mt-14 mt-14 mx-auto shadow-[0_4px_14px_-6px_rgba(93,96,127,0.4)] relative bg-slate-100">
                         <Image alt='###' height={1000} width={1000} src={testimonial.image} className="w-14 h-14 rounded-full absolute right-0 left-0 mx-auto -top-7" />
                         <div className="mt-6 text-center">
                             <p className="text-sm text-gray-600 leading-relaxed">{testimonial.text}</p>

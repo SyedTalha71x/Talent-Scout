@@ -8,7 +8,10 @@ const Page = () => {
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 xl:gap-24 pb-14 border-b-2 border-gray-200">
                     <div className="block w-full lg:max-w-full max-lg:mx-auto">
                         <div className="flex flex-col gap-8 w-full lg:max-w-xs ">
-                            <a href="https://pagedone.io/" className="py-1.5 max-[470px]:w-full max-[470px]:flex items-center justify-center">
+                            <h1 className='text-3xl text-gray-800 font-extrabold sm:text-center lg:text-left md:text-left text-center'>
+                                Talent Scout
+                            </h1>
+                            {/* <a href="https://pagedone.io/" className="py-1.5 max-[470px]:w-full max-[470px]:flex items-center justify-center">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="166" height="33" viewBox="0 0 166 33" fill="none">
                                     <path
                                         d="M47.7102 24.7231V7H55.0834C55.2569 7 55.48 7.00821 55.7526 7.02462C56.0252 7.03282 56.2772 7.05744 56.5085 7.09846C57.5412 7.25436 58.3921 7.59487 59.0613 8.12C59.7387 8.64513 60.2385 9.30974 60.5607 10.1138C60.8911 10.9097 61.0564 11.7959 61.0564 12.7723C61.0564 13.7405 60.8911 14.6267 60.5607 15.4308C60.2302 16.2267 59.7263 16.8872 59.0489 17.4123C58.3797 17.9374 57.5329 18.2779 56.5085 18.4338C56.2772 18.4667 56.0211 18.4913 55.7402 18.5077C55.4676 18.5241 55.2487 18.5323 55.0834 18.5323H50.6967V24.7231H47.7102ZM50.6967 15.7631H54.9595C55.1247 15.7631 55.3106 15.7549 55.5171 15.7385C55.7237 15.7221 55.9137 15.6892 56.0872 15.64C56.5829 15.5169 56.9711 15.2995 57.252 14.9877C57.5412 14.6759 57.7436 14.3231 57.8592 13.9292C57.9832 13.5354 58.0451 13.1497 58.0451 12.7723C58.0451 12.3949 57.9832 12.0092 57.8592 11.6154C57.7436 11.2133 57.5412 10.8564 57.252 10.5446C56.9711 10.2328 56.5829 10.0154 56.0872 9.89231C55.9137 9.84308 55.7237 9.81436 55.5171 9.80615C55.3106 9.78974 55.1247 9.78154 54.9595 9.78154H50.6967V15.7631Z"
@@ -53,7 +56,7 @@ const Page = () => {
                                         </linearGradient>
                                     </defs>
                                 </svg>
-                            </a>
+                            </a> */}
                             <p className="text-base font-normal text-gray-600 max-[470px]:text-center">
                                 Trusted in more than 100 countries & 5 million customers. Follow us on social media.
                             </p>

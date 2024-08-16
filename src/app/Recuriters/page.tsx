@@ -1,30 +1,67 @@
 "use client";
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { CiLocationOn } from "react-icons/ci";
 import { motion, useAnimation } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import Image from 'next/image';
-import axios from 'axios';
+
+// Array of recruiter data
+const recruiters = [
+    {
+        image: '/images/google.webp',
+        name: 'Google',
+        location: 'Mountain View, CA',
+        activation: 100
+    },
+    {
+        image: '/images/microsoft.png',
+        name: 'Microsoft',
+        location: 'Redmond, WA',
+        activation: 80
+    },
+    {
+        image: '/images/amazon.svg',
+        name: 'Amazon',
+        location: 'Seattle, WA',
+        activation: 120
+    },
+    {
+        image: '/images/apple.png',
+        name: 'Apple',
+        location: 'Cupertino, CA',
+        activation: 90
+    },
+    {
+        image: '/images/facebook.webp',
+        name: 'Meta (Facebook)',
+        location: 'Menlo Park, CA',
+        activation: 75
+    },
+    {
+        image: '/images/ibm.jpg',
+        name: 'IBM',
+        location: 'Armonk, NY',
+        activation: 50
+    },
+    {
+        image: '/images/tesla.png',
+        name: 'Tesla',
+        location: 'Palo Alto, CA',
+        activation: 60
+    },
+    {
+        image: '/images/salesforce.png',
+        name: 'Salesforce',
+        location: 'San Francisco, CA',
+        activation: 70
+    }
+];
 
 const Page = () => {
-    const [data, setData] = useState([]);
-
-    useEffect(() => {
-        const fetchData = async () => {
-            try {
-                const response = await axios.get('http://localhost:3000/api/getRecuiter');
-                setData(response.data.recuiters);
-            } catch (error) {
-                console.error("Error fetching recruiters data:", error);
-            }
-        };
-        fetchData();
-    }, []);
-
     const controls = useAnimation();
     const { ref, inView } = useInView({ triggerOnce: true, threshold: 0.1 });
 
-    useEffect(() => {
+    React.useEffect(() => {
         if (inView) {
             controls.start('visible');
         }
@@ -34,10 +71,10 @@ const Page = () => {
         <div>
             <div className='flex justify-center items-center text-center flex-col mt-16'>
                 <div>
-                    <h1 className='text-gray-800 text-4xl font-extrabold mb-2'>Top Recruiters</h1>
+                    <h1 className='sm:text-3xl text-2xl font-extrabold title-font text-gray-800 mb-2'>Top Recruiters</h1>
                 </div>
                 <div>
-                    <p className='text-gray-600 text-md leading-relaxed'>
+                    <p className='text-base leading-relaxed w-full mx-auto text-gray-500'>
                         Discover your next career move, freelance gig, or internship
                     </p>
                 </div>
@@ -51,11 +88,11 @@ const Page = () => {
                     visible: { opacity: 1, scale: 1, transition: { duration: 0.8 } }
                 }}
                 className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-6 mt-16 lg:w-[85%] md:w-[90%] sm:w-[90%] w-[90%] mx-auto'>
-                {data.map((recruiter: any, index) => (
+                {recruiters.map((recruiter, index) => (
                     <div key={index} className='recruiter-card cards-animate cursor-pointer hover:border-2 hover:border-blue-300 border-2 border-slate-200 rounded-lg p-4'>
                         <div className='flex justify-start items-start gap-2'>
                             <div>
-                                <Image height={1000} width={1000} src={recruiter.image} alt={recruiter.name} className='w-14 h-14 object-cover rounded-lg' />
+                                <Image height={1000} width={1000} src={recruiter.image} alt={recruiter.name} className='w-12 h-12 object-center object-cover rounded-full' />
                             </div>
                             <div className='flex flex-col'>
                                 <div>

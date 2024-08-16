@@ -115,7 +115,7 @@ const Page = () => {
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const response = await axios.get("http://localhost:3000/api/Jobs/find");
+                const response = await axios.get("http://localhost:3000/api/Jobs/getJob");
                 console.log(response.data.jobs);
                 setjobs(response.data.jobs);
             }
@@ -124,14 +124,14 @@ const Page = () => {
 
             }
         }
-        fetchData();
+        // fetchData();
     }, [])
 
     return (
         <div className=" px-4 my-8 gap-12 max-w-[1400px] mx-auto">
             <div className='flex justify-center items-center flex-col text-center'>
-                <h2 className="text-gray-800 text-4xl font-extrabold mb-2">Jobs of the day</h2>
-                <p className="text-gray-600 text-md leading-relaxed">Search and connect with the right candidates faster.</p>
+                <h2 className="sm:text-3xl text-2xl font-extrabold title-font text-gray-800 mb-2">Jobs of the day</h2>
+                <p className="text-base leading-relaxed xl:w-2/4 lg:w-3/4 mx-auto text-gray-500">Search and connect with the right candidates faster.</p>
             </div>
 
             <motion.div
@@ -145,7 +145,7 @@ const Page = () => {
 
                 className="grid lg:grid-cols-4 md:grid-cols-2 gap-8 max-md:max-w-lg mx-auto mt-20">
                 {jobs.map((job: any, index: any) => (
-                    <Link href={`/JobDetail/${job._id}`} key={index} className='bg-blue-50 rounded-lg shadow p-6 card'>
+                    <Link href={`/Jobs/${job._id}`} key={index} className='bg-blue-50 rounded-lg shadow p-6 card'>
                         <div className="flex gap-3 justify-start items-start">
                             <div>
                                 <img src={job.Image} className='rounded-xl h-12 w-12 object-cover' alt={job.Company} />
@@ -181,7 +181,7 @@ const Page = () => {
                         </div>
                         <div className='mt-4 flex justify-between items-center'>
                             <div className='flex'>
-                                <span className='text-purple-800 font-bold text-[20px]'>{job.Salary}/</span>
+                                <span className='text-purple-800 font-bold text-[20px]'>{job.Salary}$/</span>
                                 <div className='text-gray-600 text-[16px] ml-0.5 mt-1'>{job.SalaryType}</div>
                             </div>
                             <button className='bg-purple-600 text-white rounded-md py-1.5 px-5 text-sm'>Apply Now</button>
@@ -189,6 +189,11 @@ const Page = () => {
                     </Link>
                 ))}
             </motion.div>
+            <div className='flex justify-center items-center mt-8'>
+                <Link href={"/JobForum"}>
+                    <button className='bg-purple-600 text-white nav-btns py-2.5 px-10 text-md rounded-md'>Find More Jobs</button>
+                </Link>
+            </div>
         </div>
     )
 }

@@ -37,7 +37,7 @@ const Banner = () => {
                 <div className="absolute inset-0 bg-black opacity-50"></div> {/* Overlay */}
                 <div className='flex flex-col justify-center items-center mt-9 relative lg:p-10 md:p-8 sm:p-6 p-5 rounded-lg'>
                     <div>
-                        <h1 className='lg:w-[70%] md:w-full sm:w-full w-full mx-auto text-4xl font-bold text-center text-white'>
+                        <h1 className='lg:w-[70%] md:w-full sm:w-full w-full mx-auto lg:text-4xl md:text-3xl sm:text-2xl text-2xl font-bold text-center text-white'>
                             New Things Will Always Update Regularly
                         </h1>
                     </div>
