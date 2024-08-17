@@ -43,7 +43,7 @@ const StatCard: React.FC<StatCardProps> = ({ value, label, description }) => {
 
     return (
         <div ref={ref} className="text-center">
-            <h3 className="text-5xl font-extrabold">
+            <h3 className="lg:text-5xl md:text-4xl sm:text-3xl text-3xl font-extrabold">
                 {count}
                 {label === "Complete Cases" && <span className="text-blue-600">M+</span>}
                 {label === "Our Offices" && <span className="text-blue-600">K</span>}

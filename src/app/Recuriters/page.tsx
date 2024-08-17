@@ -68,13 +68,13 @@ const Page = () => {
     }, [controls, inView]);
 
     return (
-        <div className='lg:mb-0 md:mb-0 sm:mb-[12%] mb-[12%]'>
+        <div className=''>
             <div className='flex justify-center items-center text-center lg:p-0 md:p-0 sm:p-2 p-2 flex-col mt-16'>
                 <div>
                     <h1 className='sm:text-3xl text-2xl font-extrabold title-font text-gray-800 mb-2'>Top Recruiters</h1>
                 </div>
                 <div>
-                    <p className='text-base leading-relaxed w-full mx-auto text-gray-500'>
+                    <p className='text-base leading-relaxed xl:w-full lg:w-full mx-auto w-full text-gray-500'>
                         Discover your next career move, freelance gig, or internship
                     </p>
                 </div>
@@ -87,7 +87,7 @@ const Page = () => {
                     hidden: { opacity: 0, scale: 0.9 },
                     visible: { opacity: 1, scale: 1, transition: { duration: 0.8 } }
                 }}
-                className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-6 mt-16 lg:w-[85%] md:w-[90%] sm:w-[90%] w-[90%] mx-auto'>
+                className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-6  lg:mt-16 md:mt-12 sm:mt-9 mt-9 lg:w-[85%] md:w-[90%] sm:w-[90%] w-[90%] mx-auto'>
                 {recruiters.map((recruiter, index) => (
                     <div key={index} className='recruiter-card cards-animate cursor-pointer hover:border-2 hover:border-blue-300 border-2 border-slate-200 rounded-lg p-4'>
                         <div className='flex justify-start items-start gap-2'>

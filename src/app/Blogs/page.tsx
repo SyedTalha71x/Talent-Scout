@@ -1,6 +1,5 @@
 import React from 'react'
 import Image from 'next/image'
-import Blog from '../Blog/page'
 
 const Page = () => {
     return (
@@ -8,8 +7,8 @@ const Page = () => {
             <div className='relative bg-cover bg-center' style={{ backgroundImage: "url('/bg-jobpost.jpg')" }}>
                 <div className='absolute inset-0 bg-slate-600 opacity-75'></div>
                 <div className='relative flex justify-center items-center text-center flex-col lg:p-36 md:p-26 sm:p-20 p-16'>
-                    <h1 className='text-white lg:text-5xl md:text-4xl sm:text-2xl w-full text-2xl font-bold'>Blogs</h1>
-                    <p className='text-gray-300 mt-1 text-lg w-full'>Checkout our latest blogs!</p>
+                    <h1 className='text-white sm:text-3xl text-2xl font-extrabold title-font  '>Blogs</h1>
+                    <p className='text-base leading-relaxed xl:w-full lg:w-full w-full mx-auto text-gray-300 mt-1'>Checkout our latest blogs!</p>
                 </div>
             </div>
             <div className='lg:w-[1280px] md:w-[90%] sm:w-[90%] w-[90%] mx-auto'>
