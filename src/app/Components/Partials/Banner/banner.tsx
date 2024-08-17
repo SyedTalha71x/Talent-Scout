@@ -35,14 +35,14 @@ const Banner = () => {
                 }}
             >
                 <div className="absolute inset-0 bg-black opacity-50"></div> {/* Overlay */}
-                <div className='flex flex-col justify-center items-center mt-9 relative lg:p-10 md:p-8 sm:p-6 p-5 rounded-lg'>
+                <div className='flex flex-col justify-center items-center mt-9 relative lg:p-10 md:p-8 sm:p-6 p-4 rounded-lg'>
                     <div>
                         <h1 className='lg:w-[70%] md:w-full sm:w-full w-full mx-auto lg:text-4xl md:text-3xl sm:text-2xl text-2xl font-bold text-center text-white'>
                             New Things Will Always Update Regularly
                         </h1>
                     </div>
-                    <div className="mt-8 lg:w-[40%] md:w-[60%] sm:w-[80%] w-full mx-auto">
-                        <div className="flex items-center p-2 bg-white rounded-lg overflow-hidden">
+                    <div className="mt-8 lg:w-[40%] md:w-[60%] sm:w-[80%] w-[80%] mx-auto">
+                        <div className="flex items-center lg:p-2 md:p-2 sm:p-0 p-0 bg-white rounded-lg overflow-hidden">
                             <span className="p-2">
                                 <MdEmail className="text-gray-500 text-3xl rounded-md" />
                             </span>
@@ -51,7 +51,7 @@ const Banner = () => {
                                 placeholder="Enter your email"
                                 className="flex-grow p-2 outline-none"
                             />
-                            <button className="p-2 text-sm nav-btns bg-[#0d6efd] text-white font-bold rounded-md ml-2">
+                            <button className="p-2 text-sm nav-btns bg-[#0d6efd] text-white font-bold rounded-md ml-2 ">
                                 Subscribe
                             </button>
                         </div>

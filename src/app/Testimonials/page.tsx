@@ -27,7 +27,6 @@ const testimonials = [
 ];
 
 const renderStars = (rating: any) => {
-
     const fullStars = Math.floor(rating);
     const emptyStars = 5 - fullStars;
     return (
@@ -55,9 +54,10 @@ const Page = () => {
             controls.start('visible');
         }
     }, [controls, inView]);
+
     return (
-        <div className="mt-[6%] ">
-            <div className="text-center max-w-3xl mx-auto">
+        <div className="lg:mt-[8%] md:mt-[7%] sm:mt-[6%] mt-[5%]">
+            <div className="text-center max-w-3xl mx-auto lg:p-0 md:p-0 sm:p-2 p-2">
                 <h2 className="sm:text-3xl text-2xl font-extrabold title-font text-gray-800">Our Testimonials</h2>
                 <p className="text-base leading-relaxed w-full mt-3 mx-auto text-gray-500">Real Stories, Real Success: Hear from Our Happy Clients</p>
             </div>
@@ -69,10 +69,12 @@ const Page = () => {
                 variants={{
                     hidden: { opacity: 0, y: 50 },
                     visible: { opacity: 1, y: 0, transition: { duration: 0.8 } }
-                }} className="grid md:grid-cols-3 gap-6 max-w-6xl max-md:gap-16 max-md:max-w-lg mx-auto p-6 lg:mt-[6%] md:mt-[5%] sm:mt-[4%] mt-[4%]">
+                }}
+                className="grid md:grid-cols-3 lg:gap-6 max-md:gap-16 max-md:max-w-lg mx-auto p-6 lg:mt-[5%] md:mt-[4%] sm:mt-[4%] mt-[3%]"
+            >
                 {testimonials.map((testimonial, index) => (
                     <div key={index} className="w-full p-6 rounded-lg lg:mt-0 md:mt-0 sm:mt-14 mt-14 mx-auto shadow-[0_4px_14px_-6px_rgba(93,96,127,0.4)] relative bg-slate-100">
-                        <Image alt='###' height={1000} width={1000} src={testimonial.image} className="w-14 h-14 rounded-full absolute right-0 left-0 mx-auto -top-7" />
+                        <Image alt={testimonial.name} height={1000} width={1000} src={testimonial.image} className="w-14 h-14 rounded-full absolute right-0 left-0 mx-auto -top-7" />
                         <div className="mt-6 text-center">
                             <p className="text-sm text-gray-600 leading-relaxed">{testimonial.text}</p>
                         </div>

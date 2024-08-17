@@ -68,8 +68,8 @@ const Page = () => {
     }, [controls, inView]);
 
     return (
-        <div>
-            <div className='flex justify-center items-center text-center flex-col mt-16'>
+        <div className='lg:mb-0 md:mb-0 sm:mb-[12%] mb-[12%]'>
+            <div className='flex justify-center items-center text-center lg:p-0 md:p-0 sm:p-2 p-2 flex-col mt-16'>
                 <div>
                     <h1 className='sm:text-3xl text-2xl font-extrabold title-font text-gray-800 mb-2'>Top Recruiters</h1>
                 </div>
