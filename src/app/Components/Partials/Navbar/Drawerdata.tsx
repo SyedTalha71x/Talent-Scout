@@ -9,7 +9,7 @@ interface NavigationItem {
 
 const navigation: NavigationItem[] = [
   { name: 'Home', href: '/', current: true },
-  { name: 'Blog', href: '/', current: false },
+  { name: 'Blog', href: '/Blogs', current: false },
   { name: 'Find a Job', href: '/JobForum', current: false },
 ]
 
@@ -37,9 +37,11 @@ const Data = () => {
               </Link>
             ))}
             <div className="mt-4"></div>
-            <button className="bg-white w-full text-midnightblue border border-midnightblue font-medium py-2 px-4 rounded">
-              Log In
-            </button>
+            <Link href={"/Login"}>
+              <button className="bg-white w-full text-midnightblue border border-midnightblue font-medium py-2 px-4 rounded">
+                Log In
+              </button>
+            </Link>
             <button className="bg-midnightblue w-full hover:bg-blue hover:text-white text-white font-medium my-2 py-2 px-4 rounded">
               Sign up
             </button>

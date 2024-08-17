@@ -1,20 +1,69 @@
-import mongoose from 'mongoose';
+import mongoose from "mongoose";
 
-const JobSchema = new mongoose.Schema({
-    Company: { type: String, required: true },
-    Location: { type: String, required: true },
-    Type: { type: String, required: true },
-    Role: { type: String, required: true },
-    Description: { type: String, required: true },
-    Skills: { type: [String], required: true },
-    Salary: { type: Number, required: true },
-    SalaryType: { type: String, required: true },
-    Image: { type: String, required: false },
-    JobCategory: { type: String, required: false },
-    JobArrival: { type: String, required: false },
-    CreatedAt: { type: Date, default: Date.now }
+const jobSchema = new mongoose.Schema({
+    title: {
+        type: String,
+        required: true,
+    },
+    company: {
+        type: String,
+        required: true,
+    },
+    description: {
+        type: String,
+        required: true,
+    },
+    briefDescription: {
+        type: String,
+    },
+    location: {
+        type: String,
+        required: true,
+    },
+    salary: {
+        type: Number,
+        required: false,
+    },
+    jobType: {
+        type: String,
+        required: true,
+    },
+    experienceLevel: {
+        type: String,
+        required: true,
+    },
+    experience: {
+        type: Number
+    },
+    skills: {
+        type: [String], // Array of strings to list skills required for the job
+        required: true,
+    },
+    createdAt: {
+        type: Date,
+        default: Date.now,
+    },
+    updatedAt: {
+        type: Date,
+    },
+    applicationDeadline: {
+        type: Date,
+        required: false,
+    },
+    isRemote: {
+        type: String,
+    },
+    status: {
+        type: String,
+        default: 'Active',
+    },
+    industry: {
+        type: String
+    },
+    jobCategory: {
+        type: String
+    }
 });
 
-const Job = mongoose.models.jobs || mongoose.model('jobs', JobSchema);
-
+const Job = mongoose.models.jobs || mongoose.model('jobs', jobSchema);
 export default Job;
