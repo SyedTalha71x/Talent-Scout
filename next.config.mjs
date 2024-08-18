@@ -18,6 +18,10 @@ const nextConfig = {
             {
                 protocol: 'https',
                 hostname: '1000logos.net'
+            },
+            {
+                protocol: 'https',
+                hostname: 'mailmeteor.com'
             }
         ]
     }

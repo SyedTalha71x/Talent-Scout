@@ -25,7 +25,7 @@ const Page = () => {
                 visible: { opacity: 1, y: 0, transition: { duration: 0.8 } }
             }}
 
-            className=" lg:mt-36 md:mt-32 sm:mt-20 mt-20" id='blogs'>
+            className=" lg:mt-32 md:mt-32 sm:mt-20 mt-20" id='blogs'>
             <div className="lg:w-[1280px] md:w-[90%] sm:w-[90%] w-[90%] mx-auto">
                 <div className="text-center">
                     <h2 className="sm:text-3xl text-2xl font-extrabold title-font text-gray-800 ">Our Latest Blogs</h2>

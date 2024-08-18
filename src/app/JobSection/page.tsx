@@ -112,10 +112,11 @@ const Page = () => {
         }
     }, [controls, inView]);
 
+
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const response = await axios.get("http://localhost:3000/api/Jobs/getJob");
+                const response = await axios.get(`http://localhost:3000/api/Jobs/getJob`);
                 console.log(response.data.jobs);
                 setjobs(response.data.jobs);
             }
@@ -172,7 +173,7 @@ const Page = () => {
                             </div>
                         </div>
                         <div className='mt-5'>
-                            <p className='text-sm text-gray-500'>{job.description}</p>
+                            <p className='text-sm text-gray-500'>{job.description.slice(0,100)}</p>
                         </div>
                         <div className='mt-5 flex items-center gap-2'>
                             {job.skills.slice(0, 3).map((skill: any, i: any) => (
