@@ -12,15 +12,20 @@ const MONGODB_URL = `mongodb+srv://${username}:${password}@${cluster}/${dbname}?
 
 async function connectToDB() {
     try {
-        await mongoose.connect(MONGODB_URL);
+        await mongoose.connect(MONGODB_URL, {
+            useNewUrlParser: true,
+            useUnifiedTopology: true,
+        });
         console.log("Connected to MongoDB Successfully");
-
-    } catch (error: any) {
+    } catch (error) {
         console.error("Failed to connect to MongoDB:", error);
+
         if (error.name === 'MongoServerSelectionError') {
             console.error("MongoDB server selection timed out. Please check your connection string and ensure the server is reachable.");
         }
-        throw error;
+
+        throw error; // Re-throw the error after logging
     }
 }
-export default connectToDB
+
+export default connectToDB;

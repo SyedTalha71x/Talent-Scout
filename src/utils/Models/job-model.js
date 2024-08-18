@@ -62,6 +62,9 @@ const jobSchema = new mongoose.Schema({
     },
     jobCategory: {
         type: String
+    },
+    image: {
+        type: String
     }
 });
 

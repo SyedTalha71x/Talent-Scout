@@ -7,6 +7,7 @@ import Drawerdata from "./Drawerdata";
 import Signdialog from "./Signdialog";
 import Registerdialog from "./Registerdialog";
 import Image from 'next/image';
+import Profile from './Profile';
 
 
 interface NavigationItem {
@@ -33,7 +34,7 @@ const Navbar = () => {
         <Disclosure as="nav" className="navbar">
             <>
                 <div className="mx-auto max-w-7xl px-6 md:py-3 lg:px-8">
-                    <div className="relative flex h-full items-center justify-between">
+                    <div className="relative flex h-full items-center justify-start">
                         <div className="flex flex-1 items-center sm:items-stretch sm:justify-start">
 
                             {/* LOGO */}
@@ -84,6 +85,11 @@ const Navbar = () => {
                         {/* REGISTER DIALOG */}
 
                         <Registerdialog />
+
+                        {/* Profile Avatar  */}
+
+
+                        <Profile />
 
 
                         {/* DRAWER FOR MOBILE VIEW */}

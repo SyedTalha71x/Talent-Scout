@@ -3,6 +3,7 @@ import { motion, useAnimation } from 'framer-motion';
 import { useEffect } from 'react';
 import { useInView } from 'react-intersection-observer';
 import Image from 'next/image';
+import Link from 'next/link';
 
 const Banner = () => {
     const controls = useAnimation();
@@ -33,9 +34,12 @@ const Banner = () => {
                         <h1 className='text-blue-950 text-4xl md:text-[90px] text-center lg:text-start font-semibold lh-133 pt-5'>Welcome to Talent Scout</h1>
                         <h3 className='text-gray-700 opacity-75 text-lg font-normal text-center lg:text-start pt-2'>Elevate your career with personalized job recommendations and seamless application processes, Browse diverse job opportunities, tailor your search, and land your perfect role with ease</h3>
                         <div className=' mx-auto lg:mx-0 pt-2'>
-                            <button className="text-white text-md py-3 px-12 rounded-lg transition duration-150 ease-in-out bg-purple-600 nav-btns">
-                                Explore Now
-                            </button>
+                            <Link href={"/JobForum"}>
+
+                                <button className="text-white text-md py-3 px-12 rounded-lg transition duration-150 ease-in-out bg-purple-600 nav-btns">
+                                    Explore Now
+                                </button>
+                            </Link>
                         </div>
                     </motion.div>
 

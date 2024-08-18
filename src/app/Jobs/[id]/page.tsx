@@ -220,22 +220,34 @@ const SimilarJobs: React.FC = () => {
 }
 
 const Page: React.FC = () => {
-    // const [data, setdata] = useState([])
     const { id } = useParams();
-    const [data, setData] = useState<JobDetails | null>(null);
+    const [data, setData] = useState([]);
+    const [isLoading, setIsLoading] = useState(true);
+    const [error, setError] = useState<string | null>(null);
+
     useEffect(() => {
-        const fetchdata = async (id: string | string[] | undefined) => {
+        const fetchdata = async () => {
             try {
-                const response = await axios.get(`http://localhost:3000/api/Jobs/find/${id}`);
-                setData(response.data)
-                console.log("Data------------", response.data)
-            }
-            catch (error: any) {
-                console.log("error-------------------", error);
+                setIsLoading(true);
+                setError(null);
+                const response = await axios.get(`http://localhost:3000/api/Jobs/singleJob/${id}`);
+                console.log("API Response:", response.data);
+                if (Array.isArray(response.data.document)) {
+                    setData(response.data.document);
+                } else {
+                    setData(response.data.document);
+                }
+            } catch (error: any) {
+                console.error("Error fetching job data:", error);
+                setError(error.message || 'An error occurred while fetching job data');
+            } finally {
+                setIsLoading(false);
             }
         }
-        fetchdata(id);
-    }, [])
+        if (id) {
+            fetchdata();
+        }
+    }, [id])
 
     const jobDetails: JobDetails = {
         industry: "Software Development",
@@ -248,53 +260,57 @@ const Page: React.FC = () => {
         location: "Remote (USA)"
     };
 
+    if (isLoading) {
+        return <div className="text-center py-10">Loading...</div>;
+    }
+
+    if (error) {
+        return <div className="text-center py-10 text-red-500">Error: {error}</div>;
+    }
+
     return (
         <>
-            <div className='w-[80%] mx-auto'>
+            <div className='w-[80%] mx-auto lg:mt-[6%] md:mt-[6%] sm:mt-[5%] mt-[5%]'>
                 <div className='flex justify-between items-center mt-[4%]'>
-                    <div className='flex flex-col gap-2'>
-                        <div className='flex'>
-                            <div>
-                                <Image src="https://images.pexels.com/photos/9683980/pexels-photo-9683980.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Company Logo" width={50} height={50} className="rounded-full h-16 w-16 object-cover mr-3" />
-                            </div>
-                            <div className='flex flex-col'>
-                                <h1 className='lg:text-4xl md:text-3xl sm:text-2xl text-2xl font-bold text-gray-700'>Senior Full Stack Engineer</h1>
-                                <div className='flex items-center gap-5 mt-1'>
-                                    <div className='flex gap-1'>
-                                        <PiBriefcaseLight className='text-lg text-gray-600' />
-                                        <span className='text-sm text-gray-600'>Full Time</span>
-                                    </div>
-                                    <div className='flex gap-1'>
-                                        <CiClock2 className='text-lg text-gray-600' />
-                                        <span className='text-sm text-gray-600'>4 mins ago</span>
+                    {data.length > 0 ? data.map((item: any) => (
+                        <div key={item._id} className='flex flex-col gap-2'>
+                            <div className='flex'>
+                                <div className='lg:block md:block sm:block hidden'>
+                                    <Image src={item.image} alt="Company Logo" width={50} height={50} className="rounded-full h-16 w-16 object-cover mr-3" />
+                                </div>
+                                <div className='flex flex-col'>
+                                    <h1 className='lg:text-4xl md:text-3xl sm:text-2xl text-2xl font-bold text-gray-800'>{item.title}</h1>
+                                    <div className='flex items-center gap-5 lg:mt-1 md:mt-2 sm:mt-3 mt-3'>
+                                        <div className='flex gap-1'>
+                                            <PiBriefcaseLight className='text-lg text-gray-600' />
+                                            <span className='text-sm text-gray-600'>{item.jobType}</span>
+                                        </div>
+                                        <div className='flex gap-1'>
+                                            <CiClock2 className='text-lg text-gray-600' />
+                                            <span className='text-sm text-gray-600'>{new Date(item.createdAt).toISOString().split('T')[0]}</span>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-
-
-                    </div>
-                    <button className='py-2 px-8 rounded-md text-white nav-btns bg-purple-600'>Apply Now</button>
+                    )) : (
+                        <div>No job data available</div>
+                    )}
+                    <button className='py-2 px-8 lg:block sm:hidden md:hidden hidden rounded-md text-white nav-btns bg-purple-600'>Apply Now</button>
                 </div>
                 <hr className='bg-gray-900 h-[1px] w-full mt-10' />
-                <div className="flex flex-col lg:flex-col gap-8">
-                    <div>
-                        <div className='flex gap-5'>
-                            <div className="lg:w-2/3">
-                                <JobDetailsTable jobDetails={jobDetails} />
-                                <div className="mt-4">
-                                    <CompanyDescription />
-                                </div>
-                            </div>
-
-                            <div className="lg:w-1/3">
-                                <SimilarJobs />
-                            </div>
+                <div className="flex flex-col lg:flex-row gap-5">
+                    <div className="lg:w-2/3 w-full">
+                        <JobDetailsTable jobDetails={jobDetails} />
+                        <div className="mt-4">
+                            <CompanyDescription />
                         </div>
                     </div>
 
+                    <div className="lg:w-1/3 w-full mt-8 lg:mt-0">
+                        <SimilarJobs />
+                    </div>
                 </div>
-
             </div>
             <Banner />
         </>

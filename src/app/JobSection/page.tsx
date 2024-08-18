@@ -124,7 +124,7 @@ const Page = () => {
 
             }
         }
-        // fetchData();
+        fetchData();
     }, [])
 
     return (
@@ -148,41 +148,41 @@ const Page = () => {
                     <Link href={`/Jobs/${job._id}`} key={index} className='bg-blue-50 rounded-lg shadow p-6 card'>
                         <div className="flex gap-3 justify-start items-start">
                             <div>
-                                <img src={job.Image} className='rounded-xl h-12 w-12 object-cover' alt={job.Company} />
+                                <img src={job.image} className='rounded-xl h-12 w-12 object-cover' alt={job.company} />
                             </div>
                             <div className='flex flex-col'>
-                                <h1 className='text-lg font-bold text-blue-950'>{job.Company}</h1>
+                                <h1 className='text-lg font-bold text-blue-950'>{job.company}</h1>
                                 <div className='flex mt-0.5'>
                                     <CiLocationOn />
-                                    <div className='text-[12px] text-gray-500'>{job.Location}</div>
+                                    <div className='text-[12px] text-gray-500'>{job.location}</div>
                                 </div>
                             </div>
                         </div>
                         <div className='mt-4'>
-                            <h1 className='text-lg text-violet-950 font-bold'>{job.Role}</h1>
+                            <h1 className='text-lg text-violet-950 font-bold'>{job.title}</h1>
                         </div>
                         <div className='flex items-center gap-5 mt-2'>
                             <div className='flex gap-0.5'>
                                 <PiBriefcaseLight />
-                                <div className='text-[13px] text-gray-500'>{job.Type}</div>
+                                <div className='text-[13px] text-gray-500'>{job.jobType}</div>
                             </div>
                             <div className='flex gap-0.5'>
                                 <CiClock2 />
-                                <div className='text-[13px] text-gray-500'>{CreatedAt} min ago</div>
+                                <div className='text-[13px] text-gray-500'>{new Date(job.createdAt).toISOString().split('T')[0]}</div>
                             </div>
                         </div>
                         <div className='mt-5'>
-                            <p className='text-sm text-gray-500'>{job.Description}</p>
+                            <p className='text-sm text-gray-500'>{job.description}</p>
                         </div>
                         <div className='mt-5 flex items-center gap-2'>
-                            {job.Skills.slice(0, 3).map((skill: any, i: any) => (
+                            {job.skills.slice(0, 3).map((skill: any, i: any) => (
                                 <div key={i} className='bg-slate-200 rounded-md py-1.5 px-4 text-gray-700 text-[12px]'>{skill}</div>
                             ))}
                         </div>
                         <div className='mt-4 flex justify-between items-center'>
                             <div className='flex'>
-                                <span className='text-purple-800 font-bold text-[20px]'>{job.Salary}$/</span>
-                                <div className='text-gray-600 text-[16px] ml-0.5 mt-1'>{job.SalaryType}</div>
+                                <span className='text-purple-800 font-bold text-[20px]'>{job.salary}$/</span>
+                                <div className='text-gray-600 text-[16px] ml-0.5 mt-1'>Hour</div>
                             </div>
                             <button className='bg-purple-600 text-white rounded-md py-1.5 px-5 text-sm'>Apply Now</button>
                         </div>
