@@ -173,7 +173,7 @@ const Page = () => {
                             </div>
                         </div>
                         <div className='mt-5'>
-                            <p className='text-sm text-gray-500'>{job.description.slice(0,100)}</p>
+                            <p className='text-sm text-gray-500'>{job.description.slice(0,100)}...</p>
                         </div>
                         <div className='mt-5 flex items-center gap-2'>
                             {job.skills.slice(0, 3).map((skill: any, i: any) => (

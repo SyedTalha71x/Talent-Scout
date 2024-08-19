@@ -220,3 +220,34 @@ html:not([data-scroll="0"]) .ttty {
 .animate-slide-left-4 {
   animation: slide-left 4s linear infinite;
 }
+
+/* Add this to your global styles (e.g., globals.css) or scoped styles */
+.prose {
+  /* Apply font styles, colors, and spacing */
+  font-family: 'Roboto', sans-serif; /* Or any font family you prefer */
+  color: #4a5568; /* Tailwind gray-600 color */
+}
+
+.prose h1 {
+  font-size: 2rem; /* Tailwind text-3xl size */
+  font-weight: bold;
+  margin-top: 0;
+  margin-bottom: 1rem;
+  color: #2d3748; /* Tailwind gray-800 color */
+}
+
+.prose p {
+  margin-top: 0;
+  margin-bottom: 1rem;
+  line-height: 1.5;
+}
+
+.prose ul {
+  padding-left: 1.5rem; /* Tailwind pl-6 */
+  margin-top: 0;
+  margin-bottom: 1rem;
+}
+
+.prose li {
+  margin-bottom: 0.5rem;
+}

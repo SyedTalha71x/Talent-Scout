@@ -15,13 +15,18 @@ async function connectToDB() {
         await mongoose.connect(MONGODB_URL, {
             useNewUrlParser: true,
             useUnifiedTopology: true,
+            serverSelectionTimeoutMS: 5000, // Timeout after 5 seconds instead of 10
+            socketTimeoutMS: 45000, // Close sockets after 45 seconds of inactivity
+            connectTimeoutMS: 10000, // Timeout after 10 seconds for initial connection
         });
-        console.log("Connected to MongoDB Successfully");
+        console.log("Connected to MongoDB successfully");
     } catch (error) {
         console.error("Failed to connect to MongoDB:", error);
 
-        if (error.name === 'MongoServerSelectionError') {
-            console.error("MongoDB server selection timed out. Please check your connection string and ensure the server is reachable.");
+        if (error.name === "MongoServerSelectionError") {
+            console.error(
+                "MongoDB server selection timed out. Please check your connection string and ensure the server is reachable."
+            );
         }
 
         throw error; // Re-throw the error after logging

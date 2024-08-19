@@ -10,6 +10,7 @@ import Image from 'next/image';
 import Banner from '@/app/Components/Partials/Banner/banner';
 import axios from 'axios';
 import { useParams } from 'next/navigation';
+import DOMPurify from 'dompurify';
 
 interface JobDetails {
     industry: string;
@@ -67,21 +68,40 @@ const DetailItem: React.FC<DetailItemProps> = ({ icon, label, value }) => {
 }
 
 const CompanyDescription: React.FC<CompanyDescriptionProps> = ({ briefDescription }) => {
+
+    const styleHtmlContent = (html: string): string => {
+        // Basic styling for headings, paragraphs, and lists
+        return html
+            .replace(/<h1>/g, '<h1 class="text-2xl font-bold mb-4 text-gray-700">')
+            .replace(/<\/h1>/g, '</h1>')
+            .replace(/<h2>/g, '<h2 class="text-2xl font-bold mb-4 text-gray-700">')
+            .replace(/<\/h2>/g, '</h2>')
+            .replace(/<p>/g, '<p class="text-base text-gray-700 mb-4">')
+            .replace(/<\/p>/g, '</p>')
+            .replace(/<li>/g, '<li class="text-base mt-1 text-gray-600 list-disc pl-5">')
+            .replace(/<\/li>/g, '</li>')
+            .replace(/<ul>/g, '<ul class="list-disc pl-5 mb-4">')
+            .replace(/<\/ul>/g, '</ul>');
+    }
+
+    const styledHtml = styleHtmlContent(briefDescription);
+    // Sanitize the styled HTML content
+    const sanitizedHtml = DOMPurify.sanitize(styledHtml);
+
     return (
-        <div className="flex flex-col mt-12">
-            <p className="text-gray-600 whitespace-pre-line">
-                {briefDescription}
-            </p>
-            <div className='mt-10'>
-                <hr className='w-full' />
+        <div className="flex flex-col mt-12 space-y-6">
+            <div
+                className="text-gray-700"
+                dangerouslySetInnerHTML={{ __html: sanitizedHtml }}
+            />
+
+            <div className="mt-10">
+                <hr className="w-full border-gray-300" />
             </div>
-            <div className='mt-4'>
-                <div className='flex justify-between items-center'>
-                    <div className='flex gap-3'>
-                        <button className='bg-purple-600 text-white rounded-md py-2 text-sm px-6 nav-btns'>Apply Now</button>
-                        <button className='bg-purple-600 text-white rounded-md py-2 text-sm px-6 nav-btns'>Save Job</button>
-                    </div>
-                </div>
+
+            <div className="mt-4 flex justify-between items-center">
+                <button className="bg-purple-600 text-white rounded-md py-2 text-sm px-6">Apply Now</button>
+                <button className="bg-purple-600 text-white rounded-md py-2 text-sm px-6">Save Job</button>
             </div>
         </div>
     );
@@ -223,17 +243,17 @@ const Page: React.FC = () => {
         }
     }, [id]);
 
-    const briefDescription = data.briefDescription || "No description available";
+    const briefDescription = data?.briefDescription || "No description available";
 
     const jobDetails: JobDetails = {
-        industry: data.industry || "N/A",
-        jobLevel: data.experienceLevel || "N/A",
-        salary: `$${data.salary.toLocaleString() || "N/A"}`,
-        experience: `${data.experience}+ years`,
-        jobType: data.jobType || "N/A",
-        deadline: new Date(data.applicationDeadline).toLocaleDateString() || "N/A",
-        updated: new Date(data.createdAt).toLocaleDateString() || "N/A",
-        location: data.location || "N/A"
+        industry: data?.industry || "N/A",
+        jobLevel: data?.experienceLevel || "N/A",
+        salary: `$${data?.salary.toLocaleString() || "N/A"}`,
+        experience: `${data?.experience}+ years`,
+        jobType: data?.jobType || "N/A",
+        deadline: new Date(data?.applicationDeadline).toLocaleDateString() || "N/A",
+        updated: new Date(data?.createdAt).toLocaleDateString() || "N/A",
+        location: data?.location || "N/A"
     };
 
     if (isLoading) {

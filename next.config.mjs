@@ -22,6 +22,10 @@ const nextConfig = {
             {
                 protocol: 'https',
                 hostname: 'mailmeteor.com'
+            },
+            {
+                protocol: 'https',
+                hostname: 'marvel-b1-cdn.bc0a.com'
             }
         ]
     }
