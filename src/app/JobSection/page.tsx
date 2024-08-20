@@ -113,6 +113,9 @@ const Page = () => {
     }, [controls, inView]);
 
 
+    const Monthly = 'Monthly'
+    const Hourly = 'Hour'
+
     useEffect(() => {
         const fetchData = async () => {
             try {
@@ -173,7 +176,7 @@ const Page = () => {
                             </div>
                         </div>
                         <div className='mt-5'>
-                            <p className='text-sm text-gray-500'>{job.description.slice(0,100)}...</p>
+                            <p className='text-sm text-gray-500'>{job.description.slice(0, 100)}...</p>
                         </div>
                         <div className='mt-5 flex items-center gap-2'>
                             {job.skills.slice(0, 3).map((skill: any, i: any) => (
@@ -183,14 +186,15 @@ const Page = () => {
                         <div className='mt-4 flex justify-between items-center'>
                             <div className='flex'>
                                 <span className='text-purple-800 font-bold text-[20px]'>{job.salary}$/</span>
-                                <div className='text-gray-600 text-[16px] ml-0.5 mt-1'>Hour</div>
+
+                                <div className='text-gray-600 text-[16px] ml-0.5 mt-1'>{job.salary > 100000 ? Monthly : Hourly}</div>
                             </div>
-                            <button className='bg-purple-600 text-white rounded-md py-1.5 px-5 text-sm'>Apply Now</button>
+                            <button className='bg-purple-600 text-white rounded-md py-1.5 px-2 text-sm'>Apply Now</button>
                         </div>
                     </Link>
                 ))}
             </motion.div>
-            <div className='flex justify-center items-center mt-8'>
+            <div className='flex justify-center items-center mt-[5%]'>
                 <Link href={"/JobForum"}>
                     <button className='bg-purple-600 text-white nav-btns py-2.5 px-10 lg:text-md md:text-md sm:text-sm text-sm rounded-md'>Find More Jobs</button>
                 </Link>

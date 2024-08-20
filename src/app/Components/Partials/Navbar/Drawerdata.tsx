@@ -27,7 +27,7 @@ const Data = () => {
           <div className="space-y-1 px-5 pt-2 pb-3">
             <div className="mb-5">
               <div className="flex items-center gap-2 ml-2 ">
-                <Link href={"/"}>
+                <Link href={"/Profile"}>
                   <Image height={600} width={600} className="w-10 h-10 rounded-full" src="https://images.pexels.com/photos/4069292/pexels-photo-4069292.jpeg?auto=compress&cs=tinysrgb&w=600" alt="" />
                 </Link>
                 <div className="font-medium ">
