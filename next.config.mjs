@@ -26,6 +26,14 @@ const nextConfig = {
             {
                 protocol: 'https',
                 hostname: 'marvel-b1-cdn.bc0a.com'
+            },
+            {
+                protocol: 'https',
+                hostname: 'media.designrush.com'
+            },
+            {
+                protocol: 'https',
+                hostname: 'cdn0.iconfinder.com'
             }
         ]
     }

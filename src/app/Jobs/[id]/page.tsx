@@ -5,11 +5,11 @@ import { CiClock2 } from "react-icons/ci";
 import { FaIndustry, FaUserTie, FaMoneyBillWave, FaCalendarAlt, FaMapMarkerAlt } from "react-icons/fa";
 import { MdWorkHistory } from "react-icons/md";
 import { BsClockHistory } from "react-icons/bs";
-import { IconType } from 'react-icons';
+import Link from 'next/link';
 import Image from 'next/image';
 import Banner from '@/app/Components/Partials/Banner/banner';
 import axios from 'axios';
-import { useParams } from 'next/navigation';
+import { useParams, useRouter } from 'next/navigation';
 import DOMPurify from 'dompurify';
 
 interface JobDetails {
@@ -107,6 +107,7 @@ const CompanyDescription: React.FC<CompanyDescriptionProps> = ({ briefDescriptio
     );
 }
 
+
 interface SimilarJob {
     companyImage: string;
     title: string;
@@ -117,103 +118,77 @@ interface SimilarJob {
 }
 
 const SimilarJobs: React.FC = () => {
-    const similarJobs: SimilarJob[] = [
-        {
-            companyImage: "https://images.pexels.com/photos/434346/pexels-photo-434346.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
-            title: "Frontend Developer",
-            role: "Junior",
-            jobType: "Full Time",
-            location: "California USA",
-            salary: "$4,000 / month"
-        },
-        {
-            companyImage: "https://images.pexels.com/photos/9683980/pexels-photo-9683980.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
-            title: "Backend Engineer",
-            role: "Mid-Level",
-            jobType: "Part Time",
-            location: "New York, NY",
-            salary: "$50 / hour"
-        },
-        {
-            companyImage: "https://images.pexels.com/photos/218717/pexels-photo-218717.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
-            title: "DevOps Engineer",
-            role: "Senior",
-            jobType: "Contract",
-            location: "San Francisco, CA",
-            salary: "$80 / hour"
-        },
-        {
-            companyImage: "https://images.pexels.com/photos/19673889/pexels-photo-19673889/free-photo-of-amazon-cardboard-doll-with-christmas-boxes.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
-            title: "UI/UX Designer",
-            role: "Mid-Level",
-            jobType: "Full Time",
-            location: "Austin, TX",
-            salary: "$5,000 / month"
-        },
-        {
-            companyImage: "https://images.pexels.com/photos/19673889/pexels-photo-19673889/free-photo-of-amazon-cardboard-doll-with-christmas-boxes.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
-            title: "UI/UX Designer",
-            role: "Mid-Level",
-            jobType: "Full Time",
-            location: "Austin, TX",
-            salary: "$5,000 / month"
-        },
-        {
-            companyImage: "https://images.pexels.com/photos/19673889/pexels-photo-19673889/free-photo-of-amazon-cardboard-doll-with-christmas-boxes.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
-            title: "UI/UX Designer",
-            role: "Mid-Level",
-            jobType: "Full Time",
-            location: "Austin, TX",
-            salary: "$5,000 / month"
-        },
-        {
-            companyImage: "https://images.pexels.com/photos/19673889/pexels-photo-19673889/free-photo-of-amazon-cardboard-doll-with-christmas-boxes.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
-            title: "UI/UX Designer",
-            role: "Mid-Level",
-            jobType: "Full Time",
-            location: "Austin, TX",
-            salary: "$5,000 / month"
-        },
-        {
-            companyImage: "https://images.pexels.com/photos/19673889/pexels-photo-19673889/free-photo-of-amazon-cardboard-doll-with-christmas-boxes.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
-            title: "UI/UX Designer",
-            role: "Mid-Level",
-            jobType: "Full Time",
-            location: "Austin, TX",
-            salary: "$5,000 / month"
+    const [similarJobs, setSimilarJobs] = useState<SimilarJob[]>([]);
+    const [loading, setLoading] = useState<boolean>(true);
+    const [error, setError] = useState<string | null>(null);
+    const port = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:3000';
+    const { id } = useParams();
+    const router = useRouter();
+
+    const redirectToDynamicRoute = (id: any) => {
+        router.push(`${id}`)
+    }
+
+
+
+    useEffect(() => {
+        // Fetch similar jobs when component mounts
+        async function fetchSimilarJobs() {
+            try {
+                const response = await axios.get(`${port}/api/Jobs/similarJobs/${id}`);
+                setSimilarJobs(response.data.similarJobs);
+            } catch (err) {
+                setError('Error fetching similar jobs');
+            } finally {
+                setLoading(false);
+            }
         }
-    ];
+
+        fetchSimilarJobs();
+    }, [id]);
+
+    if (loading) {
+        return <p>Loading...</p>;
+    }
+
+    if (error) {
+        return <p>{error}</p>;
+    }
 
     return (
-        <div className=" shadow-md rounded-lg p-6 mt-8">
+        <div className="shadow-md rounded-lg p-6 mt-8">
             <h2 className="text-xl font-bold mb-4 text-gray-700">Similar Jobs</h2>
             <div className="grid grid-cols-1 gap-4 mt-10">
-                {similarJobs.map((job, index) => (
-                    <div key={index} className=" border-b pb-4">
-                        <div className='flex gap-4'>
+                {similarJobs.map((job: any, index: any) => (
+                    <div key={index} className="border-b pb-4" onClick={() => { redirectToDynamicRoute(job._id) }}>
+
+                        <div className="flex gap-4">
                             <div>
-                                <Image height={1000} width={1000} src={job.companyImage} alt={job.title} className="w-10 h-10 rounded-2xl" />
+                                <Image
+                                    height={1000}
+                                    width={1000}
+                                    src={job.image}
+                                    alt={job.title}
+                                    className="w-10 h-10 rounded-2xl"
+                                />
                             </div>
-                            <div className='flex flex-col gap-1'>
+                            <div className="flex flex-col gap-1">
                                 <h3 className="font-semibold text-gray-700">{job.title}</h3>
-                                <div className='flex gap-3'>
+                                <div className="flex gap-3">
                                     <p className="text-sm text-gray-500">{job.role}</p>
                                     <p className="text-sm text-gray-500">{job.jobType}</p>
                                 </div>
                             </div>
-
                         </div>
                         <div className="flex items-center mt-5 justify-between">
-                            <p className="text-sm text-gray-500">{job.salary}</p>
-                            <p className="text-sm text-gray-500">{job.location}</p>
+                            <p className="text-sm text-gray-500">{job.salary > 100000 ? (job.salary / 1000) + 'K$ Monthly' : job.salary + '$ Hour'}</p>                            <p className="text-sm text-gray-500">{job.location}</p>
                         </div>
-
                     </div>
                 ))}
             </div>
         </div>
     );
-}
+};
 
 const Page: React.FC = () => {
     const { id } = useParams();
