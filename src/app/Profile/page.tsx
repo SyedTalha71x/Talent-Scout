@@ -105,7 +105,7 @@ export default function Profile() {
                     <h3 className="text-lg font-semibold mb-4">Academic Skills</h3>
                     <ul className="space-y-2">
                         <li className="flex justify-between items-center">
-                            <span className="text-gray-700">RestFul API's</span>
+                            <span className="text-gray-700">RestFul API&apos;s</span>
                             <div className="w-1/2 bg-gray-200 rounded-full h-2">
                                 <div className="bg-blue-500 h-2 rounded-full" style={{ width: '80%' }}></div>
                             </div>

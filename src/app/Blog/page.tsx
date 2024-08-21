@@ -34,8 +34,8 @@ const Page = () => {
                 </div>
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-16 max-md:max-w-lg mx-auto">
                     {blogs.map((blog) => (
-                        <Link href={`DetailBlogs/${blog.slug}`}>
-                            <div key={blog.id} className="bg-white cursor-pointer rounded overflow-hidden shadow-[0_2px_10px_-3px_rgba(6,81,237,0.3)] relative top-0 hover:-top-2 transition-all duration-300">
+                        <Link key={blog.id} href={`DetailBlogs/${blog.slug}`}>
+                            <div className="bg-white cursor-pointer rounded overflow-hidden shadow-[0_2px_10px_-3px_rgba(6,81,237,0.3)] relative top-0 hover:-top-2 transition-all duration-300">
                                 <Image height={1000} width={1000} src={blog.image} alt={blog.title} className="w-full h-60 object-cover" />
                                 <div className="p-6">
                                     <span className="text-sm block text-gray-400 mb-2">{blog.date} | BY {blog.author}</span>
