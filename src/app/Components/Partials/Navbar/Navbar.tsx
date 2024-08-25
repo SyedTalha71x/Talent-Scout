@@ -9,7 +9,6 @@ import Registerdialog from "./Registerdialog";
 import Image from 'next/image';
 import Profile from './Profile';
 
-
 interface NavigationItem {
     name: string;
     href: string;
@@ -18,7 +17,7 @@ interface NavigationItem {
 
 const navigation: NavigationItem[] = [
     { name: 'Home', href: '/', current: true },
-    { name: 'Blog', href: '/Blogs', current: false },
+    { name: 'Explore Plans', href: '/Subscription', current: false },
     { name: 'Find a Job', href: '/JobForum', current: false },
 ]
 
@@ -31,14 +30,13 @@ const Navbar = () => {
     const [isOpen, setIsOpen] = React.useState(false);
 
     return (
-        <Disclosure as="nav" className="navbar">
+        <Disclosure as="nav" className="navbar z-50 ">
             <>
                 <div className="mx-auto max-w-7xl px-6 md:py-3 lg:px-8">
                     <div className="relative flex h-full items-center justify-start">
                         <div className="flex flex-1 items-center sm:items-stretch sm:justify-start">
 
                             {/* LOGO */}
-
                             <div className="flex flex-shrink-0 items-center">
                                 <Image
                                     height={1000}
@@ -57,7 +55,6 @@ const Navbar = () => {
                             </div>
 
                             {/* LINKS */}
-
                             <div className="hidden lg:block ml-20">
                                 <div className="flex space-x-4">
                                     {navigation.map((item) => (
@@ -65,7 +62,7 @@ const Navbar = () => {
                                             key={item.name}
                                             href={item.href}
                                             className={classNames(
-                                                item.current ? ' text-black hover:opacity-75' : 'hover:text-black hover:opacity-75',
+                                                item.current ? 'text-black hover:opacity-75' : 'hover:text-black hover:opacity-75',
                                                 'px-3 py-4 text-[17px] font-normal text-black space-links'
                                             )}
                                             aria-current={item.href ? 'page' : undefined}
@@ -78,34 +75,23 @@ const Navbar = () => {
                         </div>
 
                         {/* SIGNIN DIALOG */}
-
                         <Signdialog />
 
-
                         {/* REGISTER DIALOG */}
-
                         <Registerdialog />
 
-                        {/* Profile Avatar  */}
-
-
+                        {/* Profile Avatar */}
                         <Profile />
 
-
                         {/* DRAWER FOR MOBILE VIEW */}
-
-                        {/* DRAWER ICON */}
-
                         <div className='block lg:hidden'>
                             <Bars3Icon className="block h-6 w-6" aria-hidden="true" onClick={() => setIsOpen(true)} />
                         </div>
 
                         {/* DRAWER LINKS DATA */}
-
                         <Drawer isOpen={isOpen} setIsOpen={setIsOpen}>
                             <Drawerdata />
                         </Drawer>
-
                     </div>
                 </div>
             </>
