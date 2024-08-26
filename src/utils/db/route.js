@@ -10,14 +10,15 @@ const dbname = process.env.MONGODB_DB;
 
 const MONGODB_URL = `mongodb+srv://${username}:${password}@${cluster}/${dbname}?retryWrites=true&w=majority`;
 
+
 async function connectToDB() {
     try {
         await mongoose.connect(MONGODB_URL, {
             useNewUrlParser: true,
             useUnifiedTopology: true,
-            serverSelectionTimeoutMS: 5000, // Timeout after 5 seconds instead of 10
-            socketTimeoutMS: 45000, // Close sockets after 45 seconds of inactivity
-            connectTimeoutMS: 10000, // Timeout after 10 seconds for initial connection
+            serverSelectionTimeoutMS: 30000, // 30 seconds
+            socketTimeoutMS: 45000, // 45 seconds
+            connectTimeoutMS: 30000, // 30 seconds
         });
         console.log("Connected to MongoDB successfully");
     } catch (error) {
