@@ -1,25 +1,32 @@
 import { NextResponse } from 'next/server';
-import { jwtVerify } from 'jose';
+import { jwtVerify, JWTPayload } from 'jose';
+import { NextRequest } from 'next/server';
 
-export async function middleware(request: any) {
+export async function middleware(request: NextRequest) {
   const token = request.headers.get('Authorization')?.replace('Bearer ', '');
 
   if (token) {
     try {
       const secret = new TextEncoder().encode(process.env.JWT_SECRET);
-      await jwtVerify(token, secret);
+      const { payload } = await jwtVerify(token, secret);
 
-      // If token verification is successful, continue the request
+      // Add user information to headers
       const response = NextResponse.next();
+      
+      if (typeof payload.id === 'string') {
+        response.headers.set('X-User-ID', payload.id);
+      }
+      if (typeof payload.email === 'string') {
+        response.headers.set('X-User-Email', payload.email);
+      }
+
       return response;
 
     } catch (error: any) {
-      // Token verification failed
       console.error('Token verification failed:', error);
       return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
     }
   } else {
-    // No token provided
     return NextResponse.json({ error: 'Token is missing' }, { status: 401 });
   }
 }

@@ -10,10 +10,13 @@ const stripe = new Stripe(process.env.NEXT_SECRET_STRIPE_KEY || "");
 
 export async function POST(request: any) {
   try {
-    // Ensure user information is available from middleware
-    const user = request.user; // Assuming middleware sets user information in request.user
+    const userId = request.headers.get('X-User-ID');
+    const userEmail = request.headers.get('X-User-Email');
 
-    if (!user || !user.userId) {
+    console.log("User ID from headers:", userId);
+    console.log("User email from headers:", userEmail);
+
+    if (!userId) {
       return NextResponse.json(
         { error: "User ID is not available" },
         { status: 401 }
@@ -64,7 +67,7 @@ export async function POST(request: any) {
 
     const user_subscription = new UserSubscription({
       subscription_id: subscriptionId,
-      user_id: user.userId, // Use user ID from middleware
+      user_id: userId, // Use user ID from middleware
       payment_id: payment_intent_id,
       expiry_date: expiryDate,
     });
@@ -75,7 +78,6 @@ export async function POST(request: any) {
       { message: "Subscription confirmed Successfully" },
       { status: 200 }
     );
-
   } catch (error) {
     console.error("Subscription confirmation error:", error);
     return NextResponse.json(
