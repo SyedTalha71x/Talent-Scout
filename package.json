@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@chakra-ui/react": "^2.8.2",
     "@headlessui/react": "^2.1.2",
     "@heroicons/react": "^2.1.4",
     "@stripe/stripe-js": "^4.3.0",
@@ -31,9 +32,11 @@
     "next-auth": "^4.24.7",
     "openai": "^4.56.0",
     "react": "^18",
+    "react-apexcharts": "^1.4.1",
     "react-dom": "^18",
     "react-icons": "^5.2.1",
     "react-intersection-observer": "^9.13.0",
+    "react-table": "^7.8.0",
     "react-toastify": "^10.0.5",
     "stripe": "^16.8.0",
     "tw-elements": "^2.0.0"
