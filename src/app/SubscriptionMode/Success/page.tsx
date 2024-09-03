@@ -1,9 +1,9 @@
 "use client";
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, Suspense } from "react";
 import Link from "next/link";
 import { useRouter, useSearchParams } from "next/navigation";
 
-const Page = () => {
+const SubscriptionSuccessPage = () => {
   const router = useRouter();
   const searchParams = useSearchParams();
   const [loading, setLoading] = useState(true);
@@ -64,7 +64,6 @@ const Page = () => {
     }
   }, [sessionId]);
 
-
   return (
     <div className="bg-gray-100 h-screen flex justify-center items-center flex-col">
       <div className="bg-white p-6 md:mx-auto">
@@ -106,4 +105,10 @@ const Page = () => {
   );
 };
 
-export default Page;
+export default function PageWrapper() {
+  return (
+    <Suspense fallback={<div>Loading...</div>}>
+      <SubscriptionSuccessPage />
+    </Suspense>
+  );
+}
