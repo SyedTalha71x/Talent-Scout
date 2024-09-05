@@ -1,4 +1,4 @@
-import connectToDB from "@/utils/db/route";
+import {connectToDB} from "@/utils/db/route";
 import User from "@/utils/Models/user-model";
 import { NextResponse } from "next/server";
 import { hashpassword, generateToken } from "@/utils/Security/security"

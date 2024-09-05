@@ -1,4 +1,4 @@
-import connectToDB from "@/utils/db/route";
+import {connectToDB} from "@/utils/db/route";
 import Subscription from "@/utils/Models/subscription-model";
 import { NextResponse } from "next/server";
 

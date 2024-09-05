@@ -1,6 +1,6 @@
 import { NextResponse } from "next/server";
 import Recuiter from "@/utils/Models/recuiter-model";
-import connectToDB from "@/utils/db/route";
+import {connectToDB} from "@/utils/db/route";
 
 connectToDB();
 export const GET = async (request: any) => {

@@ -41,7 +41,7 @@ const Page = () => {
                                     <span className="text-sm block text-gray-400 mb-2">{blog.date} | BY {blog.author}</span>
                                     <h3 className="text-xl font-bold text-[#333]">{blog.title}</h3>
                                     <hr className="my-6" />
-                                    <p className="text-gray-400 text-sm">{blog.description}</p>
+                                    <p className="text-gray-400 text-sm">{blog.description.slice(0,200)}</p>
                                 </div>
                             </div>
                         </Link>

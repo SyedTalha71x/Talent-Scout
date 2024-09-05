@@ -1,4 +1,4 @@
-import connectToDB from "@/utils/db/route";
+import {connectToDB} from "@/utils/db/route";
 import User from "@/utils/Models/user-model";
 import crypto from 'crypto-js';
 import { NextResponse } from "next/server";

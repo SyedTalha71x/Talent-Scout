@@ -1,4 +1,4 @@
-import connectToDB from "@/utils/db/route";
+import {connectToDB} from "@/utils/db/route";
 import Job from "@/utils/Models/job-model";
 import { NextResponse } from "next/server";
 

@@ -2,7 +2,7 @@ import NextAuth from "next-auth";
 import GoogleProvider from "next-auth/providers/google";
 import FacebookProvider from "next-auth/providers/facebook";
 import User from "@/utils/Models/user-model";
-import connectToDB from "@/utils/db/route";
+import {connectToDB} from "@/utils/db/route";
 import { generateToken } from "@/utils/Security/security"
 
 const JWT_SECRET = process.env.JWT_SECRET;

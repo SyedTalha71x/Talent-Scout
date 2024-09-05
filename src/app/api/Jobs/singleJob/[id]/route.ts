@@ -1,5 +1,5 @@
 import Job from '@/utils/Models/job-model';
-import connectToDB from '@/utils/db/route';
+import {connectToDB} from '@/utils/db/route';
 import { NextResponse } from 'next/server';
 
 

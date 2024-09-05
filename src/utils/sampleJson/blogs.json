@@ -1,35 +1,70 @@
 [
     {
-        "id": 1,
-        "image": "https://readymadeui.com/Imagination.webp",
-        "authorImage": "https://images.pexels.com/photos/2379004/pexels-photo-2379004.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
-        "designation": "Content Writer Executive",
-        "date": "10 FEB 2023",
-        "author": "JOHN DOE",
-        "title": "A Guide to Igniting Your Imagination",
-        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis accumsan, nunc et tempus blandit, metus mi consectetur felis turpis vitae ligula.",
-        "slug": "guide-to-igniting-your-imagination"
+      "id": 1,
+      "image": "https://readymadeui.com/Imagination.webp",
+      "authorImage": "https://images.pexels.com/photos/2379004/pexels-photo-2379004.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+      "designation": "Content Writer Executive",
+      "date": "10 FEB 2023",
+      "author": "JOHN DOE",
+      "title": "A Guide to Igniting Your Imagination",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis accumsan, nunc et tempus blandit, metus mi consectetur felis turpis vitae ligula.Lorem ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis qui inventore saepe repudiandae nemo officia suscipit rem ipsam! Tempora et ratione rem temporibus rerum consectetur pariatur dolorem saepe aut. Necessitatibus fugit vero quam sunt officia, non unde nostrum suscipit excepturi. Hic nam laborum cumque reprehenderit ipsum incidunt, fugiat eius officia!",
+      "slug": "guide-to-igniting-your-imagination",
+      "additionalDetails": {
+        "keyPoints": [
+          "Discover techniques to boost creativity.",
+          "Explore methods to overcome creative blocks.",
+          "Understand the importance of daily inspiration.",
+          "Learn how to channel imagination in your work and personal life."
+        ],
+        "takeaways": [
+          "Igniting imagination starts with curiosity.",
+          "Stay consistent with creative exercises to foster imagination."
+        ]
+      }
     },
     {
-        "id": 2,
-        "image": "https://readymadeui.com/hacks-watch.webp",
-        "authorImage": "https://images.pexels.com/photos/1043474/pexels-photo-1043474.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
-        "designation": "General Staff Manager ",
-        "date": "7 JUN 2023",
-        "author": "MARK ADAIR",
-        "title": "Hacks to Supercharge Your Day",
-        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis accumsan, nunc et tempus blandit, metus mi consectetur felis turpis vitae ligula.",
-        "slug": "hacks-to-supercharge-your-day"
+      "id": 2,
+      "image": "https://readymadeui.com/hacks-watch.webp",
+      "authorImage": "https://images.pexels.com/photos/1043474/pexels-photo-1043474.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+      "designation": "General Staff Manager",
+      "date": "7 JUN 2023",
+      "author": "MARK ADAIR",
+      "title": "Hacks to Supercharge Your Day",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis accumsan, nunc et tempus blandit, metus mi consectetur felis turpis vitae ligula.Lorem ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis qui inventore saepe repudiandae nemo officia suscipit rem ipsam! Tempora et ratione rem temporibus rerum consectetur pariatur dolorem saepe aut. Necessitatibus fugit vero quam sunt officia, non unde nostrum suscipit excepturi. Hic nam laborum cumque reprehenderit ipsum incidunt, fugiat eius officia!",
+      "slug": "hacks-to-supercharge-your-day",
+      "additionalDetails": {
+        "keyPoints": [
+          "Morning routines to maximize productivity.",
+          "Healthy habits to maintain energy throughout the day.",
+          "Time management strategies for better focus."
+        ],
+        "takeaways": [
+          "Small habits can lead to significant productivity boosts.",
+          "Balancing work and breaks is crucial for staying energized."
+        ]
+      }
     },
     {
-        "id": 3,
-        "image": "https://readymadeui.com/prediction.webp",
-        "authorImage": "https://images.pexels.com/photos/2294492/pexels-photo-2294492.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
-        "designation": "Chief Executing Officer",
-        "date": "5 OCT 2023",
-        "author": "SIMON KONECKI",
-        "title": "Trends and Predictions",
-        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis accumsan, nunc et tempus blandit, metus mi consectetur felis turpis vitae ligula.",
-        "slug": "trends-and-predictions"
+      "id": 3,
+      "image": "https://readymadeui.com/prediction.webp",
+      "authorImage": "https://images.pexels.com/photos/2294492/pexels-photo-2294492.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+      "designation": "Chief Executing Officer",
+      "date": "5 OCT 2023",
+      "author": "SIMON KONECKI",
+      "title": "Trends and Predictions",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis accumsan, nunc et tempus blandit, metus mi consectetur felis turpis vitae ligula.Lorem ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis qui inventore saepe repudiandae nemo officia suscipit rem ipsam! Tempora et ratione rem temporibus rerum consectetur pariatur dolorem saepe aut. Necessitatibus fugit vero quam sunt officia, non unde nostrum suscipit excepturi. Hic nam laborum cumque reprehenderit ipsum incidunt, fugiat eius officia!",
+      "slug": "trends-and-predictions",
+      "additionalDetails": {
+        "keyPoints": [
+          "Upcoming trends in technology and business.",
+          "Market predictions for the next five years.",
+          "How to stay ahead of evolving trends."
+        ],
+        "takeaways": [
+          "Businesses need to stay adaptable to new market conditions.",
+          "Technology will continue to drive significant changes in every industry."
+        ]
+      }
     }
-]
+  ]
+  
