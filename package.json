@@ -16,7 +16,7 @@
     "@headlessui/react": "^2.1.2",
     "@heroicons/react": "^2.1.4",
     "@stripe/stripe-js": "^4.3.0",
-    "antd": "^5.19.1",
+    "antd": "^5.20.5",
     "axios": "^1.7.3",
     "bcrypt": "^5.1.1",
     "crypto-js": "^4.2.0",
