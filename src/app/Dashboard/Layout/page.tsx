@@ -1,11 +1,7 @@
-// components/Layout.tsx
 "use client";
-import React, { ReactNode } from 'react';
-import Sidebar from '../../Components/Partials/Sidebar/page';
-import Navbar from '../../Components/Partials/semiNavbar/page';
-import { Layout as AntLayout } from 'antd';
-
-const { Header, Sider, Content } = AntLayout;
+import React, { ReactNode } from "react";
+import Sidebar from "../../Components/Partials/Sidebar/page";
+import Navbar from "../../Components/Partials/semiNavbar/page";
 
 interface LayoutProps {
   children: ReactNode;
@@ -13,19 +9,16 @@ interface LayoutProps {
 
 const Page: React.FC<LayoutProps> = ({ children }) => {
   return (
-    <AntLayout style={{ minHeight: '100vh' }}>
-      <Sider>
-        <Sidebar />
-      </Sider>
-      <AntLayout>
-        <Header className="">
-          <Navbar />
-        </Header>
-        <Content style={{ margin: '16px' }}>
-          <div style={{ padding: 24, minHeight: 360 }}>{children}</div>
-        </Content>
-      </AntLayout>
-    </AntLayout>
+    <div className="flex h-screen overflow-hidden">
+      {/* Sidebar */}
+      <Sidebar />
+
+      {/* Main Content */}
+      <div className="flex-1">
+        <Navbar />
+        <div className="p-4">{children}</div>
+      </div>
+    </div>
   );
 };
 

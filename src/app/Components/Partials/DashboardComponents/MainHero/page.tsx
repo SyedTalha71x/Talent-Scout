@@ -1,31 +1,65 @@
-// components/Dashboard.js
+// components/Dashboard.tsx
 "use client";
-import { Card, Col, Row } from 'antd';
-import Layout from '../../../../Dashboard/Layout/page'
 
-const Page = () => {
+import Layout from "../../../../Dashboard/Layout/page";
+import { FaUsers, FaMoneyBill, FaChartLine, FaTasks } from "react-icons/fa";
+
+// Define the types for the colors and the icon component
+interface CardProps {
+  color: "bg-gray-500" | "bg-orange-500" | "bg-blue-500" | "bg-slate-500";
+  title: string;
+  icon: React.ComponentType<{ className?: string }>;
+  percentage: number;
+}
+
+const Card: React.FC<CardProps> = ({
+  color,
+  title,
+  icon: Icon,
+  percentage,
+}) => (
+  <div
+    className={`${color} text-white p-6 rounded-lg flex items-center space-x-4`}
+  >
+    <Icon className="text-3xl" />
+    <div>
+      <h3 className="text-lg font-semibold">{title}</h3>
+      <p className="text-2xl">{percentage}%</p>
+    </div>
+  </div>
+);
+
+const Page: React.FC = () => {
   return (
     <Layout>
-
-    <div>
-      <Row gutter={16}>
-        <Col span={8}>
-          <Card title="Card Title" bordered={false}>
-            Card content
-          </Card>
-        </Col>
-        <Col span={8}>
-          <Card title="Card Title" bordered={false}>
-            Card content
-          </Card>
-        </Col>
-        <Col span={8}>
-          <Card title="Card Title" bordered={false}>
-            Card content
-          </Card>
-        </Col>
-      </Row>
-    </div>
+      <div className="p-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <Card
+            color="bg-gray-500"
+            title="Total Users"
+            icon={FaUsers}
+            percentage={75}
+          />
+          <Card
+            color="bg-orange-500"
+            title="Revenue"
+            icon={FaMoneyBill}
+            percentage={50}
+          />
+          <Card
+            color="bg-blue-500"
+            title="Growth"
+            icon={FaChartLine}
+            percentage={80}
+          />
+          <Card
+            color="bg-slate-500"
+            title="Tasks Completed"
+            icon={FaTasks}
+            percentage={65}
+          />
+        </div>
+      </div>
     </Layout>
   );
 };

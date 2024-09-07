@@ -1,79 +1,124 @@
-// src/app/components/Partials/Sidebar.tsx
 "use client";
-import React, { useState } from 'react';
-import { Menu, Drawer, Button } from 'antd';
-import { HomeOutlined, UserOutlined, BarChartOutlined, MenuOutlined } from '@ant-design/icons';
-import Link from 'next/link';
+import React, { useState } from "react";
+import Link from "next/link";
+import { MdDashboard } from "react-icons/md";
+import { FaUser } from "react-icons/fa";
+import { SiGoogleanalytics } from "react-icons/si";
+import { FaBriefcase } from "react-icons/fa";
+import { FaMoneyCheck } from "react-icons/fa6";
+
+
+
+const links = [
+  {
+    name: "Home",
+    href: "/Components/Partials/DashboardComponents/MainHero",
+    icon: <MdDashboard/>,
+  },
+  {
+    name: "User",
+    href: "/Components/Partials/DashboardComponents/Users",
+    icon: <FaUser/>,
+  },
+  {
+    name: "Subscriptions",
+    href: "/Components/Partials/DashboardComponents/Subscriptions",
+    icon: <FaMoneyCheck/>,
+  },
+  { name: "Analytics", href: "#", icon: <SiGoogleanalytics/> },
+  { name: "Jobs", href: "#", icon: <FaBriefcase/> },
+];
 
 const Sidebar: React.FC = () => {
-  const [open, setOpen] = useState(false);
+  const [isOpen, setIsOpen] = useState(false);
 
-  const showDrawer = () => setOpen(true);
-  const onClose = () => setOpen(false);
+  const toggleSidebar = () => {
+    setIsOpen(!isOpen);
+  };
 
   return (
-    <div className="flex">
-      {/* Button to open Drawer */}
-      <Button
-        type="primary"
-        icon={<MenuOutlined />}
-        onClick={showDrawer}
-        className="md:hidden text-white bg-blue-500 hover:bg-blue-600"
-      />
-
-      {/* Drawer Component for small and medium screens */}
-      <Drawer
-        title="Dashboard"
-        placement="left"
-        closable={true} // Close button is enabled
-        onClose={onClose}
-        open={open}
-        className="bg-gray-800 text-white"
-        width={215} // Adjust width as needed
-        closeIcon={<Button className="text-black text-xl" onClick={onClose}>✕</Button>} // Custom close icon
-      >
-        <Menu
-          mode="inline"
-          defaultSelectedKeys={["1"]}
-          className="h-full border-none"
+    <div>
+      {/* Hamburger menu button visible on small and medium screens */}
+      <div className="hamburger-icon lg:hidden  p-4 fixed top-0 left-0">
+        <button
+          className="text-white bg-blue-950 p-2 rounded"
+          onClick={toggleSidebar}
         >
-          <Menu.Item key="1" icon={<HomeOutlined />}>
-            <Link href="/Components/Partials/DashboardComponents/MainHero">Home</Link>
-          </Menu.Item>
-          <Menu.Item key="2" icon={<UserOutlined />}>
-            <Link href="/Components/Partials/DashboardComponents/User">User</Link>
-          </Menu.Item>
-          <Menu.Item key="3" icon={<BarChartOutlined />}>
-            <Link href="#">Analytics</Link>
-          </Menu.Item>
-          <Menu.Item key="4" icon={<BarChartOutlined />}>
-            <Link href="#">Jobs</Link> {/* Added Jobs */}
-          </Menu.Item>
-        </Menu>
-      </Drawer>
-
-      {/* Sidebar for large screens */}
-      <div className="hidden md:block w-64 bg-gray-800 text-white">
-        <Menu
-          mode="inline"
-          defaultSelectedKeys={["1"]}
-          className="h-full border-none bg-gray-800 text-white"
-        >
-          <Menu.Item key="1" icon={<HomeOutlined />}>
-            <Link href="/Components/Partials/DashboardComponents/MainHero">Home</Link>
-          </Menu.Item>
-          <Menu.Item key="2" icon={<UserOutlined />}>
-            <Link href="/Components/Partials/DashboardComponents/User">User</Link>
-          </Menu.Item>
-          <Menu.Item key="3" icon={<BarChartOutlined />}>
-            <Link href="#">Analytics</Link>
-          </Menu.Item>
-          <Menu.Item key="4" icon={<BarChartOutlined />}>
-            <Link href="#">Jobs</Link> {/* Added Jobs */}
-          </Menu.Item>
-        </Menu>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            strokeWidth={1.5}
+            stroke="currentColor"
+            className="w-6 h-6"
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              d="M3.75 6h16.5M3.75 12h16.5m-16.5 6h16.5"
+            />
+          </svg>
+        </button>
       </div>
+
+      {/* Sidebar */}
+      <div
+        className={`fixed z-40 sm:z-50 top-0 left-0 h-screen bg-[#0f1535] text-white w-64 p-4 transform ${
+          isOpen ? "translate-x-0" : "-translate-x-full"
+        } transition-transform duration-300 ease-in-out lg:translate-x-0 lg:static`}
+      >
+        {/* Close button (only for small and medium screens) */}
+        <div className="lg:hidden flex justify-end">
+          <button
+            className="text-white bg-blue-950 p-2 rounded"
+            onClick={toggleSidebar}
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              strokeWidth={1.5}
+              stroke="currentColor"
+              className="w-6 h-6"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                d="M6 18L18 6M6 6l12 12"
+              />
+            </svg>
+          </button>
+        </div>
+
+        {/* Logo  */}
+        {/* <div>
+          <h1 className="font-extrabold uppercase text-white text-xl flex justify-start items-start mt-4">Talent Scout</h1>
+
+        </div> */}
+
+        <ul className="mt-[35%] space-y-5">
+          {links.map((link, index) => (
+            <li key={index}>
+              <Link href={link.href}>
+                <div className="flex text-sm items-center gap-1.5">
+                  <span className="text-xl">{link.icon}</span>
+                  <span>{link.name}</span>
+                </div>
+              </Link>
+            </li>
+          ))}
+        </ul>
+      </div>
+
+      {/* Background overlay when sidebar is open (small/medium screens) */}
+      {isOpen && (
+        <div
+          className="fixed inset-0 bg-black bg-opacity-50 z-30 lg:hidden"
+          onClick={toggleSidebar}
+        />
+      )}
     </div>
+
   );
 };
 
