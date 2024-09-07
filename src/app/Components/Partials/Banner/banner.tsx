@@ -25,7 +25,7 @@ const Banner = () => {
             className='mt-20'
         >
             <div
-                className="min-h-[350px] mt-10 relative lg:w-[1280px] md:w-[90%] sm:w-[95%] w-[95%] mx-auto rounded-lg overflow-hidden"
+                className="min-h-[350px] mt-10 relative lg:w-[1280px] md:w-[90%] sm:w-[95%] w-[95%] mx-auto rounded-lg -z-50"
                 style={{
                     backgroundImage: "url('https://images.pexels.com/photos/34140/pexels-photo.jpg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1')",
                     backgroundSize: 'cover',

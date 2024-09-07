@@ -1,7 +1,6 @@
-"use client"
-import React from 'react';
+"use client";
+import React, { useEffect } from 'react';
 import { motion, useAnimation } from 'framer-motion';
-import { useEffect } from 'react';
 import { useInView } from 'react-intersection-observer';
 import Image from 'next/image';
 
@@ -26,7 +25,7 @@ const testimonials = [
     },
 ];
 
-const renderStars = (rating: any) => {
+const renderStars = (rating: number) => {
     const fullStars = Math.floor(rating);
     const emptyStars = 5 - fullStars;
     return (
@@ -56,20 +55,22 @@ const Page = () => {
     }, [controls, inView]);
 
     return (
-        <div className="lg:mt-32 md:mt-32 sm:mt-20 mt-20">
+        <motion.div
+            ref={ref}
+            initial="hidden"
+            animate={controls}
+            variants={{
+                hidden: { opacity: 0, y: 50 },
+                visible: { opacity: 1, y: 0, transition: { duration: 0.8 } },
+            }}
+            className="lg:mt-32 md:mt-32 sm:mt-20 mt-20 lg:w-[90%] md:w-[90%] sm:w-full w-full mx-auto"
+        >
             <div className="text-center max-w-3xl mx-auto lg:p-0 md:p-0 sm:p-2 p-2">
                 <h2 className="sm:text-3xl text-2xl font-extrabold title-font text-gray-800">Our Testimonials</h2>
                 <p className="text-base leading-relaxed xl:w-full lg:w-full w-full mx-auto mt-1 text-gray-500">Real Stories, Real Success: Hear from Our Happy Clients</p>
             </div>
 
             <motion.div
-                ref={ref}
-                initial="hidden"
-                animate={controls}
-                variants={{
-                    hidden: { opacity: 0, y: 50 },
-                    visible: { opacity: 1, y: 0, transition: { duration: 0.8 } }
-                }}
                 className="grid md:grid-cols-3 lg:gap-6 max-md:gap-16 max-md:max-w-lg mx-auto p-6 lg:mt-[4%] md:mt-[3%] sm:mt-[3%] mt-[2%]"
             >
                 {testimonials.map((testimonial, index) => (
@@ -87,7 +88,7 @@ const Page = () => {
                     </div>
                 ))}
             </motion.div>
-        </div>
+        </motion.div>
     );
 };
 

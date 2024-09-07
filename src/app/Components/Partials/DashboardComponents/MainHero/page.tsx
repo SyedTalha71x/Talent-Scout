@@ -1,8 +1,7 @@
-// components/Dashboard.tsx
-"use client";
-
 import Layout from "../../../../Dashboard/Layout/page";
 import { FaUsers, FaMoneyBill, FaChartLine, FaTasks } from "react-icons/fa";
+import TableOne from '../../DashboardPartials/TableOne/page'
+// import TableTwo from '../../DashboardPartials/TableTwo/page';
 
 // Define the types for the colors and the icon component
 interface CardProps {
@@ -33,7 +32,8 @@ const Page: React.FC = () => {
   return (
     <Layout>
       <div className="p-6">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        {/* Cards Section */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-6">
           <Card
             color="bg-gray-500"
             title="Total Users"
@@ -58,6 +58,13 @@ const Page: React.FC = () => {
             icon={FaTasks}
             percentage={65}
           />
+        </div>
+
+        {/* Tables Section */}
+        <div className="">
+          <div className="">
+            <TableOne />
+          </div>
         </div>
       </div>
     </Layout>
