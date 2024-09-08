@@ -1,7 +1,7 @@
 import Layout from "../../../../Dashboard/Layout/page";
 import { FaUsers, FaMoneyBill, FaChartLine, FaTasks } from "react-icons/fa";
-import TableOne from '../../DashboardPartials/TableOne/page'
-// import TableTwo from '../../DashboardPartials/TableTwo/page';
+import TableOne from "../../DashboardPartials/TableOne/page";
+import JobTable from "../../DashboardPartials/JobTables/page";
 
 // Define the types for the colors and the icon component
 interface CardProps {
@@ -64,6 +64,9 @@ const Page: React.FC = () => {
         <div className="">
           <div className="">
             <TableOne />
+          </div>
+          <div className="mt-5">
+            <JobTable />
           </div>
         </div>
       </div>

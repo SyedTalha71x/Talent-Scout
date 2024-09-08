@@ -26,7 +26,7 @@ const links = [
     icon: <FaMoneyCheck/>,
   },
   { name: "Analytics", href: "#", icon: <SiGoogleanalytics/> },
-  { name: "Jobs", href: "#", icon: <FaBriefcase/> },
+  { name: "Jobs", href: "/Components/Partials/DashboardComponents/Jobs", icon: <FaBriefcase/> },
 ];
 
 const Sidebar: React.FC = () => {

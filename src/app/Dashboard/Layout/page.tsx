@@ -14,9 +14,12 @@ const Page: React.FC<LayoutProps> = ({ children }) => {
       <Sidebar />
 
       {/* Main Content */}
-      <div className="flex-1">
+      <div className="flex-1 flex flex-col">
         <Navbar />
-        <div className="p-4">{children}</div>
+        {/* Scrollable content area */}
+        <div className="flex-1 p-4 overflow-y-auto">
+          {children}
+        </div>
       </div>
     </div>
   );
