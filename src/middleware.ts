@@ -32,5 +32,7 @@ export async function middleware(request: NextRequest) {
 }
 
 export const config = {
-  matcher: ['/api/subscriptions/purchaseSubscription', '/api/subscriptions/confirmSubscription'],
+  matcher: ['/api/subscriptions/purchaseSubscription', '/api/subscriptions/confirmSubscription',
+    '/api/Profile/showProfile'
+  ],
 };

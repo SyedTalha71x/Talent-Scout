@@ -17,6 +17,7 @@ import Banner from "@/app/Components/Partials/Banner/banner";
 import axios from "axios";
 import { useParams, useRouter } from "next/navigation";
 import DOMPurify from "dompurify";
+import JobApplyModal from "@/app/Components/Partials/ApplyJob/page";
 
 interface JobDetails {
   industry: string;
@@ -45,8 +46,8 @@ interface CompanyDescriptionProps {
 
 const JobDetailsTable: React.FC<JobDetailsTableProps> = ({ jobDetails }) => {
   return (
-    <div className="  shadow-md rounded-lg p-6 mt-8">
-      <h2 className="text-2xl font-bold mb-4 text-gray-700">
+    <div className="  shadow-md rounded-lg lg:p-6 md:p-5 sm:p-4 p-4 w-full mt-8">
+      <h2 className="lg:ext-2xl md:text-xl sm:text-xl text-lg font-bold mb-4 text-gray-700">
         Employment Information
       </h2>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -109,7 +110,13 @@ const DetailItem: React.FC<DetailItemProps> = ({ icon, label, value }) => {
 
 const CompanyDescription: React.FC<CompanyDescriptionProps> = ({
   briefDescription,
+
 }) => {
+  const [modalVisible, setModalVisible] = useState(false);
+
+  const handleOpenModal = () => setModalVisible(true);
+  const handleCloseModal = () => setModalVisible(false);
+
   const styleHtmlContent = (html: string): string => {
     // Basic styling for headings, paragraphs, and lists
     return html
@@ -146,13 +153,14 @@ const CompanyDescription: React.FC<CompanyDescriptionProps> = ({
       </div>
 
       <div className="mt-4 flex justify-between items-center">
-        <button className="bg-purple-600 text-white rounded-md py-2 text-sm px-6">
+        <button onClick={handleOpenModal}  className="bg-purple-600 text-white rounded-md py-2 text-sm px-6">
           Apply Now
         </button>
         <button className="bg-purple-600 text-white rounded-md py-2 text-sm px-6">
           Save Job
         </button>
       </div>
+      <JobApplyModal visible={modalVisible} onClose={handleCloseModal} />
     </div>
   );
 };
@@ -203,7 +211,7 @@ const SimilarJobs: React.FC = () => {
   }
 
   return (
-    <div className="shadow-md rounded-lg p-6 mt-8">
+    <div className="shadow-md rounded-lg lg:p-6 md:p-4 sm:p-4 p-4 mt-8">
       <h2 className="text-xl font-bold mb-4 text-gray-700">Similar Jobs</h2>
       <div className="grid grid-cols-1 gap-4 mt-10">
         {similarJobs.map((job: any, index: any) => (
@@ -226,13 +234,13 @@ const SimilarJobs: React.FC = () => {
               </div>
               <div className="flex flex-col gap-1">
                 <h3 className="font-semibold text-gray-700">{job.title}</h3>
-                <div className="flex gap-3">
+                <div className="flex  gap-3">
                   <p className="text-sm text-gray-500">{job.role}</p>
                   <p className="text-sm text-gray-500">{job.jobType}</p>
                 </div>
               </div>
             </div>
-            <div className="flex items-center mt-5 justify-between">
+            <div className=" lg:flex-row md:flex md:flex-row sm:flex-col sm:flex flex flex-col gap-2 mt-5 justify-between">
               <p className="text-sm text-gray-500">
                 {job.salary > 100000
                   ? job.salary / 1000 + "K$ Monthly"
@@ -254,6 +262,7 @@ const Page: React.FC = () => {
   const [error, setError] = useState<string | null>(null);
   const port = process.env.NEXT_PUBLIC_API_URL || "http://localhost:3000";
   const apiUrl = `${port}/api/Jobs/singleJob/${id}`;
+   const [modalVisible, setModalVisible] = useState(false);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -300,6 +309,9 @@ const Page: React.FC = () => {
     return <div>No job data available</div>;
   }
 
+   const handleOpenModal = () => setModalVisible(true);
+  const handleCloseModal = () => setModalVisible(false);
+
   return (
     <>
       <div className="w-[80%] mx-auto lg:mt-[6%] md:mt-[6%] sm:mt-[5%] mt-[5%]">
@@ -307,16 +319,14 @@ const Page: React.FC = () => {
           <div className="flex flex-col gap-2">
             <div className="flex">
               <div className="lg:block md:block sm:block hidden">
-                <Image
+                <img
                   src={data.image}
                   alt="Company Logo"
-                  width={50}
-                  height={50}
                   className="rounded-full h-16 w-16 object-cover mr-3"
                 />
               </div>
               <div className="flex flex-col">
-                <h1 className="lg:text-4xl md:text-3xl sm:text-2xl text-2xl font-bold text-gray-800">
+                <h1 className="lg:text-4xl md:text-3xl sm:text-2xl text-xl font-bold text-gray-800">
                   {data.title}
                 </h1>
                 <div className="flex items-center gap-5 lg:mt-1 md:mt-2 sm:mt-3 mt-3">
@@ -336,7 +346,7 @@ const Page: React.FC = () => {
               </div>
             </div>
           </div>
-          <button className="py-2 px-8 lg:block sm:hidden md:hidden hidden rounded-md text-white nav-btns bg-purple-600">
+          <button onClick={handleOpenModal} className="py-2 px-8 lg:block sm:hidden md:hidden hidden rounded-md text-white nav-btns bg-purple-600">
             Apply Now
           </button>
         </div>
@@ -352,6 +362,7 @@ const Page: React.FC = () => {
           <div className="lg:w-1/3 w-full mt-8 lg:mt-0">
             <SimilarJobs />
           </div>
+          <JobApplyModal visible={modalVisible} onClose={handleCloseModal} />
         </div>
       </div>
       <Banner />

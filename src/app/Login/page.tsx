@@ -43,8 +43,8 @@ const Page = () => {
                 localStorage.setItem('Token', result.data.token);
                 toast.dismiss(); // Dismiss loading toast
                 toast.success("Successfully signed in!");
+                router.push("http://localhost:3000")
                 window.location.reload();
-                router.push("/")
             } else {
                 throw new Error(result.message || 'Failed to sign in');
             }

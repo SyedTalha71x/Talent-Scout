@@ -4,7 +4,7 @@ const SubscriptionSchema = new mongoose.Schema({
     name: {type: String},
     bulletpoints: {type: [String]},
     valid_till: {type: Number},
-    price: {type: String}
+    price: {type: Number}
 })
 
 const Subscription = mongoose.models.subscriptions || mongoose.model('subscriptions', SubscriptionSchema);
