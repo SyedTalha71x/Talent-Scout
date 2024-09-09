@@ -25,7 +25,7 @@ const links = [
     href: "/Components/Partials/DashboardComponents/Subscriptions",
     icon: <FaMoneyCheck/>,
   },
-  { name: "Analytics", href: "#", icon: <SiGoogleanalytics/> },
+  { name: "Notifications", href: "/Components/Partials/DashboardComponents/Notifications", icon: <SiGoogleanalytics/> },
   { name: "Jobs", href: "/Components/Partials/DashboardComponents/Jobs", icon: <FaBriefcase/> },
 ];
 
