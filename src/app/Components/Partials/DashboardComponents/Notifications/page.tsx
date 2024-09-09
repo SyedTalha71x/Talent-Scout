@@ -68,15 +68,15 @@ const NotificationList: React.FC = () => {
         )}
 
         <Modal
-          title="Application Details"
           open={isModalVisible}
           onOk={handleOk}
           onCancel={handleCancel}
           footer={null}
+          width={800}
         >
           {selectedApplication ? (
             <div>
-              <Title level={4}>Applicant Information</Title>
+              <Title level={3}>Applicant Information</Title>
               <Paragraph><strong>Name:</strong> {selectedApplication.name}</Paragraph>
               <Paragraph><strong>Email:</strong> {selectedApplication.email}</Paragraph>
               <Paragraph><strong>Phone Number:</strong> {selectedApplication.phoneNo}</Paragraph>
