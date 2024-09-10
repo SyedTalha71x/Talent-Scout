@@ -12,11 +12,10 @@ export function hashpassword(password) {
     return hashpassword;
 }
 
-export function generateToken(id, email, secret, expiresIn = '1h') {
+export function generateToken(id, email, secret) {
     const token = jwt.sign(
         { id, email },
-        secret,
-        { expiresIn }
+        secret
     );
     return token;
 }

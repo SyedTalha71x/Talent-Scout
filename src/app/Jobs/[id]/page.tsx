@@ -17,7 +17,7 @@ import Banner from "@/app/Components/Partials/Banner/banner";
 import axios from "axios";
 import { useParams, useRouter } from "next/navigation";
 import DOMPurify from "dompurify";
-import JobApplyModal from "@/app/Components/Partials/ApplyJob/page";
+import JobApplyForm from '../../Apply/[id]/page'
 
 interface JobDetails {
   industry: string;
@@ -153,14 +153,10 @@ const CompanyDescription: React.FC<CompanyDescriptionProps> = ({
       </div>
 
       <div className="mt-4 flex justify-between items-center">
-        <button onClick={handleOpenModal}  className="bg-purple-600 text-white rounded-md py-2 text-sm px-6">
-          Apply Now
-        </button>
         <button className="bg-purple-600 text-white rounded-md py-2 text-sm px-6">
           Save Job
         </button>
       </div>
-      <JobApplyModal visible={modalVisible} onClose={handleCloseModal} />
     </div>
   );
 };
@@ -224,9 +220,7 @@ const SimilarJobs: React.FC = () => {
           >
             <div className="flex gap-4">
               <div>
-                <Image
-                  height={1000}
-                  width={1000}
+                <img
                   src={job.image}
                   alt={job.title}
                   className="w-10 h-10 rounded-2xl"
@@ -346,23 +340,24 @@ const Page: React.FC = () => {
               </div>
             </div>
           </div>
-          <button onClick={handleOpenModal} className="py-2 px-8 lg:block sm:hidden md:hidden hidden rounded-md text-white nav-btns bg-purple-600">
+          <Link href={`/Apply/${data._id}`}>
+          <button className="py-2 px-8 lg:block sm:hidden md:hidden hidden rounded-md text-white nav-btns bg-purple-600">
             Apply Now
           </button>
+          </Link>
         </div>
         <hr className="bg-gray-900 h-[1px] w-full mt-10" />
         <div className="flex flex-col lg:flex-row gap-5">
           <div className="lg:w-2/3 w-full">
             <JobDetailsTable jobDetails={jobDetails} />
             <div className="mt-4">
-              <CompanyDescription briefDescription={briefDescription} />
+              <CompanyDescription briefDescription={briefDescription}  />
             </div>
           </div>
 
           <div className="lg:w-1/3 w-full mt-8 lg:mt-0">
             <SimilarJobs />
           </div>
-          <JobApplyModal visible={modalVisible} onClose={handleCloseModal} />
         </div>
       </div>
       <Banner />

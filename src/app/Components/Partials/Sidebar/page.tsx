@@ -14,23 +14,27 @@ const links = [
     name: "Home",
     href: "/Components/Partials/DashboardComponents/MainHero",
     icon: <MdDashboard/>,
+    active: true
   },
   {
     name: "User",
     href: "/Components/Partials/DashboardComponents/Users",
     icon: <FaUser/>,
+    active: false
   },
   {
     name: "Subscriptions",
     href: "/Components/Partials/DashboardComponents/Subscriptions",
     icon: <FaMoneyCheck/>,
+    active: false
   },
-  { name: "Notifications", href: "/Components/Partials/DashboardComponents/Notifications", icon: <SiGoogleanalytics/> },
-  { name: "Jobs", href: "/Components/Partials/DashboardComponents/Jobs", icon: <FaBriefcase/> },
+  { name: "Notifications", href: "/Components/Partials/DashboardComponents/Notifications", icon: <SiGoogleanalytics/> , active: false},
+  { name: "Jobs", href: "/Components/Partials/DashboardComponents/Jobs", icon: <FaBriefcase/> , active: false},
 ];
 
 const Sidebar: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const [active, setactive] = useState(false)
 
   const toggleSidebar = () => {
     setIsOpen(!isOpen);
@@ -98,7 +102,7 @@ const Sidebar: React.FC = () => {
 
         <ul className="mt-[35%] space-y-5">
           {links.map((link, index) => (
-            <li key={index}>
+            <li key={index} className={`hover:bg-purple-600 p-2 transition-all duration-300  rounded-lg ${link.active === true ? "bg-purple-600": ""}`}>
               <Link href={link.href}>
                 <div className="flex text-sm items-center gap-1.5">
                   <span className="text-xl">{link.icon}</span>

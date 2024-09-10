@@ -43,7 +43,7 @@ const authOptions = {
                         await existingUser.save();
                     }
 
-                    const token = generateToken(existingUser._id, existingUser.email, JWT_SECRET, '1hr')
+                    const token = generateToken(existingUser._id, existingUser.email, JWT_SECRET)
                     user.token = token;
                     return true;
                 } catch (err) {
