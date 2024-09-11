@@ -80,7 +80,7 @@ const AddSubscription = () => {
                   label="Bullet Points"
                   rules={[
                     {
-                      required: true,
+                      required: false,
                       message: "Please enter the bullet points",
                     },
                   ]}

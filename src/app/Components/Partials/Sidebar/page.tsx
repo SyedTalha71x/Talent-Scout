@@ -67,7 +67,7 @@ const Sidebar: React.FC = () => {
 
       {/* Sidebar */}
       <div
-        className={`fixed z-40 sm:z-50 top-0 left-0 h-screen bg-[#0f1535] text-white w-64 p-4 transform ${
+        className={`fixed z-40 sm:z-50 top-0 left-0 h-screen bg-[#0f1846] text-white w-64 p-4 transform ${
           isOpen ? "translate-x-0" : "-translate-x-full"
         } transition-transform duration-300 ease-in-out lg:translate-x-0 lg:static`}
       >
