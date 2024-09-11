@@ -109,7 +109,7 @@ const NotificationList: React.FC = () => {
                 <strong>Current Salary:</strong>{" "}
                 {selectedApplication.currentSalary}
               </p>
-              <h4 className="text-xl font-medium mt-4">Cover Letter</h4>
+              {selectedApplication.coverLetter &&<h4 className="text-xl font-medium mt-4">Cover Letter</h4>}
               <div
                 className="text-gray-700"
                 dangerouslySetInnerHTML={{

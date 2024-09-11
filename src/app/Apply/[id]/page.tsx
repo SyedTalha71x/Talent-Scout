@@ -16,10 +16,9 @@ const JobApplyForm: React.FC = () => {
   const [form] = useForm();
   const [coverLetter, setCoverLetter] = useState<string>("");
   const [resumeFile, setResumeFile] = useState<RcFile | null>(null);
-  const [coverLetterFile, setCoverLetterFile] = useState<RcFile | null>(null);
   const [loading, setLoading] = useState<boolean>(false);
   const { id } = useParams();
-  const [data, setData] = useState<any | null>(null); // Updated to accept an object or null
+  const [data, setData] = useState<any | null>(null); 
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
   const port = process.env.NEXT_PUBLIC_API_URL || "http://localhost:3000";
@@ -84,12 +83,9 @@ const JobApplyForm: React.FC = () => {
       message.success("Application submitted successfully");
 
       // Handle file uploads separately if needed
-      if (resumeFile || coverLetterFile) {
+      if (resumeFile) {
         const formData = new FormData();
         if (resumeFile) formData.append("resume", resumeFile);
-        if (coverLetterFile)
-          formData.append("coverLetterFile", coverLetterFile);
-
         await axios.post("/api/Jobs/uploadFiles", formData, {
           headers: {
             "Content-Type": "multipart/form-data",
@@ -109,11 +105,6 @@ const JobApplyForm: React.FC = () => {
     }
   };
 
-  const handleCoverLetterChange = (info: UploadChangeParam) => {
-    if (info.file.status === "done") {
-      setCoverLetterFile(info.file.originFileObj as RcFile);
-    }
-  };
 
   return (
     <>
@@ -249,29 +240,6 @@ const JobApplyForm: React.FC = () => {
                 showUploadList={false}
               >
                 <Button icon={<UploadOutlined />}>Upload Resume</Button>
-              </Upload>
-            </Form.Item>
-
-            <Form.Item label="Cover Letter File" className="mt-4">
-              <Upload
-                beforeUpload={(file) => {
-                  const isValidType = [
-                    "application/pdf",
-                    "application/msword",
-                    "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
-                  ].includes(file.type);
-                  if (!isValidType) {
-                    message.error("You can only upload PDF or DOC/DOCX files!");
-                  }
-                  return isValidType;
-                }}
-                onChange={handleCoverLetterChange}
-                maxCount={1}
-                showUploadList={false}
-              >
-                <Button icon={<UploadOutlined />}>
-                  Upload Cover Letter File
-                </Button>
               </Upload>
             </Form.Item>
 
