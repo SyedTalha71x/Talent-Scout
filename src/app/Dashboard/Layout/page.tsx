@@ -1,4 +1,3 @@
-"use client";
 import React, { ReactNode } from "react";
 import Sidebar from "../../Components/Partials/Sidebar/page";
 import Navbar from "../../Components/Partials/semiNavbar/page";
@@ -7,7 +6,7 @@ interface LayoutProps {
   children: ReactNode;
 }
 
-const Page: React.FC<LayoutProps> = ({ children }) => {
+const Layout: React.FC<LayoutProps> = ({ children }) => {
   return (
     <div className="flex h-screen overflow-hidden">
       {/* Sidebar */}
@@ -25,4 +24,4 @@ const Page: React.FC<LayoutProps> = ({ children }) => {
   );
 };
 
-export default Page;
+export default Layout;
