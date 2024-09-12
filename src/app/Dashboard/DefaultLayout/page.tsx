@@ -6,7 +6,7 @@ interface LayoutProps {
   children: ReactNode;
 }
 
-const Layout: React.FC<LayoutProps> = ({ children }) => {
+const DefaultLayout: React.FC<LayoutProps> = ({ children }) => {
   return (
     <div className="flex h-screen overflow-hidden">
       <Sidebar />
@@ -21,4 +21,4 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
   );
 };
 
-export default Layout;
+export default DefaultLayout;

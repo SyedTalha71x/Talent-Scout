@@ -1,5 +1,5 @@
 import React from 'react'
-import Layout from '../../../../Dashboard/Layout/page'
+import Layout from '../../../../Dashboard/DefaultLayout/page'
 import SubscriptionTable from '../../DashboardPartials/createSubscription/page'
 
 const Page = () => {

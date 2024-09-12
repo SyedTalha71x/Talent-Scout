@@ -2,7 +2,7 @@
 import { useEffect, useState } from "react";
 import { List, Modal, Typography, Spin } from "antd";
 import axios from "axios";
-import Layout from "../../../../Dashboard/Layout/page";
+import Layout from "../../../../Dashboard/DefaultLayout/page";
 
 const { Title, Paragraph } = Typography;
 

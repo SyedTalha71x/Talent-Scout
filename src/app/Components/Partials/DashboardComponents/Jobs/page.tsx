@@ -1,6 +1,6 @@
 "use client";
 import React from 'react';
-import Layout from '../../../../Dashboard/Layout/page';
+import Layout from '../../../../Dashboard/DefaultLayout/page';
 import CreateJob from '../../DashboardPartials/CreateJob/page'
 
 const Page = () => {
