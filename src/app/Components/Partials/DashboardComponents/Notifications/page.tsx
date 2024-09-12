@@ -2,7 +2,7 @@
 import { useEffect, useState } from "react";
 import { List, Modal, Typography, Spin } from "antd";
 import axios from "axios";
-import Layout from "../../../../Dashboard/DashboardLayout";
+import Dashboard from "../../../../Dashboard/Dashboard";
 
 const { Title, Paragraph } = Typography;
 
@@ -48,7 +48,7 @@ const NotificationList: React.FC = () => {
   };
 
   return (
-    <Layout>
+    <Dashboard>
       <h3 className="text-2xl font-extrabold text-gray-800">Job Notifications Alert</h3>
 
       <div className=" p-4 rounded-lg shadow-md mt-4">
@@ -122,7 +122,7 @@ const NotificationList: React.FC = () => {
           )}
         </Modal>
       </div>
-    </Layout>
+    </Dashboard>
   );
 };
 

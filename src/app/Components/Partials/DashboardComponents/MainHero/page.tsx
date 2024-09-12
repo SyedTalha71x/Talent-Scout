@@ -1,4 +1,4 @@
-import Layout from "../../../../Dashboard/DashboardLayout";
+import Dashboard from "../../../../Dashboard/Dashboard";
 import { FaUsers, FaMoneyBill, FaChartLine, FaTasks } from "react-icons/fa";
 import TableOne from "../../DashboardPartials/TableOne/page";
 import JobTable from "../../DashboardPartials/JobTables/page";
@@ -31,7 +31,8 @@ const Card: React.FC<CardProps> = ({
 
 const Page: React.FC = () => {
   return (
-    <Layout>
+      <Dashboard>
+  
       <div className="p-6">
         {/* Cards Section */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-6">
@@ -74,7 +75,7 @@ const Page: React.FC = () => {
           </div>
         </div>
       </div>
-    </Layout>
+    </Dashboard>
   );
 };
 

@@ -3,7 +3,7 @@
 import React, { useEffect, useState } from "react";
 import { Space, Table, Tag } from "antd";
 import type { TableProps } from "antd";
-import Layout from '../../../../Dashboard/DashboardLayout'
+import Dashboard from '../../../../Dashboard/Dashboard'
 
 interface DataType {
   key: string;
@@ -65,12 +65,12 @@ const Users: React.FC = () => {
   }, []);
 
   return (
-    <Layout>
+    <Dashboard>
     <div className="bg-white p-6 rounded-lg shadow-md">
       <h1 className="text-xl text-gray-800 font-extrabold mb-3">Database Active Users</h1>
       <Table columns={columns} dataSource={data} className="bg-white" />
     </div>
-    </Layout>
+    </Dashboard>
   );
 };
 
