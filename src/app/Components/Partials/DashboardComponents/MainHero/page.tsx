@@ -1,4 +1,4 @@
-import Layout from "../../../../Dashboard/DefaultLayout/page";
+import Layout from "../../../../Dashboard/DashboardLayout";
 import { FaUsers, FaMoneyBill, FaChartLine, FaTasks } from "react-icons/fa";
 import TableOne from "../../DashboardPartials/TableOne/page";
 import JobTable from "../../DashboardPartials/JobTables/page";

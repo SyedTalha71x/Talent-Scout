@@ -3,7 +3,7 @@
 import React, { useEffect, useState } from "react";
 import { Space, Table, Tag } from "antd";
 import type { TableProps } from "antd";
-import Layout from '../../../../Dashboard/DefaultLayout/page'
+import Layout from '../../../../Dashboard/DashboardLayout'
 
 interface DataType {
   key: string;

@@ -1,10 +1,10 @@
 "use client";
 import React, { ReactNode } from "react";
-import Sidebar from "../../Components/Partials/Sidebar/page";
-import Navbar from "../../Components/Partials/semiNavbar/page";
+import Sidebar from "../Components/Partials/Sidebar/page";
+import Navbar from "../Components/Partials/semiNavbar/page";
 
 
-export default function DefaultLayout({ children }) {
+export default function DashboardLayout({ children }) {
   return (
     <div className="flex h-screen overflow-hidden">
       <Sidebar />
