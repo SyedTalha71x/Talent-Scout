@@ -19,7 +19,7 @@ export const POST = async (request: any) => {
             return NextResponse.json({ error: 'Invalid Password' }, { status: 422 })
         }
 
-        const jwtToken = generateToken(user._id, user.email, process.env.JWT_SECRET, '1hr')
+        const jwtToken = generateToken(user._id, user.email, process.env.JWT_SECRET)
         return NextResponse.json({
             message: 'Login Successfull',
             data: {
