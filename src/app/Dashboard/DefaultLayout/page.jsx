@@ -3,11 +3,8 @@ import React, { ReactNode } from "react";
 import Sidebar from "../../Components/Partials/Sidebar/page";
 import Navbar from "../../Components/Partials/semiNavbar/page";
 
-interface LayoutProps {
-  children: ReactNode;
-}
 
-export default function DefaultLayout({ children }: LayoutProps) {
+export default function DefaultLayout({ children }) {
   return (
     <div className="flex h-screen overflow-hidden">
       <Sidebar />
