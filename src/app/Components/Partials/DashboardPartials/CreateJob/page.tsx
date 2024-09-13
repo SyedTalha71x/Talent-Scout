@@ -1,8 +1,10 @@
 "use client";
 import React from 'react';
-import { Form, Input, Button, Select, InputNumber, DatePicker, Checkbox, Row, Col, Collapse, message } from 'antd';
-import ReactQuill from 'react-quill'; // Import ReactQuill
-import 'react-quill/dist/quill.snow.css'; // Import styles
+import dynamic from 'next/dynamic';
+import { Form, Input, Button, Select, InputNumber, DatePicker, message, Row, Col, Collapse } from 'antd';
+
+// Dynamically import ReactQuill only on the client side
+const ReactQuill = dynamic(() => import('react-quill'), { ssr: false });
 
 const { TextArea } = Input;
 const { Panel } = Collapse;
