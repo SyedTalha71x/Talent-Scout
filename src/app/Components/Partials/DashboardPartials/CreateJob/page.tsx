@@ -1,3 +1,4 @@
+"use client";
 import React from 'react';
 import { Form, Input, Button, Select, InputNumber, DatePicker, Checkbox, Row, Col, Collapse, message } from 'antd';
 import ReactQuill from 'react-quill'; // Import ReactQuill
