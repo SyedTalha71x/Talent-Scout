@@ -8,22 +8,22 @@ const testimonials = [
     {
         name: 'John Doe',
         image: 'https://readymadeui.com/team-2.webp',
-        text: 'The service was amazing. I never had to wait that long for my food. The staff was friendly and attentive, and the delivery was impressively prompt at all times.',
-        rating: 4,
+        text: 'The Talent Scout platform made it incredibly easy for me to find my dream job. The team guided me through the entire process, from polishing my resume to landing interviews. Their support helped me kickstart my career in ways I couldn’t have imagined.',
+        rating: 5,
     },
     {
         name: 'Karolina Adair',
         image: 'https://readymadeui.com/team-3.webp',
-        text: 'The service was amazing. I never had to wait that long for my food. The staff was friendly and attentive, and the delivery was impressively prompt at all times.',
-        rating: 4,
+        text: 'Thanks to Talent Scout, I was able to discover job opportunities that perfectly matched my skills and aspirations. They not only helped me find a job but also provided valuable career advice. Their dedication to helping clients succeed is unmatched.',
+        rating: 5,
     },
     {
         name: 'Simon Konecki',
         image: 'https://readymadeui.com/team-4.webp',
-        text: 'The service was amazing. I never had to wait that long for my food. The staff was friendly and attentive, and the delivery was impressively prompt at all times.',
-        rating: 4,
+        text: 'Finding the right career path seemed overwhelming until I joined the Talent Scout platform. Their personalized approach to job hunting helped me identify my strengths and align them with the perfect roles. I now have a thriving career thanks to their efforts.',
+        rating: 5,
     },
-];
+]
 
 const renderStars = (rating: number) => {
     const fullStars = Math.floor(rating);
@@ -53,6 +53,7 @@ const Page = () => {
             controls.start('visible');
         }
     }, [controls, inView]);
+
 
     return (
         <motion.div

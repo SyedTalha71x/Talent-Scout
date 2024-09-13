@@ -5,8 +5,12 @@ import Link from 'next/link';
 
 const Profile = () => {
   const [data, setData] = useState<any>(null); // Initialize as null
+  const [isClient, setIsClient] = useState(false); // Track client-side rendering
 
   useEffect(() => {
+    // Set isClient to true after component mounts
+    setIsClient(true);
+
     const fetchData = async () => {
       try {
         const token = localStorage.getItem('Token');
@@ -28,11 +32,13 @@ const Profile = () => {
       }
     };
 
-    fetchData();
-  }, []);
+    if (isClient) {
+      fetchData();
+    }
+  }, [isClient]);
 
   // Render nothing if there's no token or no data
-  if (!localStorage.getItem('Token') || !data) {
+  if (!isClient || !data) {
     return null;
   }
 

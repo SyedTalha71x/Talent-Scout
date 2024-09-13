@@ -5,7 +5,6 @@ import { motion, useAnimation } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import Image from 'next/image';
 
-// Array of recruiter data
 const recruiters = [
     {
         image: '/images/google.webp',
@@ -54,8 +53,33 @@ const recruiters = [
         name: 'Salesforce',
         location: 'San Francisco, CA',
         activation: 70
+    },
+    {
+        image: '/images/oracle.png',
+        name: 'Oracle',
+        location: 'Austin, TX',
+        activation: 85
+    },
+    {
+        image: '/images/adobe.png',
+        name: 'Adobe',
+        location: 'San Jose, CA',
+        activation: 65
+    },
+    {
+        image: '/images/intel.svg',
+        name: 'Intel',
+        location: 'Santa Clara, CA',
+        activation: 95
+    },
+    {
+        image: '/images/netflix.jpg',
+        name: 'Netflix',
+        location: 'Los Gatos, CA',
+        activation: 110
     }
 ];
+
 
 const Page = () => {
     const controls = useAnimation();

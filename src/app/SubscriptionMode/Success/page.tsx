@@ -4,7 +4,6 @@ import Link from "next/link";
 import { useRouter, useSearchParams } from "next/navigation";
 
 const SubscriptionSuccessPage = () => {
-  const router = useRouter();
   const searchParams = useSearchParams();
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
@@ -19,8 +18,7 @@ const SubscriptionSuccessPage = () => {
 
   useEffect(() => {
     const confirmSubscription = async () => {
-      const token = localStorage.getItem("Token"); // Retrieve token from localStorage
-
+      const token = localStorage.getItem("Token"); 
       if (!token) {
         console.error("No token found");
         setError("Authentication token is missing");
