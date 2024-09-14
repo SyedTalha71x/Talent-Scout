@@ -78,9 +78,7 @@ const HiringBanner: React.FC = () => {
           animate={controls}
         >
           {splitText("Find The One That’s ")}
-          <span className="text-blue-600">
-            {splitText("Right")}
-          </span>
+          <span className="text-blue-600">{splitText("Right")}</span>
           {splitText(" For You")}
         </motion.h1>
 
@@ -106,9 +104,11 @@ const HiringBanner: React.FC = () => {
               Search Jobs
             </button>
           </Link>
-          <button className="text-blue-600 lg:text-sm md:text-sm sm:text-sm text-xs border nav-btns border-blue-600 px-6 py-3 rounded-md hover:bg-blue-600 hover:text-white">
-            Learn More
-          </button>
+          <Link href={"/Contact"}>
+            <button className="text-blue-600 lg:text-sm md:text-sm sm:text-sm text-xs border nav-btns border-blue-600 px-6 py-3 rounded-md hover:bg-blue-600 hover:text-white">
+              Learn More
+            </button>
+          </Link>
         </motion.div>
       </div>
     </motion.div>

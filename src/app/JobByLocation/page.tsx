@@ -69,15 +69,11 @@ const JobLocations = () => {
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-10">
         {error && <p className="text-center text-red-500">{error}</p>}
-        {locations.length === 0 ? (
-          <p className="text-center text-gray-500">No locations available</p>
-        ) : (
-          locations.map((location) => (
-            <Link href={`/SingleLocationJob/${location.city}`}>
+        {locations.map((location) => (
+          <Link key={location.city} href={`/SingleLocationJob/${location.city}`}>
             <div
-              key={location.city}
               className="relative rounded-lg shadow-lg overflow-hidden nav-btns cursor-pointer hover:shadow-xl transition-shadow"
-              >
+            >
               <div className="relative h-60 w-full">
                 <img
                   src={imageUrls[location.city] || "https://via.placeholder.com/600x400"}
@@ -91,13 +87,10 @@ const JobLocations = () => {
 
               <div className="p-6 mt-2">
                 <h2 className="text-xl font-bold">{location.city}</h2>
-                {/* <p className="text-sm text-gray-500">Vacancies: Data not available</p>
-                <p className="text-sm text-gray-500">Companies: Data not available</p> */}
               </div>
             </div>
-        </Link>
-          ))
-        )}
+          </Link>
+        ))}
       </div>
     </motion.div>
   );

@@ -57,7 +57,7 @@ const Page = () => {
                 }}
 
                 className="grid lg:grid-cols-4 md:grid-cols-2 gap-8 max-md:max-w-lg mx-auto mt-20">
-                {jobs.map((job: any, index: any) => (
+                {jobs.slice(0,4).map((job: any, index: any) => (
                     <Link href={`/Jobs/${job._id}`} key={index} className='bg-blue-50 rounded-lg shadow p-6 card'>
                         <div className="flex gap-3 justify-start items-start">
                             <div>

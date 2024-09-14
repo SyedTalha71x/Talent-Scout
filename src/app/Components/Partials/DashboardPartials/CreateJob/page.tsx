@@ -2,6 +2,7 @@
 import React from 'react';
 import dynamic from 'next/dynamic';
 import { Form, Input, Button, Select, InputNumber, DatePicker, message, Row, Col, Collapse } from 'antd';
+import 'react-quill/dist/quill.snow.css';
 
 // Dynamically import ReactQuill only on the client side
 const ReactQuill = dynamic(() => import('react-quill'), { ssr: false });
