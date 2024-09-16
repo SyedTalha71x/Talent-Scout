@@ -1,10 +1,8 @@
 import mongoose from "mongoose";
 
-const MONGODB_KEY = 'mongodb://localhost:27017/DevTalent';
-
 export async function connectToDB() {
     try{
-        await mongoose.connect(MONGODB_KEY);
+        await mongoose.connect(process.env.MONGO_DB_URI);
         console.log("Connected with MongoDB Successfull")
 
     }

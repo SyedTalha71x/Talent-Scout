@@ -1,0 +1,22 @@
+version: '3'
+services:
+  nextjs:
+    build: .
+    ports:
+      - "3000:3000"
+    env_file:
+      - .env
+    environment:
+      - MONGO_DB_URI=mongodb://mongodb:27017/DevTalent
+    depends_on:
+      - mongodb
+
+  mongodb:
+    image: mongo:latest
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongodb_data:/data/db
+
+volumes:
+  mongodb_data:
