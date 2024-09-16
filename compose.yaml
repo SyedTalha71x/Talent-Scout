@@ -1,0 +1,36 @@
+version: '3.8'
+
+services:
+  web:
+    depends_on:
+      - mongo
+
+    environment:
+      - JWT_SECRET=${JWT_SECRET}
+      - NEXT_SECRET_STRIPE_KEY=${NEXT_SECRET_STRIPE_KEY}
+      - NEXT_PUBLIC_STRIPE_KEY=${NEXT_PUBLIC_STRIPE_KEY}
+      - FRONTEND_URL=${FRONTEND_URL}
+      - ADMIN_EMAIL=${ADMIN_EMAIL}
+      - GOOGLE_CLIENT_ID=${GOOGLE_CLIENT_ID}
+      - GOOGLE_CLIENT_SECRET=${GOOGLE_CLIENT_SECRET}
+      - MONGO_DB_URI=${MONGO_DB_URI}
+
+    build:
+      context: .
+      dockerfile: Dockerfile
+
+    ports:
+      - 3000:3000
+
+    volumes:
+      - .:/app  # Syncs the current directory with /app in the container (needed for development)
+
+  mongo:
+    image: mongo
+    ports:
+      - 27017:27017
+    volumes:
+      - amazona:/data/db
+
+volumes:
+  amazona:
