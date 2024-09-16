@@ -5,11 +5,11 @@ import Stripe from "stripe";
 import moment from "moment";
 import UserSubscription from "@/utils/Models/user-subscription";
 
-connectToDB();
 const stripe = new Stripe(process.env.NEXT_SECRET_STRIPE_KEY || "");
 
 export async function POST(request: any) {
   try {
+    await connectToDB();
     const userId = request.headers.get('X-User-ID');
     const userEmail = request.headers.get('X-User-Email');
 

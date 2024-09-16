@@ -4,6 +4,7 @@ import { NextResponse } from "next/server";
 
 export async function GET(request: Request, { params }: { params: { location: string } }) {
     try {
+        await connectToDB();
         const { location } = params;
 
         if (!location) {

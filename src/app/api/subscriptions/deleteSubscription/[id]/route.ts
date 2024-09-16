@@ -2,13 +2,12 @@ import { connectToDB } from "@/utils/db/route";
 import Subscription from "@/utils/Models/subscription-model";
 import { NextResponse } from "next/server";
 
-connectToDB();
-
 export async function DELETE(
   request: Request,
   { params }: { params: { id: string } }
 ) {
   try {
+    await connectToDB();
     const { id } = params;
     console.log("----------------", id);
 

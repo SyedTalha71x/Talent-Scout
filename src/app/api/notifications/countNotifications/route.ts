@@ -2,11 +2,10 @@ import Notification from "@/utils/Models/notification-model";
 import { connectToDB } from "@/utils/db/route";
 import { NextResponse } from "next/server";
 
-connectToDB();
-
 export async function GET(request: any) {
   try {
 
+    await connectToDB();
     const notifications = await Notification.countDocuments();
     return NextResponse.json({ notifications }, { status: 200 });
   } catch (error: any) {

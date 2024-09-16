@@ -2,13 +2,13 @@ import { connectToDB } from "@/utils/db/route";
 import Job from "@/utils/Models/job-model";
 import { NextResponse } from "next/server";
 
-connectToDB();
 export async function DELETE(
   request: Request,
   { params }: { params: { id: string } }
 ) {
   const { id } = params;
   try {
+    await connectToDB();
     if (!id) {
       return NextResponse.json({ error: "Job ID is not defined" }, { status: 400 });
     }

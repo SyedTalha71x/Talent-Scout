@@ -2,9 +2,9 @@ import {connectToDB} from "@/utils/db/route";
 import Subscription from "@/utils/Models/subscription-model";
 import { NextResponse } from "next/server";
 
-connectToDB();
 export async function POST(request: any) {
   try {
+    await connectToDB();
     const reqBody = await request.json();
     const { name, bulletpoints, valid_till, price } = reqBody;
 

@@ -3,7 +3,6 @@ import {connectToDB} from '@/utils/db/route';
 import { NextResponse } from 'next/server';
 
 
-connectToDB();
 export async function GET(
     request: Request,
     { params }: { params: { id: string } }
@@ -11,6 +10,7 @@ export async function GET(
     const { id } = params;
 
     try {
+        await connectToDB();
         const document = await Job.findById(id);
         if (!document) {
             return NextResponse.json({ message: 'Job not Found' }, { status: 404 })

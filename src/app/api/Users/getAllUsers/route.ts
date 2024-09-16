@@ -3,9 +3,9 @@ import User from "@/utils/Models/user-model";
 import { NextResponse } from "next/server";
 
 
-connectToDB();
 export async function GET(){
     try{
+        await connectToDB();
         const findUsers = await User.find();
         return NextResponse.json(findUsers)
     }

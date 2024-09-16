@@ -2,10 +2,9 @@ import { NextResponse } from "next/server";
 import {connectToDB} from "@/utils/db/route";
 import Job from "@/utils/Models/job-model";
 
-connectToDB();
-
 export const POST = async (request: any) => {
     try {
+        await connectToDB();
         const reqBody = await request.json();
         const {
             title,

@@ -3,12 +3,14 @@ import { NextResponse } from "next/server";
 import Stripe from "stripe";
 import Subscription from "@/utils/Models/subscription-model";
 import { configDotenv } from "dotenv";
+import { connectToDB } from "@/utils/db/route";
 
 configDotenv();
 const stripe = new Stripe(process.env.NEXT_SECRET_STRIPE_KEY || "");
 
 export const POST = async (request: any) => {
   try {
+    await connectToDB();
     const reqBody = await request.json();
     const { subscriptionId } = reqBody;
 

@@ -2,10 +2,10 @@ import { connectToDB } from "@/utils/db/route";
 import User from "@/utils/Models/user-model";
 import { NextResponse } from 'next/server';
 
-connectToDB();
 
 export async function GET(request: any) {
     try {
+        await connectToDB();
         // console.log("API Headers:", request.headers); 
         const userId = request.headers.get('X-User-ID');
         console.log(userId);

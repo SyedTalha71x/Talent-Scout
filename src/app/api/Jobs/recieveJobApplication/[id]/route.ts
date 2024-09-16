@@ -2,15 +2,15 @@ import { connectToDB } from "@/utils/db/route";
 import ApplyForJob from "@/utils/Models/job-apply-model";
 import { NextResponse } from "next/server";
 
-connectToDB();
-
 export async function GET(
   request: any,
   { params }: { params: { id: string } }
 ) {
   try {
 
-    
+
+    await connectToDB();
+  
     const { id } = params;
    
     const application = await ApplyForJob.findById(id);

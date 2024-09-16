@@ -5,10 +5,11 @@ import Job from "@/utils/Models/job-model";
 import Notification from "@/utils/Models/notification-model";
 import { NextResponse } from "next/server";
 
-connectToDB();
 
 export async function POST(request: any) {
   try {
+    await connectToDB();
+    
     const {
       jobId,
       name,

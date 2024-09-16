@@ -2,13 +2,13 @@ import {connectToDB} from "@/utils/db/route";
 import Job from "@/utils/Models/job-model";
 import { NextResponse } from "next/server";
 
-connectToDB();
 export async function GET(
     request: Request,
     { params }: { params: { id: string } }
 ) {
     const { id } = params;
     try {
+        await connectToDB();
         const currentJob = await Job.findById(id);
         if (!currentJob) {
             return NextResponse.json({ message: 'Job not Found' }, { status: 404 })

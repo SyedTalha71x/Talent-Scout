@@ -2,9 +2,9 @@ import { NextResponse } from "next/server";
 import Recuiter from "@/utils/Models/recuiter-model";
 import {connectToDB} from "@/utils/db/route";
 
-connectToDB();
 export const POST = async (request: any) => {
     try {
+        await connectToDB();
         const reqBody = await request.json();
         const { name, location, activation, image } = reqBody;
 
