@@ -1,6 +1,6 @@
 import mongoose from "mongoose";
 
-const MONGODB_KEY = 'mongodb://localhost:27017/DevTalent';
+const MONGODB_KEY = 'mongodb://192.168.18.194:27017/DevTalent';
 
 export async function connectToDB() {
     try{
