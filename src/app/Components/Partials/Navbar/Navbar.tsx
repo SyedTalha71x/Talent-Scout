@@ -41,15 +41,15 @@ const Navbar = () => {
                                 <Image
                                     height={1000}
                                     width={1000}
-                                    className="block h-12 w-12 lg:hidden"
-                                    src={'/weblogo.png'}
+                                    className="block h-12 w-12 lg:hidden rounded-full"
+                                    src={'/images/website-logo.png'}
                                     alt="talentscout-logo"
                                 />
                                 <Image
                                     height={1000}
                                     width={1000}
-                                    className="hidden h-12 w-12 lg:block"
-                                    src={'/weblogo.png'}
+                                    className="hidden h-12 w-12 lg:block rounded-full"
+                                    src={'/images/website-logo.png'}
                                     alt="talentscout-logo"
                                 />
                             </div>

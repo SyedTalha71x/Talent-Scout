@@ -114,8 +114,8 @@ const JobApplyForm: React.FC = () => {
           style={{ backgroundImage: "url('/bg-jobpost.jpg')" }}
         >
           <div className="absolute inset-0 bg-slate-600 opacity-75"></div>
-          <div className="relative flex justify-center items-center text-center flex-col lg:p-36 md:p-26 sm:p-20 p-16">
-            <h1 className="text-white sm:text-3xl text-2xl font-extrabold title-font">
+          <div className="relative flex justify-center items-center text-center flex-col lg:p-36 md:p-26 sm:p-20 p-12">
+            <h1 className="text-white sm:text-3xl text-xl font-extrabold title-font">
               Apply for the job
             </h1>
             <p className="text-base leading-relaxed xl:w-full lg:w-full w-full mx-auto text-gray-300 mt-1">
@@ -126,7 +126,7 @@ const JobApplyForm: React.FC = () => {
       </div>
       <div>
         <div className="max-w-7xl mx-auto">
-          <h1 className="text-2xl mb-5 uppercase mt-10 font-extrabold text-gray-700">
+          <h1 className="lg:text-2xl md:text-2xl sm:text-xl text-xl p-2 mb-5 uppercase mt-10 font-extrabold text-gray-700">
             Job you are applying for
           </h1>
           <hr />
@@ -140,7 +140,7 @@ const JobApplyForm: React.FC = () => {
                     className="rounded-full h-16 w-16 object-cover mr-3"
                   />
                 </div>
-                <div className="flex flex-col">
+                <div className="flex flex-col lg:p-0 md:p-0 p-3 sm:p-3">
                   <h1 className="lg:text-4xl md:text-3xl sm:text-2xl text-xl font-bold text-gray-800">
                     {data.title}
                   </h1>

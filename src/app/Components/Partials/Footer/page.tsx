@@ -3,7 +3,7 @@ import Image from 'next/image'
 
 const Page = () => {
     return (
-        <section className="pt-16 pb-7 mt-20 ">
+        <section className="pt-16 pb-7 mt-20 -z-40 ">
             <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 xl:gap-24 pb-14 border-b-2 border-gray-200">
                     <div className="block w-full lg:max-w-full max-lg:mx-auto">
@@ -62,9 +62,9 @@ const Page = () => {
                             </p>
                             <div className="flex flex-col min-[470px]:flex-row max-[470px]:gap-4 items-center max-[470px]:justify-center">
                                 <div className="flex items-center">
-                                    <Image height={1000} width={1000} src="https://pagedone.io/asset/uploads/1711781221.png" alt="" className="relative " />
-                                    <Image height={1000} width={1000} src="https://pagedone.io/asset/uploads/1711781231.png" alt="" className="relative -translate-x-2 z-10" />
-                                    <Image height={1000} width={1000} src="https://pagedone.io/asset/uploads/1711781245.png" alt="" className="relative -translate-x-4 z-20" />
+                                    <Image height={1000} width={1000} src="https://pagedone.io/asset/uploads/1711781221.png" alt="" className="relative -translate-x-2 " />
+                                    <Image height={1000} width={1000} src="https://pagedone.io/asset/uploads/1711781231.png" alt="" className="relative -translate-x-2 " />
+                                    <Image height={1000} width={1000} src="https://pagedone.io/asset/uploads/1711781245.png" alt="" className="relative -translate-x-4 " />
                                 </div>
                                 <p className="text-gray-500 text-base font-normal"><span className="text-gray-900 font-medium">1K </span>Members
                                     Join</p>

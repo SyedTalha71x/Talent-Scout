@@ -166,7 +166,7 @@ const Page = () => {
                     <a
                       href="#"
                       type="button"
-                      className="appearance-none inline-flex hover:shadow-lg transition-all duration-300 items-center group space-x-2.5 bg-purple-600 text-white py-2 sm:py-3 px-4 sm:px-5 rounded-lg md:rounded-xl lg:rounded-xl cursor-pointer"
+                      className="appearance-none inline-flex hover:shadow-lg nav-btns transition-all duration-300 items-center group space-x-2.5 bg-purple-600 text-white py-2 sm:py-2 px-4 sm:px-5 rounded-lg md:rounded-xl lg:rounded-xl cursor-pointer"
                     >
                       <span className="font-semibold text-sm sm:text-base md:text-base lg:text-lg">
                         Contact Sales

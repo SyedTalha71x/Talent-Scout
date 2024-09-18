@@ -6,35 +6,44 @@ import { FaUser } from "react-icons/fa";
 import { SiGoogleanalytics } from "react-icons/si";
 import { FaBriefcase } from "react-icons/fa";
 import { FaMoneyCheck } from "react-icons/fa6";
-
-
+import Image from "next/image";
 
 const links = [
   {
     name: "Home",
     href: "/Components/Partials/DashboardComponents/MainHero",
-    icon: <MdDashboard/>,
-    active: true
+    icon: <MdDashboard />,
+    active: true,
   },
   {
     name: "User",
     href: "/Components/Partials/DashboardComponents/Users",
-    icon: <FaUser/>,
-    active: false
+    icon: <FaUser />,
+    active: false,
   },
   {
     name: "Subscriptions",
     href: "/Components/Partials/DashboardComponents/Subscriptions",
-    icon: <FaMoneyCheck/>,
-    active: false
+    icon: <FaMoneyCheck />,
+    active: false,
   },
-  { name: "Notifications", href: "/Components/Partials/DashboardComponents/Notifications", icon: <SiGoogleanalytics/> , active: false},
-  { name: "Jobs", href: "/Components/Partials/DashboardComponents/Jobs", icon: <FaBriefcase/> , active: false},
+  {
+    name: "Notifications",
+    href: "/Components/Partials/DashboardComponents/Notifications",
+    icon: <SiGoogleanalytics />,
+    active: false,
+  },
+  {
+    name: "Jobs",
+    href: "/Components/Partials/DashboardComponents/Jobs",
+    icon: <FaBriefcase />,
+    active: false,
+  },
 ];
 
 const Sidebar: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
-  const [active, setactive] = useState(false)
+  const [active, setactive] = useState(false);
 
   const toggleSidebar = () => {
     setIsOpen(!isOpen);
@@ -71,8 +80,27 @@ const Sidebar: React.FC = () => {
           isOpen ? "translate-x-0" : "-translate-x-full"
         } transition-transform duration-300 ease-in-out lg:translate-x-0 lg:static`}
       >
+        <div className="flex cursor-pointer justify-start gap-2 items-start">
+          <div>
+            <Link href={"/Components/Partials/DashboardComponents/MainHero"}>
+              <Image
+                src={"/images/website-logo.png"}
+                height={1000}
+                width={1000}
+                alt=""
+                className="rounded-full h-12 w-12"
+              />
+            </Link>
+          </div>
+          <div>
+            <Link href={"/Components/Partials/DashboardComponents/MainHero"}>
+              <h2 className="text-lg mt-2 font-extrabold">Talent Scout</h2>
+            </Link>
+          </div>
+        </div>
+
         {/* Close button (only for small and medium screens) */}
-        <div className="lg:hidden flex justify-end">
+        <div className="lg:hidden absolute top-4 right-2">
           <button
             className="text-white bg-blue-950 p-2 rounded"
             onClick={toggleSidebar}
@@ -102,7 +130,12 @@ const Sidebar: React.FC = () => {
 
         <ul className="mt-[35%] space-y-5">
           {links.map((link, index) => (
-            <li key={index} className={`hover:bg-purple-600 p-2 transition-all duration-300  rounded-lg ${link.active === true ? "bg-purple-600": ""}`}>
+            <li
+              key={index}
+              className={`hover:bg-purple-600 p-2 transition-all duration-300  rounded-lg ${
+                link.active === true ? "bg-purple-600" : ""
+              }`}
+            >
               <Link href={link.href}>
                 <div className="flex text-sm items-center gap-1.5">
                   <span className="text-xl">{link.icon}</span>
@@ -122,7 +155,6 @@ const Sidebar: React.FC = () => {
         />
       )}
     </div>
-
   );
 };
 
