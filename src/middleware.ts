@@ -1,5 +1,5 @@
 import { NextResponse } from 'next/server';
-import { jwtVerify, JWTPayload } from 'jose';
+import { jwtVerify } from 'jose';
 import { NextRequest } from 'next/server';
 
 export async function middleware(request: NextRequest) {
@@ -15,6 +15,7 @@ export async function middleware(request: NextRequest) {
       
       if (typeof payload.id === 'string') {
         response.headers.set('X-User-ID', payload.id);
+        response.cookies.set('X-User-ID', payload.id);
       }
       if (typeof payload.email === 'string') {
         response.headers.set('X-User-Email', payload.email);
@@ -33,6 +34,6 @@ export async function middleware(request: NextRequest) {
 
 export const config = {
   matcher: ['/api/subscriptions/purchaseSubscription', '/api/subscriptions/confirmSubscription',
-    '/api/Profile/showProfile', '/api/Jobs/applyJob'
+    '/api/Profile/showProfile', '/api/Jobs/applyJob', '/api/Jobs/editJob/:id'
   ],
 };

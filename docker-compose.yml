@@ -3,18 +3,18 @@ services:
   nextjs:
     build: .
     ports:
-      - "3000:3000"
+      - "3000:3000"  # Bind to all network interfaces on port 3000
     env_file:
       - .env
     environment:
-      - MONGO_DB_URI=mongodb://mongodb:27017/DevTalent
+      - MONGO_DB_URI=mongodb://localhost:27017/DevTalent  # Connect to MongoDB using localhost
     depends_on:
       - mongodb
 
   mongodb:
     image: mongo:latest
     ports:
-      - "27017:27017"
+      - "27017:27017"  # Bind MongoDB to all network interfaces on port 27017
     volumes:
       - mongodb_data:/data/db
 
