@@ -8,8 +8,7 @@ import SessionProvider from "@/utils/SessionProvider";
 import { usePathname } from 'next/navigation';
 
 const monserrat = Montserrat({
-  subsets: ['latin'],
-  display: 'swap',
+  weight: ['100', '400', '900'],
 })
  
 
