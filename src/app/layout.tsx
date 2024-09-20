@@ -1,5 +1,4 @@
 "use client"
-import type { Metadata } from "next";
 import { Montserrat } from 'next/font/google'
 import "./globals.css";
 import Navbar from '../app/Components/Partials/Navbar/index';
@@ -8,7 +7,8 @@ import SessionProvider from "@/utils/SessionProvider";
 import { usePathname } from 'next/navigation';
 
 const monserrat = Montserrat({
-  weight: ['100', '400', '900'],
+  weight: ['500'],
+  preload: false
 })
  
 
