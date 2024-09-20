@@ -1,12 +1,17 @@
-// src/app/layout.tsx
 "use client"
 import type { Metadata } from "next";
+import { Montserrat } from 'next/font/google'
 import "./globals.css";
 import Navbar from '../app/Components/Partials/Navbar/index';
 import Footer from '../app/Components/Partials/Footer/page';
 import SessionProvider from "@/utils/SessionProvider";
 import { usePathname } from 'next/navigation';
 
+const monserrat = Montserrat({
+  subsets: ['latin'],
+  display: 'swap',
+})
+ 
 
 export default function RootLayout({
   children,
@@ -15,13 +20,12 @@ export default function RootLayout({
 }>) {
   const pathname = usePathname();
 
-  // Determine if Navbar and Footer should be displayed
   const isDashboardPage = pathname.startsWith('/Components/Partials/DashboardComponents');
 
   return (
     <html lang="en">
       <SessionProvider>
-        <body>
+        <body className={monserrat.className}>
           {!isDashboardPage && <Navbar />}
           {children}
           {!isDashboardPage && <Footer />}
