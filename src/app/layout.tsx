@@ -8,7 +8,9 @@ import { usePathname } from 'next/navigation';
 
 const monserrat = Montserrat({
   weight: ['500'],
-  preload: false
+  preload: false,
+  subsets : ['latin'],
+  display : 'swap'
 })
  
 
