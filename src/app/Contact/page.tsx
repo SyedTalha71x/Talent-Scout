@@ -3,6 +3,7 @@ import React, { useEffect } from "react";
 import Banner from "../Components/Partials/Banner/banner";
 import { useAnimation, motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
+import Image from "next/image";
 
 const Page = () => {
   const controls = useAnimation();
@@ -81,7 +82,9 @@ const Page = () => {
           </div>
 
           <div className="z-10 relative lg:col-span-2">
-            <img
+            <Image
+            height={1000}
+            width={1000}
               src="https://readymadeui.com/images/analtsis.webp"
               alt="Analysis"
               className="w-3/4 object-contain block mx-auto"

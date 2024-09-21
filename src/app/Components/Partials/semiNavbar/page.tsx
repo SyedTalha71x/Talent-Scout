@@ -110,8 +110,8 @@ const Navbar = () => {
           ) : (
             <div className="cursor-pointer ">
               {notifications.length > 0 ? (
-                notifications.map((item: any) => (
-                  <Link
+                notifications.map((item: any, index: any) => (
+                  <Link key={index}
                     href={
                       "/Components/Partials/DashboardComponents/Notifications"
                     }

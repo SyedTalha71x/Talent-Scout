@@ -1,5 +1,6 @@
 "use client";
 import { useAnimation, motion } from "framer-motion";
+import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import { useInView } from "react-intersection-observer";
@@ -75,7 +76,9 @@ const JobLocations = () => {
               className="relative rounded-lg shadow-lg overflow-hidden nav-btns cursor-pointer hover:shadow-xl transition-shadow"
             >
               <div className="relative h-60 w-full">
-                <img
+                <Image
+                height={1000}
+                width={1000}
                   src={imageUrls[location.city] || "https://via.placeholder.com/600x400"}
                   alt={location.city}
                   className="absolute inset-0 w-full h-full object-cover rounded-lg"

@@ -4,6 +4,7 @@ import React, { useEffect, useState } from "react";
 import { Space, Table, Button, Modal, message } from "antd";
 import { EditOutlined, DeleteOutlined } from "@ant-design/icons";
 import type { TableProps } from "antd";
+import Image from "next/image";
 
 interface JobType {
   key: string;
@@ -21,7 +22,7 @@ const JobTable: React.FC = () => {
   const [data, setData] = useState<JobType[]>([]);
   const [open, setOpen] = useState(false);
   const [jobIdToDelete, setJobIdToDelete] = useState<string | null>(null);
-  const Currency = "$"
+  const Currency = "$";
 
   useEffect(() => {
     // Fetch job data from the API
@@ -29,7 +30,7 @@ const JobTable: React.FC = () => {
       try {
         const response = await fetch("/api/Jobs/getJob", {
           method: "GET",
-        }); 
+        });
         const result = await response.json();
         console.log("----------------------", result);
         const formattedData: JobType[] = result.jobs.map((job: any) => ({
@@ -40,7 +41,9 @@ const JobTable: React.FC = () => {
           salary: job.salary,
           experience: job.experience,
           createdAt: new Date(job.createdAt).toLocaleDateString(),
-          applicationDeadline: new Date(job.applicationDeadline).toLocaleDateString(),
+          applicationDeadline: new Date(
+            job.applicationDeadline
+          ).toLocaleDateString(),
           industry: job.industry,
         }));
         setData(formattedData);
@@ -94,7 +97,9 @@ const JobTable: React.FC = () => {
       dataIndex: "companyLogo",
       key: "companyLogo",
       render: (logo) => (
-        <img
+        <Image
+          height={1000}
+          width={1000}
           src={logo}
           alt="company-logo"
           className="w-10 h-10 object-contain"
@@ -155,7 +160,12 @@ const JobTable: React.FC = () => {
 
   return (
     <div>
-      <Table<JobType> columns={columns} dataSource={data} pagination={{pageSize: 3}} rowKey="key" />
+      <Table<JobType>
+        columns={columns}
+        dataSource={data}
+        pagination={{ pageSize: 3 }}
+        rowKey="key"
+      />
       <Modal
         title="Confirm Deletion"
         open={open}

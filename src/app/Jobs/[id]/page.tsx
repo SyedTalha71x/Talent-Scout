@@ -196,7 +196,7 @@ const SimilarJobs: React.FC = () => {
     }
 
     fetchSimilarJobs();
-  }, [id]);
+  });
 
   if (loading) {
     return <p>Loading...</p>;
@@ -220,7 +220,9 @@ const SimilarJobs: React.FC = () => {
           >
             <div className="flex gap-4">
               <div>
-                <img
+                <Image
+                height={1000}
+                width={1000}
                   src={job.image}
                   alt={job.title}
                   className="w-10 h-10 rounded-2xl"
@@ -276,7 +278,7 @@ const Page: React.FC = () => {
     if (id) {
       fetchData();
     }
-  }, [id]);
+  });
 
   const briefDescription = data?.briefDescription || "No description available";
 
@@ -313,7 +315,9 @@ const Page: React.FC = () => {
           <div className="flex flex-col gap-2">
             <div className="flex">
               <div className="lg:block md:block sm:block hidden">
-                <img
+                <Image
+                height={1000}
+                width={1000}
                   src={data.image}
                   alt="Company Logo"
                   className="rounded-full h-16 w-16 object-cover mr-3"

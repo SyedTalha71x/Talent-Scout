@@ -11,6 +11,7 @@ import DOMPurify from "dompurify";
 import { useParams } from "next/navigation";
 import { PiBriefcaseLight } from "react-icons/pi";
 import { CiClock2 } from "react-icons/ci";
+import Image from "next/image";
 
 const JobApplyForm: React.FC = () => {
   const [form] = useForm();
@@ -42,7 +43,7 @@ const JobApplyForm: React.FC = () => {
     if (id) {
       fetchData();
     }
-  }, [id]);
+  });
 
   if (isLoading) {
     return <div className="text-center py-10">Loading...</div>;
@@ -134,7 +135,9 @@ const JobApplyForm: React.FC = () => {
             <div className="flex flex-col gap-2">
               <div className="flex">
                 <div className="lg:block md:block sm:block hidden">
-                  <img
+                  <Image
+                  height={1000}
+                  width={1000}
                     src={data.image}
                     alt="Company Logo"
                     className="rounded-full h-16 w-16 object-cover mr-3"

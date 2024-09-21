@@ -1,5 +1,6 @@
 import React, { ReactNode } from "react";
 import { XMarkIcon } from '@heroicons/react/24/outline'
+import Image from "next/image";
 
 interface DrawerProps {
     children: ReactNode;
@@ -26,7 +27,7 @@ const Drawer = ({ children, isOpen, setIsOpen }: DrawerProps) => {
             >
 
                 <article className="relative w-270 max-w-lg pb-10 flex flex-col space-y-6 h-full">
-                    <header className="p-4 flex items-center justify-between"><img src="/weblogo.png" className="h-10 w-10 " /><XMarkIcon className="block h-6 w-6" onClick={() => {
+                    <header className="p-4 flex items-center justify-between"><Image height={1000} width={1000} alt="" src="/weblogo.png" className="h-10 w-10 " /><XMarkIcon className="block h-6 w-6" onClick={() => {
                         setIsOpen(false);
                     }} />
                     </header>

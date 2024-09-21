@@ -7,6 +7,7 @@ import { motion, useAnimation } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import axios from 'axios'
 import Link from 'next/link';
+import Image from 'next/image';
 
 
 const Page = () => {
@@ -61,7 +62,7 @@ const Page = () => {
                     <Link href={`/Jobs/${job._id}`} key={index} className='bg-blue-50 rounded-lg shadow p-6 card'>
                         <div className="flex gap-3 justify-start items-start">
                             <div>
-                                <img src={job.image} className='rounded-xl h-12 w-12 object-cover' alt={job.company} />
+                                <Image height={1000} width={1000} src={job.image} className='rounded-xl h-12 w-12 object-cover' alt={job.company} />
                             </div>
                             <div className='flex flex-col'>
                                 <h1 className='text-lg font-bold text-blue-950'>{job.company}</h1>

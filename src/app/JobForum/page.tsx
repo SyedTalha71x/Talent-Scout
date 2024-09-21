@@ -242,7 +242,9 @@ const Page = () => {
                     <div className=" rounded-lg shadow-md bg-slate-100 p-5 mb-6 transition-all cursor-pointer duration-500 hover:bg-blue-100">
                       <div className="flex gap-3 justify-start items-start">
                         <div>
-                          <img
+                          <Image
+                          height={1000}
+                          width={1000}
                             src={job.image}
                             className="rounded-xl h-16 w-16 object-cover"
                             alt="Company"
