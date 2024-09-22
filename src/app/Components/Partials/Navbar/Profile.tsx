@@ -4,8 +4,8 @@ import Image from 'next/image';
 import Link from 'next/link';
 
 const Profile = () => {
-  const [data, setData] = useState<any>(null); // Initialize as null
-  const [isClient, setIsClient] = useState(false); // Track client-side rendering
+  const [data, setData] = useState<any>(null); 
+  const [isClient, setIsClient] = useState(false); 
 
   useEffect(() => {
     // Set isClient to true after component mounts
@@ -15,7 +15,6 @@ const Profile = () => {
       try {
         const token = localStorage.getItem('Token');
 
-        // Only fetch data if token exists
         if (token) {
           const response = await fetch('/api/Profile/showProfile', {
             method: 'GET',
@@ -37,7 +36,6 @@ const Profile = () => {
     }
   }, [isClient]);
 
-  // Render nothing if there's no token or no data
   if (!isClient || !data) {
     return null;
   }

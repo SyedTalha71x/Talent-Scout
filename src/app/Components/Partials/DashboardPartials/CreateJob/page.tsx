@@ -15,7 +15,6 @@ const AddJob = () => {
 
   const onFinish = async (values: any) => {
     try {
-      // Handle briefDescription as HTML
       const response = await fetch('/api/Jobs/postJob', {
         method: 'POST',
         headers: {

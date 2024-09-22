@@ -22,7 +22,7 @@ const JobApplyForm: React.FC = () => {
   const [data, setData] = useState<any | null>(null); 
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
-  const port = process.env.NEXT_PUBLIC_API_URL || "http://localhost:3000";
+  const port = process.env.NEXT_PUBLIC_API_KEY;
   const apiUrl = `${port}/api/Jobs/singleJob/${id}`;
 
   useEffect(() => {

@@ -4,12 +4,11 @@ import { loadStripe } from "@stripe/stripe-js";
 import Banner from "../Components/Partials/Banner/banner";
 import axios from "axios";
 
-// Initialize Stripe with your publishable key
 const stripePromise = loadStripe(process.env.NEXT_PUBLIC_STRIPE_KEY || " ");
 
 const Page = () => {
   const [data, setData] = useState([]);
-  const port = process.env.BASE_PORT || "http://localhost:3000";
+  const port = process.env.NEXT_PUBLIC_API_KEY;
 
   useEffect(() => {
     const fetchData = async () => {
@@ -26,7 +25,7 @@ const Page = () => {
   }, [port]);
 
   const purchaseSubscription = async (subscriptionId: any) => {
-    const token = localStorage.getItem("Token"); // Retrieve token from localStorage
+    const token = localStorage.getItem("Token");
 
     if (!token) {
       console.error("No token found");
@@ -38,7 +37,7 @@ const Page = () => {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
-          Authorization: `Bearer ${token}`, // Include the token in the Authorization header
+          Authorization: `Bearer ${token}`, 
         },
         body: JSON.stringify({ subscriptionId }),
       });
@@ -50,7 +49,6 @@ const Page = () => {
       const data = await response.json();
       console.log("Subscription purchased successfully:", data);
 
-      // Optional: Redirect to payment confirmation page
       const stripe: any = await stripePromise;
       await stripe.redirectToCheckout({ sessionId: data.sessionId });
     } catch (error) {

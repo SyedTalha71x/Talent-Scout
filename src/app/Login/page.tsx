@@ -8,14 +8,13 @@ import { useRouter } from 'next/navigation';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import Image from 'next/image';
-import { signIn } from 'next-auth/react'; // Import signIn from next-auth/react
+import { signIn } from 'next-auth/react'; 
 
 const Page = () => {
     const [error, setError] = useState("");
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [loading, setLoading] = useState(false);
-    const router = useRouter();
 
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
@@ -26,7 +25,7 @@ const Page = () => {
         }
 
         setLoading(true);
-        toast.info("Processing login...", { autoClose: false }); // Show loading toast
+        toast.info("Processing login...", { autoClose: false }); 
 
         try {
             const response = await fetch('/api/authentication/login', {
@@ -41,14 +40,14 @@ const Page = () => {
 
             if (response.ok) {
                 localStorage.setItem('Token', result.data.token);
-                toast.dismiss(); // Dismiss loading toast
+                toast.dismiss(); 
                 toast.success("Successfully signed in!");
                 window.location.reload();
             } else {
                 throw new Error(result.message || 'Failed to sign in');
             }
         } catch (error: any) {
-            toast.dismiss(); // Dismiss loading toast
+            toast.dismiss(); 
             console.error('Error:', error);
             toast.error(error.message || 'Failed to sign in');
             setError(error.message || 'Failed to sign in');

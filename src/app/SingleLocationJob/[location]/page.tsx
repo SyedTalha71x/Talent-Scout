@@ -17,7 +17,7 @@ import { XMarkIcon } from "@heroicons/react/24/outline";
 import { FunnelIcon, MinusIcon, PlusIcon } from "@heroicons/react/20/solid";
 import Image from "next/image";
 import filters from "@/utils/sampleJson/filters.json";
-import { useParams, useSearchParams } from "next/navigation";
+import { useParams } from "next/navigation";
 
 const itemsPerPage = 5;
 

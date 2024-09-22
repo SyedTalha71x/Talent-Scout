@@ -22,7 +22,6 @@ const JobTable: React.FC = () => {
   const [data, setData] = useState<JobType[]>([]);
   const [open, setOpen] = useState(false);
   const [jobIdToDelete, setJobIdToDelete] = useState<string | null>(null);
-  const Currency = "$";
 
   useEffect(() => {
     // Fetch job data from the API

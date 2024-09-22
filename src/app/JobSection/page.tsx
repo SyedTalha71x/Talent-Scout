@@ -13,7 +13,6 @@ import Image from 'next/image';
 const Page = () => {
     const [jobs, setjobs] = useState([])
     const controls = useAnimation();
-    const CreatedAt = new Date().getMinutes();
     const { ref, inView } = useInView({ triggerOnce: true, threshold: 0.1 });
 
     useEffect(() => {
@@ -29,7 +28,7 @@ const Page = () => {
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const response = await axios.get(`http://localhost:3000/api/Jobs/getJob`);
+                const response = await axios.get(`${process.env.NEXT_PUBLIC_API_KEY}/api/Jobs/getJob`);
                 console.log(response.data.jobs);
                 setjobs(response.data.jobs);
             }

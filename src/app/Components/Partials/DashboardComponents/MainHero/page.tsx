@@ -4,7 +4,6 @@ import TableOne from "../../DashboardPartials/TableOne/page";
 import JobTable from "../../DashboardPartials/JobTables/page";
 import SubscriptionTable from '../../DashboardPartials/SubscriptionTable/page'
 
-// Define the types for the colors and the icon component
 interface CardProps {
   color: "bg-gray-500" | "bg-orange-500" | "bg-blue-500" | "bg-slate-500";
   title: string;

@@ -13,7 +13,7 @@ import {
   Select,
 } from "antd";
 import { PlusOutlined } from "@ant-design/icons";
-import "react-quill/dist/quill.snow.css"; // Import styles if you use ReactQuill for rich text
+import "react-quill/dist/quill.snow.css"; 
 
 const { TextArea } = Input;
 const { Panel } = Collapse;
@@ -34,7 +34,7 @@ const AddSubscription = () => {
       const result = await response.json();
       if (response.ok) {
         message.success("Subscription added successfully!");
-        form.resetFields(); // Reset form fields after successful submission
+        form.resetFields();
       } else {
         message.error(result.message || "Failed to add the subscription");
         console.error("Error:", result);

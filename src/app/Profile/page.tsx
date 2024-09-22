@@ -5,7 +5,6 @@ export default function Profile() {
         <div className="min-h-screen  bg-gray-100 flex items-center justify-center pb-10">
             <div className="grid mt-10 grid-cols-1 md:grid-cols-3 gap-6 w-[90%] mx-auto ">
 
-                {/* Profile Card */}
                 <div className="bg-white p-6 rounded-lg flex justify-center items-center flex-col shadow-md text-center">
                     <Image
                         src="https://images.pexels.com/photos/1043474/pexels-photo-1043474.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"

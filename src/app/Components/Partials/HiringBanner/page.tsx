@@ -54,13 +54,13 @@ const HiringBanner: React.FC = () => {
       className="lg:w-[85%] md:w-[90%] sm:w-full w-full mx-auto lg:mt-[10%] md:mt-[10%] sm:mt-[10%] mt-[15%] px-5 lg:flex lg:justify-between lg:items-center lg:flex-row md:flex md:justify-center md:items-center md:flex-col sm:flex sm:justify-center sm:items-center sm:flex-col flex justify-center items-center flex-col"
     >
       <div className="relative">
-        <Image
-          height={1000}
-          width={1000}
-          src="https://jobbox-nextjs-v3.vercel.app/assets/imgs/page/homepage1/img1.png"
-          alt="Team"
-          className="rounded-[40px] object-cover"
-        />
+      <Image
+    height={500} 
+    width={500}  
+    src="https://jobbox-nextjs-v3.vercel.app/assets/imgs/page/homepage1/img1.png"
+    alt="Team"
+    className="rounded-[40px] object-cover w-full h-auto" 
+  />
       </div>
 
       <div className="w-full lg:w-1/2 text-center lg:text-left">

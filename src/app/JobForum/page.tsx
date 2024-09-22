@@ -28,7 +28,6 @@ const Page = () => {
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    // Fetch jobs data from the API
     const fetchJobs = async () => {
       try {
         const response = await axios.get("/api/Jobs/getJob");

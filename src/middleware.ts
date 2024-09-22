@@ -23,12 +23,10 @@ export async function middleware(request: NextRequest) {
       requestHeaders.set('X-User-Email', payload.email);
     }
 
-    // Create a new request with modified headers
     const newRequest = new NextRequest(request, {
       headers: requestHeaders,
     });
 
-    // Return the new request
     return NextResponse.next({
       request: newRequest,
     });

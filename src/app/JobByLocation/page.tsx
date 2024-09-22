@@ -21,7 +21,6 @@ const JobLocations = () => {
   useEffect(() => {
     const fetchLocations = async () => {
       try {
-        // Assuming API endpoint is `/api/Jobs/locations`
         const response = await fetch('/api/Jobs/getJob');
         if (!response.ok) {
           throw new Error('Failed to fetch job locations');
@@ -43,7 +42,6 @@ const JobLocations = () => {
     visible: { opacity: 1, scale: 1, transition: { duration: 1 } },
   };
 
-  // Hardcoded image URLs
   const imageUrls: Record<string, string> = {
     "Paris, France": "https://jobbox-nextjs-v3.vercel.app/assets/imgs/page/homepage1/location1.png",
     "London, England": "https://jobbox-nextjs-v3.vercel.app/assets/imgs/page/homepage1/location2.png",

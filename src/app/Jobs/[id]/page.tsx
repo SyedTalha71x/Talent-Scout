@@ -112,10 +112,6 @@ const CompanyDescription: React.FC<CompanyDescriptionProps> = ({
   briefDescription,
 
 }) => {
-  const [modalVisible, setModalVisible] = useState(false);
-
-  const handleOpenModal = () => setModalVisible(true);
-  const handleCloseModal = () => setModalVisible(false);
 
   const styleHtmlContent = (html: string): string => {
     // Basic styling for headings, paragraphs, and lists
@@ -174,7 +170,7 @@ const SimilarJobs: React.FC = () => {
   const [similarJobs, setSimilarJobs] = useState<SimilarJob[]>([]);
   const [loading, setLoading] = useState<boolean>(true);
   const [error, setError] = useState<string | null>(null);
-  const port = process.env.NEXT_PUBLIC_API_URL || "http://localhost:3000";
+  const port = process.env.NEXT_PUBLIC_API_KEY;
   const { id } = useParams();
   const router = useRouter();
 
@@ -183,7 +179,7 @@ const SimilarJobs: React.FC = () => {
   };
 
   useEffect(() => {
-    // Fetch similar jobs when component mounts
+
     async function fetchSimilarJobs() {
       try {
         const response = await axios.get(`${port}/api/Jobs/similarJobs/${id}`);
@@ -253,12 +249,11 @@ const SimilarJobs: React.FC = () => {
 
 const Page: React.FC = () => {
   const { id } = useParams();
-  const [data, setData] = useState<any | null>(null); // Updated to accept an object or null
+  const [data, setData] = useState<any | null>(null); 
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
-  const port = process.env.NEXT_PUBLIC_API_URL || "http://localhost:3000";
+  const port = process.env.NEXT_PUBLIC_API_KEY;
   const apiUrl = `${port}/api/Jobs/singleJob/${id}`;
-   const [modalVisible, setModalVisible] = useState(false);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -304,9 +299,6 @@ const Page: React.FC = () => {
   if (!data) {
     return <div>No job data available</div>;
   }
-
-   const handleOpenModal = () => setModalVisible(true);
-  const handleCloseModal = () => setModalVisible(false);
 
   return (
     <>

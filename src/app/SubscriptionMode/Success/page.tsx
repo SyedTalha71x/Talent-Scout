@@ -11,7 +11,6 @@ const SubscriptionSuccessPage = () => {
   const [sessionId, setSessionId] = useState("");
 
   useEffect(() => {
-    // Extract session ID from the search params
     const id = searchParams.get("session_id");
     setSessionId(id || "");
   }, [searchParams]);

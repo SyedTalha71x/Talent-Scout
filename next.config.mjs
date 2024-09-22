@@ -34,6 +34,14 @@ const nextConfig = {
             {
                 protocol: 'https',
                 hostname: 'cdn0.iconfinder.com'
+            },
+            {
+                protocol: 'https',
+                hostname: 'jobbox-nextjs-v3.vercel.app'
+            },
+            {
+                protocol: 'https',
+                hostname: 'substackcdn.com'
             }
         ]
     }
