@@ -1,4 +1,3 @@
-# Dockerfile
 FROM node:18-alpine
 
 WORKDIR /app
@@ -7,9 +6,9 @@ WORKDIR /app
 COPY package*.json ./
 
 # Install dependencies
-RUN npm install
+RUN npm install --production
 
-# Copy the rest of the application code and the .env file
+# Copy the rest of the application code
 COPY . ./
 
 # Build the Next.js application
