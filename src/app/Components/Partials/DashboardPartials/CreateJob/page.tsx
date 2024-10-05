@@ -1,11 +1,39 @@
 "use client";
-import React from 'react';
-import dynamic from 'next/dynamic';
-import { Form, Input, Button, Select, InputNumber, DatePicker, message, Row, Col, Collapse } from 'antd';
-import 'react-quill/dist/quill.snow.css';
+import React from "react";
+import dynamic from "next/dynamic";
+import {
+  Form,
+  Input,
+  Button,
+  Select,
+  InputNumber,
+  DatePicker,
+  message,
+  Row,
+  Col,
+  Collapse,
+} from "antd";
+import type { ReactQuillProps } from 'react-quill';
 
-// Dynamically import ReactQuill only on the client side
-const ReactQuill = dynamic(() => import('react-quill'), { ssr: false });
+const QuillNoSSRWrapper = dynamic<ReactQuillProps>(
+  async () => {
+    const { default: RQ } = await import("react-quill");
+    return function comp(props: ReactQuillProps) {
+      return <RQ {...props} />;
+    };
+  },
+  {
+    ssr: false,
+    loading: () => <p>Loading editor...</p>,
+  }
+);
+
+const QuillStyles = () => {
+  if (typeof window !== "undefined") {
+    require("react-quill/dist/quill.snow.css");
+  }
+  return null;
+};
 
 const { TextArea } = Input;
 const { Panel } = Collapse;
@@ -15,45 +43,49 @@ const AddJob = () => {
 
   const onFinish = async (values: any) => {
     try {
-      const response = await fetch('/api/Jobs/postJob', {
-        method: 'POST',
+      const response = await fetch("/api/Jobs/postJob", {
+        method: "POST",
         headers: {
-          'Content-Type': 'application/json',
+          "Content-Type": "application/json",
         },
         body: JSON.stringify(values),
       });
 
       const result = await response.json();
       if (response.ok) {
-        message.success('Job posted successfully!');
-        console.log('Job posted:', result);
+        message.success("Job posted successfully!");
+        console.log("Job posted:", result);
       } else {
-        message.error(result.message || 'Failed to post the job');
-        console.error('Error:', result);
+        message.error(result.message || "Failed to post the job");
+        console.error("Error:", result);
       }
     } catch (error) {
-      message.error('An error occurred while posting the job');
-      console.error('Error:', error);
+      message.error("An error occurred while posting the job");
+      console.error("Error:", error);
     }
   };
 
   return (
     <div className="add-job-section">
-      <h2 className='text-gray-800 text-2xl font-extrabold'>Create a Job</h2>
-      <Collapse defaultActiveKey={['1']} accordion className='mt-4'>
+      <QuillStyles />
+      <h2 className="text-gray-800 text-2xl font-extrabold">Create a Job</h2>
+      <Collapse defaultActiveKey={["1"]} accordion className="mt-4">
         <Panel header="Create Job Details" key="1">
           <Form
             layout="vertical"
             onFinish={onFinish}
             form={form}
-            initialValues={{ isRemote: 'Onsite' }}
+            initialValues={{ isRemote: "Onsite" }}
           >
             <Row gutter={16}>
               <Col xs={24} sm={24} md={12} lg={8}>
                 <Form.Item
                   name="title"
                   label="Job Title"
-                  rules={[{ required: true, message: 'Please enter the job title' }]}>
+                  rules={[
+                    { required: true, message: "Please enter the job title" },
+                  ]}
+                >
                   <Input placeholder="Job Title" />
                 </Form.Item>
               </Col>
@@ -62,7 +94,13 @@ const AddJob = () => {
                 <Form.Item
                   name="company"
                   label="Company Name"
-                  rules={[{ required: true, message: 'Please enter the company name' }]}>
+                  rules={[
+                    {
+                      required: true,
+                      message: "Please enter the company name",
+                    },
+                  ]}
+                >
                   <Input placeholder="Company Name" />
                 </Form.Item>
               </Col>
@@ -71,7 +109,13 @@ const AddJob = () => {
                 <Form.Item
                   name="location"
                   label="Location"
-                  rules={[{ required: true, message: 'Please enter the job location' }]}>
+                  rules={[
+                    {
+                      required: true,
+                      message: "Please enter the job location",
+                    },
+                  ]}
+                >
                   <Input placeholder="Location" />
                 </Form.Item>
               </Col>
@@ -80,7 +124,10 @@ const AddJob = () => {
                 <Form.Item
                   name="jobType"
                   label="Job Type"
-                  rules={[{ required: true, message: 'Please select the job type' }]}>
+                  rules={[
+                    { required: true, message: "Please select the job type" },
+                  ]}
+                >
                   <Select placeholder="Select Job Type">
                     <Select.Option value="Full-time">Full-time</Select.Option>
                     <Select.Option value="Part-time">Part-time</Select.Option>
@@ -94,7 +141,13 @@ const AddJob = () => {
                 <Form.Item
                   name="experienceLevel"
                   label="Experience Level"
-                  rules={[{ required: true, message: 'Please select the experience level' }]}>
+                  rules={[
+                    {
+                      required: true,
+                      message: "Please select the experience level",
+                    },
+                  ]}
+                >
                   <Select placeholder="Select Experience Level">
                     <Select.Option value="Junior">Junior</Select.Option>
                     <Select.Option value="Mid">Mid</Select.Option>
@@ -107,31 +160,38 @@ const AddJob = () => {
                 <Form.Item
                   name="experience"
                   label="Experience (in years)"
-                  rules={[{ required: true, message: 'Please enter years of experience' }]}>
+                  rules={[
+                    {
+                      required: true,
+                      message: "Please enter years of experience",
+                    },
+                  ]}
+                >
                   <InputNumber placeholder="Years" min={0} />
                 </Form.Item>
               </Col>
 
               <Col xs={24} sm={24} md={12} lg={8}>
-                <Form.Item
-                  name="salary"
-                  label="Salary">
-                  <InputNumber placeholder="Salary" min={0} style={{ width: '100%' }} />
+                <Form.Item name="salary" label="Salary">
+                  <InputNumber
+                    placeholder="Salary"
+                    min={0}
+                    style={{ width: "100%" }}
+                  />
                 </Form.Item>
               </Col>
 
               <Col xs={24} sm={24} md={12} lg={8}>
                 <Form.Item
                   name="applicationDeadline"
-                  label="Application Deadline">
-                  <DatePicker style={{ width: '100%' }} />
+                  label="Application Deadline"
+                >
+                  <DatePicker style={{ width: "100%" }} />
                 </Form.Item>
               </Col>
 
               <Col xs={24} sm={24} md={12} lg={8}>
-                <Form.Item
-                  name="isRemote"
-                  label="Remote">
+                <Form.Item name="isRemote" label="Remote">
                   <Select placeholder="Select Remote Option">
                     <Select.Option value="Remote">Remote</Select.Option>
                     <Select.Option value="Onsite">Onsite</Select.Option>
@@ -141,17 +201,13 @@ const AddJob = () => {
               </Col>
 
               <Col xs={24} sm={24} md={12} lg={8}>
-                <Form.Item
-                  name="image"
-                  label="Image URL">
+                <Form.Item name="image" label="Image URL">
                   <Input placeholder="Image URL" />
                 </Form.Item>
               </Col>
 
               <Col xs={24} sm={24} md={12} lg={8}>
-                <Form.Item
-                  name="industry"
-                  label="Industry">
+                <Form.Item name="industry" label="Industry">
                   <Input placeholder="Enter industry" />
                 </Form.Item>
               </Col>
@@ -160,16 +216,20 @@ const AddJob = () => {
                 <Form.Item
                   name="description"
                   label="Job Description"
-                  rules={[{ required: true, message: 'Please enter the job description' }]}>
+                  rules={[
+                    {
+                      required: true,
+                      message: "Please enter the job description",
+                    },
+                  ]}
+                >
                   <TextArea rows={4} placeholder="Enter full job description" />
                 </Form.Item>
               </Col>
 
               <Col xs={24}>
-                <Form.Item
-                  name="briefDescription"
-                  label="Brief Description">
-                  <ReactQuill placeholder="Enter a brief description" />
+                <Form.Item name="briefDescription" label="Brief Description">
+                  <QuillNoSSRWrapper placeholder="Enter a brief description" />
                 </Form.Item>
               </Col>
 
@@ -177,7 +237,13 @@ const AddJob = () => {
                 <Form.Item
                   name="skills"
                   label="Skills Required"
-                  rules={[{ required: true, message: 'Please enter the skills required' }]}>
+                  rules={[
+                    {
+                      required: true,
+                      message: "Please enter the skills required",
+                    },
+                  ]}
+                >
                   <Select mode="tags" placeholder="Enter required skills">
                     {/* Allow entering multiple skills */}
                   </Select>
@@ -186,7 +252,9 @@ const AddJob = () => {
 
               <Col xs={24}>
                 <Form.Item>
-                  <Button type="primary" htmlType="submit">Submit</Button>
+                  <Button type="primary" htmlType="submit">
+                    Submit
+                  </Button>
                 </Form.Item>
               </Col>
             </Row>

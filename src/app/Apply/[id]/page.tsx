@@ -3,15 +3,35 @@ import React, { useState, useEffect } from "react";
 import { Button, Form, Input, Upload, message } from "antd";
 import { UploadChangeParam, RcFile } from "antd/es/upload";
 import { UploadOutlined } from "@ant-design/icons";
-import ReactQuill from "react-quill";
-import "react-quill/dist/quill.snow.css";
 import axios from "axios";
 import { useForm } from "antd/es/form/Form";
 import DOMPurify from "dompurify";
 import { useParams } from "next/navigation";
+import dynamic from "next/dynamic";
 import { PiBriefcaseLight } from "react-icons/pi";
 import { CiClock2 } from "react-icons/ci";
 import Image from "next/image";
+import { ReactQuillProps } from "react-quill";
+
+const QuillNoSSRWrapper = dynamic<ReactQuillProps>(
+  async () => {
+    const { default: RQ } = await import("react-quill");
+    return function comp(props: ReactQuillProps) {
+      return <RQ {...props} />;
+    };
+  },
+  {
+    ssr: false,
+    loading: () => <p>Loading editor...</p>,
+  }
+);
+
+const QuillStyles = () => {
+  if (typeof window !== "undefined") {
+    require("react-quill/dist/quill.snow.css");
+  }
+  return null;
+};
 
 const JobApplyForm: React.FC = () => {
   const [form] = useForm();
@@ -110,6 +130,7 @@ const JobApplyForm: React.FC = () => {
   return (
     <>
       <div>
+      <QuillStyles/>
         <div
           className="relative bg-cover bg-center"
           style={{ backgroundImage: "url('/bg-jobpost.jpg')" }}
@@ -218,7 +239,7 @@ const JobApplyForm: React.FC = () => {
             </div>
 
             <Form.Item label="Cover Letter" className="mt-4">
-              <ReactQuill
+              <QuillNoSSRWrapper
                 value={coverLetter}
                 onChange={(value) => setCoverLetter(DOMPurify.sanitize(value))}
                 className="border rounded-lg"
