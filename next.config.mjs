@@ -42,6 +42,10 @@ const nextConfig = {
             {
                 protocol: 'https',
                 hostname: 'substackcdn.com'
+            },
+            {
+                protocol: 'https',
+                hostname: 'via.placeholder.com'
             }
         ]
     }
