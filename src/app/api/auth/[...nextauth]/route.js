@@ -8,6 +8,7 @@ import { generateToken } from "@/utils/Security/security"
 const JWT_SECRET = process.env.JWT_SECRET;
 
 const authOptions = {
+    secret: process.env.SECRET,
     providers: [
         GoogleProvider({
             clientId: process.env.GOOGLE_CLIENT_ID ?? "",
