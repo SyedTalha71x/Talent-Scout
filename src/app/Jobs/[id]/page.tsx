@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 "use client";
 import React, { useEffect, useState } from "react";
 import { PiBriefcaseLight } from "react-icons/pi";
@@ -270,10 +271,11 @@ const Page: React.FC = () => {
         setIsLoading(false);
       }
     };
+  
     if (id) {
       fetchData();
     }
-  });
+  }, [id]);  // Dependency array
 
   const briefDescription = data?.briefDescription || "No description available";
 
