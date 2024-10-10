@@ -90,7 +90,7 @@ const Page = () => {
                             <span className="text-lg sm:text-xl md:text-xl lg:text-2xl font-bold text-gray-900">
                               ${(item.price / 100).toFixed(2)}
                             </span>
-                            <span className="text-sm sm:text-base md:text-sm lg:text-base">per month</span>
+                            <span className="text-sm sm:text-base md:text-sm lg:text-base ml-1"> per month</span>
                           </div>
                           <div className="text-sm sm:text-base md:text-sm lg:text-base">billed annually</div>
                         </div>

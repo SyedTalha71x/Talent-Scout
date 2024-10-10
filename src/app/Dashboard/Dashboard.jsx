@@ -11,7 +11,7 @@ export default function DashboardLayout({ children }) {
 
       <div className="flex-1 flex flex-col">
         <Navbar />
-        <div className="flex-1 p-4 overflow-y-auto">
+        <div className="flex-1 p-4 bg-slate-100 overflow-y-auto">
           {children}
         </div>
       </div>

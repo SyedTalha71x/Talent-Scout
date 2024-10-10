@@ -61,8 +61,12 @@ const Navbar = () => {
   };
 
   return (
-    <div className="bg-[#181f4a] flex justify-between items-center p-5 text-white">
-      <div>
+    <div className=" flex justify-end items-center border-b border-slate-700 p-5 text-white"
+    style={{backgroundImage: "url('https://demos.creative-tim.com/vision-ui-dashboard-react/static/media/body-background.9e7d96f6.png')",
+      backgroundPosition: 'top left',
+    }}
+    >
+      {/* <div>
         <div className="w-full">
           <Search
             placeholder="input search text"
@@ -72,7 +76,7 @@ const Navbar = () => {
             onSearch={onSearch}
           />
         </div>
-      </div>
+      </div> */}
       <div className="flex items-center">
         <div className="relative  mr-4 cursor-pointer " onClick={openModal}>
           <IoNotificationsOutline className="text-3xl" />

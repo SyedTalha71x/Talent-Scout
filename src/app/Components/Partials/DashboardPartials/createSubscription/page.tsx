@@ -47,7 +47,7 @@ const AddSubscription = () => {
 
   return (
     <div className="add-subscription-section">
-      <h2 className="text-gray-800 text-2xl font-extrabold">
+      <h2 className="text-gray-700 bg-slate-50 rounded-lg w-full p-3 text-2xl font-extrabold">
         Create a Subscription
       </h2>
       <Collapse defaultActiveKey={["1"]} accordion className="mt-4">

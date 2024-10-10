@@ -76,11 +76,14 @@ const Sidebar: React.FC = () => {
 
       {/* Sidebar */}
       <div
-        className={`fixed z-40 sm:z-50 top-0 left-0 h-screen bg-[#0f1846] text-white w-64 p-4 transform ${
+        className={`fixed z-40 sm:z-50 border-r border-slate-700  top-0 left-0 h-screen text-white w-64 p-4 transform ${
           isOpen ? "translate-x-0" : "-translate-x-full"
         } transition-transform duration-300 ease-in-out lg:translate-x-0 lg:static`}
+        style={{backgroundImage: "url('https://demos.creative-tim.com/vision-ui-dashboard-react/static/media/body-background.9e7d96f6.png')",
+          backgroundPosition: 'top left',
+        }}
       >
-        <div className="flex cursor-pointer justify-start gap-2 items-start">
+        <div className="flex cursor-pointer p-2 rounded-lg hover:bg-blue-950 transition-all duration-500 justify-start gap-2 items-start custom-shadow">
           <div>
             <Link href={"/Components/Partials/DashboardComponents/MainHero"}>
               <Image

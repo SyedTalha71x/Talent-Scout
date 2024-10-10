@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 "use client";
 import React, { useState, useEffect } from "react";
 import { Button, Form, Input, Upload, message } from "antd";
@@ -51,7 +52,7 @@ const JobApplyForm: React.FC = () => {
         setIsLoading(true);
         setError(null);
         const response = await axios.get(apiUrl);
-        setData(response.data.document); // Store the document object directly
+        setData(response.data.document);
         console.log("API Response:", response.data.document);
       } catch (error: any) {
         console.error("Error fetching job data:", error);
@@ -63,7 +64,7 @@ const JobApplyForm: React.FC = () => {
     if (id) {
       fetchData();
     }
-  });
+  }, [id]);
 
   if (isLoading) {
     return <div className="text-center py-10">Loading...</div>;

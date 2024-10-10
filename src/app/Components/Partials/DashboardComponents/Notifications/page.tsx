@@ -49,7 +49,7 @@ const NotificationList: React.FC = () => {
 
   return (
     <Dashboard>
-      <h3 className="text-2xl font-extrabold text-gray-800">Job Notifications Alert</h3>
+      <h3 className="text-2xl font-extrabold text-gray-700 bg-slate-50 rounded-lg w-full p-3">Job Notifications</h3>
 
       <div className=" p-4 rounded-lg shadow-md mt-4">
         {loading ? (
@@ -60,7 +60,7 @@ const NotificationList: React.FC = () => {
           <div className="">
                 {notifications.length > 0 ? (
                   notifications.map((item) => (
-                    <div key={item.id} className=" p-4 bg-slate-600 rounded-lg mt-3">
+                    <div key={item.id} className=" p-4 bg-slate-600 shadow-xl rounded-lg mt-3">
                       <h4 className="text-xl font-extrabold text-white">Job Application</h4>
                       <p className="text-white mt-1">{item.message}</p>
                       <div className="flex justify-end mt-4">
@@ -74,7 +74,7 @@ const NotificationList: React.FC = () => {
                     </div>
                   ))
                 ) : (
-                  <p className="text-center text-white p-4">
+                  <p className="text-center text-black p-4">
                     No notifications available.
                   </p>
                 )}

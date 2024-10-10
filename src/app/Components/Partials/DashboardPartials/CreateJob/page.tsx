@@ -68,7 +68,7 @@ const AddJob = () => {
   return (
     <div className="add-job-section">
       <QuillStyles />
-      <h2 className="text-gray-800 text-2xl font-extrabold">Create a Job</h2>
+      <h2 className="text-gray-700 bg-slate-50 rounded-lg w-full p-3 text-2xl font-extrabold">Create a Job</h2>
       <Collapse defaultActiveKey={["1"]} accordion className="mt-4">
         <Panel header="Create Job Details" key="1">
           <Form

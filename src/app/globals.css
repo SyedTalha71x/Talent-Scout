@@ -251,9 +251,6 @@ html:not([data-scroll="0"]) .ttty {
 .prose li {
   margin-bottom: 0.5rem;
 }
-/* 
-@media screen and (max-width: 650px) {
-  .hamburger-icon{
-    display: none;
-  }
-} */
+.custom-shadow{
+  box-shadow: 2px 2px 10px wheat;
+}
