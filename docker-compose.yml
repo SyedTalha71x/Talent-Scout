@@ -6,6 +6,6 @@ services:
       context: .
       dockerfile: Dockerfile
     ports:
-      - "3000:3000"  # Expose the Next.js app on port 3000
+      - "3000:3000"  # Expose port 3000 to the outside
     env_file:
-      - .env  # Reference the .env file for sensitive data like MongoDB URI
+      - .env  # Load environment variables if needed
