@@ -246,7 +246,7 @@ const JobApplyForm: React.FC = () => {
                 className="border rounded-lg"
               />
             </Form.Item>
-
+{/* 
             <Form.Item label="Resume" className="mt-4">
               <Upload
                 beforeUpload={(file) => {
@@ -266,7 +266,7 @@ const JobApplyForm: React.FC = () => {
               >
                 <Button icon={<UploadOutlined />}>Upload Resume</Button>
               </Upload>
-            </Form.Item>
+            </Form.Item> */}
 
             <Form.Item>
               <Button

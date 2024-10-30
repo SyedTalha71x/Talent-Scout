@@ -1,228 +1,330 @@
-import React from 'react'
-import Image from 'next/image'
+import React from "react";
+import Image from "next/image";
 
 const Page = () => {
-    return (
-        <section className="pt-16 pb-7 mt-20 -z-40 ">
-            <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-                <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 xl:gap-24 pb-14 border-b-2 border-gray-200">
-                    <div className="block w-full lg:max-w-full max-lg:mx-auto">
-                        <div className="flex flex-col gap-8 w-full lg:max-w-xs ">
-                            <h1 className='text-3xl text-gray-800 font-extrabold sm:text-center lg:text-left md:text-left text-center'>
-                                Talent Scout
-                            </h1>
-                            {/* <a href="https://pagedone.io/" className="py-1.5 max-[470px]:w-full max-[470px]:flex items-center justify-center">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="166" height="33" viewBox="0 0 166 33" fill="none">
-                                    <path
-                                        d="M47.7102 24.7231V7H55.0834C55.2569 7 55.48 7.00821 55.7526 7.02462C56.0252 7.03282 56.2772 7.05744 56.5085 7.09846C57.5412 7.25436 58.3921 7.59487 59.0613 8.12C59.7387 8.64513 60.2385 9.30974 60.5607 10.1138C60.8911 10.9097 61.0564 11.7959 61.0564 12.7723C61.0564 13.7405 60.8911 14.6267 60.5607 15.4308C60.2302 16.2267 59.7263 16.8872 59.0489 17.4123C58.3797 17.9374 57.5329 18.2779 56.5085 18.4338C56.2772 18.4667 56.0211 18.4913 55.7402 18.5077C55.4676 18.5241 55.2487 18.5323 55.0834 18.5323H50.6967V24.7231H47.7102ZM50.6967 15.7631H54.9595C55.1247 15.7631 55.3106 15.7549 55.5171 15.7385C55.7237 15.7221 55.9137 15.6892 56.0872 15.64C56.5829 15.5169 56.9711 15.2995 57.252 14.9877C57.5412 14.6759 57.7436 14.3231 57.8592 13.9292C57.9832 13.5354 58.0451 13.1497 58.0451 12.7723C58.0451 12.3949 57.9832 12.0092 57.8592 11.6154C57.7436 11.2133 57.5412 10.8564 57.252 10.5446C56.9711 10.2328 56.5829 10.0154 56.0872 9.89231C55.9137 9.84308 55.7237 9.81436 55.5171 9.80615C55.3106 9.78974 55.1247 9.78154 54.9595 9.78154H50.6967V15.7631Z"
-                                        fill="#111827" />
-                                    <path
-                                        d="M66.6947 25.0923C65.7281 25.0923 64.9103 24.9118 64.2411 24.5508C63.5719 24.1815 63.0639 23.6933 62.7169 23.0862C62.3782 22.479 62.2088 21.8103 62.2088 21.08C62.2088 20.44 62.3162 19.8656 62.531 19.3569C62.7458 18.84 63.0763 18.3969 63.5224 18.0277C63.9685 17.6503 64.5468 17.3426 65.2572 17.1046C65.7942 16.9323 66.4221 16.7764 67.1408 16.6369C67.8678 16.4974 68.6526 16.3703 69.4953 16.2554C70.3462 16.1323 71.2343 16.001 72.1596 15.8615L71.0939 16.4646C71.1021 15.5456 70.8956 14.8687 70.4743 14.4338C70.0529 13.999 69.3425 13.7815 68.3428 13.7815C67.7398 13.7815 67.1573 13.921 66.5956 14.2C66.0338 14.479 65.6414 14.959 65.4183 15.64L62.6921 14.7908C63.0226 13.6667 63.6504 12.7641 64.5757 12.0831C65.5092 11.4021 66.7649 11.0615 68.3428 11.0615C69.5325 11.0615 70.5775 11.2544 71.478 11.64C72.3868 12.0256 73.0601 12.6574 73.4979 13.5354C73.7375 14.0031 73.8821 14.4831 73.9316 14.9754C73.9812 15.4595 74.006 15.9887 74.006 16.5631V24.7231H71.3913V21.8431L71.825 22.3108C71.2219 23.2708 70.5156 23.9764 69.706 24.4277C68.9046 24.8708 67.9009 25.0923 66.6947 25.0923ZM67.2895 22.7292C67.967 22.7292 68.5452 22.6103 69.0244 22.3723C69.5036 22.1344 69.8836 21.8431 70.1645 21.4985C70.4536 21.1538 70.6477 20.8297 70.7469 20.5262C70.9038 20.1487 70.9906 19.7179 71.0071 19.2338C71.0319 18.7415 71.0443 18.3436 71.0443 18.04L71.9613 18.3108C71.0608 18.4503 70.2884 18.5733 69.644 18.68C68.9996 18.7867 68.4461 18.8892 67.9835 18.9877C67.5208 19.0779 67.1119 19.1805 66.7567 19.2954C66.4097 19.4185 66.1164 19.5621 65.8768 19.7262C65.6373 19.8903 65.4514 20.079 65.3192 20.2923C65.1953 20.5056 65.1333 20.7559 65.1333 21.0431C65.1333 21.3713 65.2159 21.6626 65.3812 21.9169C65.5464 22.1631 65.786 22.36 66.0999 22.5077C66.4221 22.6554 66.8186 22.7292 67.2895 22.7292Z"
-                                        fill="#111827" />
-                                    <path
-                                        d="M82.6103 31C81.8667 31 81.1521 30.8851 80.4664 30.6554C79.789 30.4256 79.1777 30.0933 78.6324 29.6585C78.0872 29.2318 77.6411 28.7149 77.2941 28.1077L80.0451 26.7538C80.3012 27.2379 80.6606 27.5949 81.1232 27.8246C81.5941 28.0626 82.0939 28.1815 82.6227 28.1815C83.2423 28.1815 83.7958 28.0708 84.2832 27.8492C84.7706 27.6359 85.1465 27.3159 85.4108 26.8892C85.6835 26.4708 85.8115 25.9456 85.795 25.3138V21.5354H86.1668V11.4308H88.7815V25.3631C88.7815 25.6995 88.7649 26.0195 88.7319 26.3231C88.7071 26.6349 88.6617 26.9385 88.5956 27.2338C88.3973 28.0954 88.0173 28.801 87.4555 29.3508C86.8938 29.9087 86.1957 30.3231 85.3613 30.5938C84.5351 30.8646 83.6181 31 82.6103 31ZM82.35 25.0923C81.1191 25.0923 80.0451 24.7846 79.1281 24.1692C78.2111 23.5538 77.5006 22.7169 76.9967 21.6585C76.4928 20.6 76.2408 19.4062 76.2408 18.0769C76.2408 16.7313 76.4928 15.5333 76.9967 14.4831C77.5089 13.4246 78.2318 12.5918 79.1653 11.9846C80.0988 11.3692 81.1976 11.0615 82.4616 11.0615C83.7338 11.0615 84.7995 11.3692 85.6587 11.9846C86.5261 12.5918 87.1829 13.4246 87.629 14.4831C88.0751 15.5415 88.2982 16.7395 88.2982 18.0769C88.2982 19.3979 88.0751 20.5918 87.629 21.6585C87.1829 22.7169 86.5179 23.5538 85.6339 24.1692C84.7499 24.7846 83.6553 25.0923 82.35 25.0923ZM82.8085 22.4338C83.6099 22.4338 84.2543 22.2533 84.7417 21.8923C85.2374 21.5231 85.5967 21.0103 85.8198 20.3538C86.0511 19.6974 86.1668 18.9385 86.1668 18.0769C86.1668 17.2072 86.0511 16.4482 85.8198 15.8C85.5967 15.1436 85.2456 14.6349 84.7665 14.2738C84.2873 13.9046 83.6677 13.72 82.9077 13.72C82.1063 13.72 81.4454 13.9169 80.925 14.3108C80.4045 14.6964 80.0203 15.2215 79.7725 15.8862C79.5247 16.5426 79.4007 17.2728 79.4007 18.0769C79.4007 18.8892 79.5205 19.6277 79.7601 20.2923C80.0079 20.9487 80.3838 21.4697 80.8878 21.8554C81.3917 22.241 82.032 22.4338 82.8085 22.4338Z"
-                                        fill="#111827" />
-                                    <path
-                                        d="M98.0931 25.0923C96.7382 25.0923 95.5486 24.801 94.5242 24.2185C93.4998 23.6359 92.6984 22.8277 92.1201 21.7938C91.5501 20.76 91.2651 19.5703 91.2651 18.2246C91.2651 16.7723 91.546 15.5128 92.1077 14.4462C92.6695 13.3713 93.4502 12.5385 94.4498 11.9477C95.4494 11.3569 96.606 11.0615 97.9196 11.0615C99.3075 11.0615 100.485 11.3856 101.451 12.0338C102.426 12.6738 103.149 13.5805 103.62 14.7538C104.091 15.9272 104.268 17.3097 104.153 18.9015H101.191V17.8185C101.183 16.3744 100.927 15.32 100.423 14.6554C99.9188 13.9908 99.1257 13.6585 98.0435 13.6585C96.8208 13.6585 95.9121 14.0359 95.3173 14.7908C94.7224 15.5374 94.425 16.6328 94.425 18.0769C94.425 19.4226 94.7224 20.4646 95.3173 21.2031C95.9121 21.9415 96.7795 22.3108 97.9196 22.3108C98.6548 22.3108 99.2868 22.1508 99.8155 21.8308C100.353 21.5026 100.766 21.0308 101.055 20.4154L104.004 21.3015C103.492 22.4995 102.699 23.4308 101.625 24.0954C100.559 24.76 99.3818 25.0923 98.0931 25.0923ZM93.4832 18.9015V16.6615H102.69V18.9015H93.4832Z"
-                                        fill="#111827" />
-                                    <path
-                                        d="M112.036 25.0923C110.805 25.0923 109.731 24.7846 108.814 24.1692C107.897 23.5538 107.186 22.7169 106.682 21.6585C106.178 20.6 105.926 19.4062 105.926 18.0769C105.926 16.7313 106.178 15.5333 106.682 14.4831C107.194 13.4246 107.917 12.5918 108.851 11.9846C109.784 11.3692 110.883 11.0615 112.147 11.0615C113.419 11.0615 114.485 11.3692 115.344 11.9846C116.212 12.5918 116.868 13.4246 117.315 14.4831C117.761 15.5415 117.984 16.7395 117.984 18.0769C117.984 19.3979 117.761 20.5918 117.315 21.6585C116.868 22.7169 116.203 23.5538 115.319 24.1692C114.435 24.7846 113.341 25.0923 112.036 25.0923ZM112.494 22.4338C113.295 22.4338 113.94 22.2533 114.427 21.8923C114.923 21.5231 115.282 21.0103 115.505 20.3538C115.737 19.6974 115.852 18.9385 115.852 18.0769C115.852 17.2072 115.737 16.4482 115.505 15.8C115.282 15.1436 114.931 14.6349 114.452 14.2738C113.973 13.9046 113.353 13.72 112.593 13.72C111.792 13.72 111.131 13.9169 110.611 14.3108C110.09 14.6964 109.706 15.2215 109.458 15.8862C109.21 16.5426 109.086 17.2728 109.086 18.0769C109.086 18.8892 109.206 19.6277 109.446 20.2923C109.693 20.9487 110.069 21.4697 110.573 21.8554C111.077 22.241 111.718 22.4338 112.494 22.4338ZM115.852 24.7231V15.3938H115.481V7H118.492V24.7231H115.852Z"
-                                        fill="#111827" />
-                                    <path
-                                        d="M127.629 25.0923C126.291 25.0923 125.122 24.7928 124.122 24.1938C123.123 23.5949 122.346 22.7703 121.793 21.72C121.247 20.6615 120.975 19.4472 120.975 18.0769C120.975 16.6821 121.256 15.4595 121.817 14.4092C122.379 13.359 123.16 12.5385 124.16 11.9477C125.159 11.3569 126.316 11.0615 127.629 11.0615C128.976 11.0615 130.149 11.361 131.149 11.96C132.148 12.559 132.925 13.3877 133.478 14.4462C134.032 15.4964 134.309 16.7067 134.309 18.0769C134.309 19.4554 134.028 20.6738 133.466 21.7323C132.912 22.7826 132.136 23.6072 131.136 24.2062C130.137 24.7969 128.968 25.0923 127.629 25.0923ZM127.629 22.3108C128.819 22.3108 129.703 21.9169 130.281 21.1292C130.86 20.3415 131.149 19.3241 131.149 18.0769C131.149 16.7887 130.855 15.7631 130.269 15C129.682 14.2287 128.802 13.8431 127.629 13.8431C126.828 13.8431 126.167 14.0236 125.647 14.3846C125.134 14.7374 124.754 15.2338 124.507 15.8738C124.259 16.5056 124.135 17.24 124.135 18.0769C124.135 19.3651 124.428 20.3949 125.015 21.1662C125.609 21.9292 126.481 22.3108 127.629 22.3108Z"
-                                        fill="#111827" />
-                                    <path
-                                        d="M146.048 24.7231V18.3231C146.048 17.9046 146.019 17.441 145.961 16.9323C145.903 16.4236 145.767 15.9354 145.552 15.4677C145.346 14.9918 145.032 14.6021 144.61 14.2985C144.197 13.9949 143.636 13.8431 142.925 13.8431C142.545 13.8431 142.169 13.9046 141.797 14.0277C141.426 14.1508 141.087 14.3641 140.781 14.6677C140.484 14.9631 140.244 15.3733 140.063 15.8985C139.881 16.4154 139.79 17.08 139.79 17.8923L138.018 17.1415C138.018 16.0092 138.237 14.9836 138.675 14.0646C139.121 13.1456 139.773 12.4154 140.633 11.8738C141.492 11.3241 142.549 11.0492 143.805 11.0492C144.796 11.0492 145.614 11.2133 146.259 11.5415C146.903 11.8697 147.415 12.2882 147.795 12.7969C148.175 13.3056 148.456 13.8472 148.638 14.4215C148.82 14.9959 148.935 15.5415 148.985 16.0585C149.043 16.5672 149.072 16.9815 149.072 17.3015V24.7231H146.048ZM136.766 24.7231V11.4308H139.431V15.5538H139.79V24.7231H136.766Z"
-                                        fill="#111827" />
-                                    <path
-                                        d="M157.924 25.0923C156.569 25.0923 155.38 24.801 154.355 24.2185C153.331 23.6359 152.529 22.8277 151.951 21.7938C151.381 20.76 151.096 19.5703 151.096 18.2246C151.096 16.7723 151.377 15.5128 151.939 14.4462C152.5 13.3713 153.281 12.5385 154.281 11.9477C155.28 11.3569 156.437 11.0615 157.751 11.0615C159.138 11.0615 160.316 11.3856 161.282 12.0338C162.257 12.6738 162.98 13.5805 163.451 14.7538C163.922 15.9272 164.099 17.3097 163.984 18.9015H161.022V17.8185C161.014 16.3744 160.758 15.32 160.254 14.6554C159.75 13.9908 158.957 13.6585 157.874 13.6585C156.652 13.6585 155.743 14.0359 155.148 14.7908C154.553 15.5374 154.256 16.6328 154.256 18.0769C154.256 19.4226 154.553 20.4646 155.148 21.2031C155.743 21.9415 156.61 22.3108 157.751 22.3108C158.486 22.3108 159.118 22.1508 159.647 21.8308C160.183 21.5026 160.597 21.0308 160.886 20.4154L163.835 21.3015C163.323 22.4995 162.53 23.4308 161.456 24.0954C160.39 24.76 159.213 25.0923 157.924 25.0923ZM153.314 18.9015V16.6615H162.521V18.9015H153.314Z"
-                                        fill="#111827" />
-                                    <path
-                                        d="M25.3903 11.8941C26.0298 12.5063 26.046 13.5149 25.4265 14.1468L19.6358 20.054C19.0163 20.686 17.9958 20.702 17.3563 20.0898C16.7168 19.4776 16.7006 18.469 17.3201 17.8371L23.1108 11.9299C23.7302 11.2979 24.7508 11.2819 25.3903 11.8941Z"
-                                        fill="url(#paint0_linear_551_380)" />
-                                    <path fill-rule="evenodd" clip-rule="evenodd"
-                                        d="M0.988281 4.54673C0.988281 2.03564 3.04813 0 5.58908 0H22.4007V0.00124069C29.8076 0.0998525 35.7812 6.06429 35.7812 13.4075C35.7812 20.8123 29.707 26.8151 22.2142 26.8151C19.5426 26.8151 17.0513 26.0519 14.9515 24.7342L7.53745 31.9057C5.09813 34.2652 0.988281 32.5573 0.988281 29.1841V4.54673ZM12.4395 22.7055C10.0912 20.295 8.64721 17.0179 8.64721 13.4075C8.64721 12.5277 9.36896 11.8144 10.2593 11.8144C11.1496 11.8144 11.8714 12.5277 11.8714 13.4075C11.8714 19.0526 16.502 23.6288 22.2142 23.6288C27.9264 23.6288 32.557 19.0526 32.557 13.4075C32.557 7.76248 27.9264 3.18626 22.2142 3.18626H5.58908C4.82878 3.18626 4.21243 3.79536 4.21243 4.54673V29.1841C4.21243 29.7351 4.88376 30.014 5.28221 29.6286L12.4395 22.7055Z"
-                                        fill="url(#paint1_linear_551_380)" />
-                                    <defs>
-                                        <linearGradient id="paint0_linear_551_380" x1="35.7812" y1="1.89063" x2="1.90754" y2="33.2568"
-                                            gradientUnits="userSpaceOnUse">
-                                            <stop stop-color="#7C3AED" />
-                                            <stop offset="0.993738" stop-color="#4F46E5" />
-                                        </linearGradient>
-                                        <linearGradient id="paint1_linear_551_380" x1="35.7812" y1="1.89063" x2="1.90754" y2="33.2568"
-                                            gradientUnits="userSpaceOnUse">
-                                            <stop stop-color="#7C3AED" />
-                                            <stop offset="0.993738" stop-color="#4F46E5" />
-                                        </linearGradient>
-                                    </defs>
-                                </svg>
-                            </a> */}
-                            <p className="text-base font-normal text-gray-600 max-[470px]:text-center">
-                                Trusted in more than 100 countries & 5 million customers. Follow us on social media.
-                            </p>
-                            <div className="flex flex-col min-[470px]:flex-row max-[470px]:gap-4 items-center max-[470px]:justify-center">
-                                <div className="flex items-center">
-                                    <Image height={1000} width={1000} src="https://pagedone.io/asset/uploads/1711781221.png" alt="" className="relative -translate-x-2 " />
-                                    <Image height={1000} width={1000} src="https://pagedone.io/asset/uploads/1711781231.png" alt="" className="relative -translate-x-2 " />
-                                    <Image height={1000} width={1000} src="https://pagedone.io/asset/uploads/1711781245.png" alt="" className="relative -translate-x-4 " />
-                                </div>
-                                <p className="text-gray-500 text-base font-normal"><span className="text-gray-900 font-medium">1K </span>Members
-                                    Join</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div
-                        className="w-full mx-auto flex flex-col min-[470px]:flex-row max-[470px]:items-center min-[470px]:justify-between gap-6 sm:gap-10 xl:gap-24">
-                        <div className="">
-                            <h6 className="text-lg font-medium text-gray-900 mb-7 max-[470px]:text-center">Resources</h6>
-                            <ul className="flex flex-col max-[470px]:items-center gap-6">
-                                <li><a href="javascript:;"
-                                    className="text-base font-normal max-lg:text-center text-gray-600 whitespace-nowrap transition-all duration-300 hover:text-indigo-600 focus-within:outline-0 focus-within:text-indigo-600">Home</a>
-                                </li>
-                                <li><a href="javascript:;"
-                                    className="text-base font-normal max-lg:text-center text-gray-600 whitespace-nowrap transition-all duration-300 hover:text-indigo-600 focus-within:outline-0 focus-within:text-indigo-600">About</a>
-                                </li>
-                                <li><a href="javascript:;"
-                                    className="text-base font-normal max-lg:text-center text-gray-600 whitespace-nowrap transition-all duration-300 hover:text-indigo-600 focus-within:outline-0 focus-within:text-indigo-600">Pricing</a>
-                                </li>
-                                <li><a href="javascript:;"
-                                    className="text-base font-normal max-lg:text-center text-gray-600 whitespace-nowrap transition-all duration-300 hover:text-indigo-600 focus-within:outline-0 focus-within:text-indigo-600">Pro
-                                    Version</a></li>
-                            </ul>
-                        </div>
-                        <div className="">
-                            <h6 className="text-lg font-medium text-gray-900 max-[470px]:text-center mb-7">Community</h6>
-                            <ul className="flex flex-col max-[470px]:items-center gap-6">
-                                <li><a href="javascript:;"
-                                    className="text-base font-normal max-lg:text-center text-gray-600 whitespace-nowrap transition-all duration-300 hover:text-indigo-600 focus-within:outline-0 focus-within:text-indigo-600">Figma
-                                    UI System</a></li>
-                                <li><a href="javascript:;"
-                                    className="text-base font-normal max-lg:text-center text-gray-600 whitespace-nowrap transition-all duration-300 hover:text-indigo-600 focus-within:outline-0 focus-within:text-indigo-600">Icons
-                                    Assets</a></li>
-                                <li><a href="javascript:;"
-                                    className="text-base font-normal max-lg:text-center text-gray-600 whitespace-nowrap transition-all duration-300 hover:text-indigo-600 focus-within:outline-0 focus-within:text-indigo-600">Responsive
-                                    Blocks</a></li>
-                                <li><a href="javascript:;"
-                                    className="text-base font-normal max-lg:text-center text-gray-600 whitespace-nowrap transition-all duration-300 hover:text-indigo-600 focus-within:outline-0 focus-within:text-indigo-600">Components
-                                    Library</a></li>
-                            </ul>
-                        </div>
-                        <div className="">
-                            <h6 className="text-lg font-medium text-gray-900 max-[470px]:text-center mb-7">More</h6>
-                            <ul className="flex flex-col max-[470px]:items-center gap-6">
-                                <li><a href="javascript:;"
-                                    className="text-base font-normal max-lg:text-center text-gray-600 whitespace-nowrap transition-all duration-300 hover:text-indigo-600 focus-within:outline-0 focus-within:text-indigo-600">FAQs</a>
-                                </li>
-                                <li><a href="javascript:;"
-                                    className="text-base font-normal max-lg:text-center text-gray-600 whitespace-nowrap transition-all duration-300 hover:text-indigo-600 focus-within:outline-0 focus-within:text-indigo-600">Quick
-                                    Start</a></li>
-                                <li><a href="javascript:;"
-                                    className="text-base font-normal max-lg:text-center text-gray-600 whitespace-nowrap transition-all duration-300 hover:text-indigo-600 focus-within:outline-0 focus-within:text-indigo-600">Documentation</a>
-                                </li>
-                                <li><a href="javascript:;"
-                                    className="text-base font-normal max-lg:text-center text-gray-600 whitespace-nowrap transition-all duration-300 hover:text-indigo-600 focus-within:outline-0 focus-within:text-indigo-600">User
-                                    Guide</a></li>
-                            </ul>
-                        </div>
-                    </div>
+  return (
+    <section className="pt-16 pb-7 mt-20 -z-40 ">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 xl:gap-24 pb-14 border-b-2 border-gray-200">
+          <div className="block w-full lg:max-w-full max-lg:mx-auto">
+            <div className="flex flex-col gap-8 w-full lg:max-w-xs ">
+              <h1 className="text-3xl text-gray-800 font-extrabold sm:text-center lg:text-left md:text-left text-center">
+                Talent Scout
+              </h1>
+              <p className="text-base font-normal text-gray-600 max-[470px]:text-center">
+                Trusted in more than 100 countries & 5 million customers. Follow
+                us on social media.
+              </p>
+              <div className="flex flex-col min-[470px]:flex-row max-[470px]:gap-4 items-center max-[470px]:justify-center">
+                <div className="flex items-center">
+                  <Image
+                    height={1000}
+                    width={1000}
+                    src="https://pagedone.io/asset/uploads/1711781221.png"
+                    alt=""
+                    className="relative -translate-x-2 "
+                  />
+                  <Image
+                    height={1000}
+                    width={1000}
+                    src="https://pagedone.io/asset/uploads/1711781231.png"
+                    alt=""
+                    className="relative -translate-x-2 "
+                  />
+                  <Image
+                    height={1000}
+                    width={1000}
+                    src="https://pagedone.io/asset/uploads/1711781245.png"
+                    alt=""
+                    className="relative -translate-x-4 "
+                  />
                 </div>
-                <div className="flex flex-col-reverse gap-5 md:flex-row items-center first-letter:items-center justify-between pt-7">
-                    <p className="font-normal text-sm text-gray-500">©<a href="https://pagedone.io/">TalentScout</a>2024, All rights reserved.</p>
-                    <div className="flex items-center gap-4">
-                        <button
-                            className="w-9 h-9 flex items-center relative border border-gray-300 overflow-hidden justify-center rounded-full bg-white shadow-sm shadow-gray-200 group transition-all duration-300 focus-within:outline-0">
-                            <svg className="fill-gray-900 relative z-10 transition-all duration-300 group-hover:fill-white group-focus-within:fill-white"
-                                xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 50 50" fill="none">
-                                <path
-                                    d="M29.3522 14.55C29.3522 18.4089 27.8124 22.1097 25.0717 24.8384C22.3309 27.5671 18.6136 29.1 14.7376 29.1C10.8616 29.1 7.14432 27.5671 4.40356 24.8384C1.66279 22.1097 0.123047 18.4089 0.123047 14.55C0.123047 10.6911 1.66279 6.99025 4.40356 4.2616C7.14432 1.53294 10.8616 0 14.7376 0C18.6136 0 22.3309 1.53294 25.0717 4.2616C27.8124 6.99025 29.3522 10.6911 29.3522 14.55Z"
-                                    fill=""></path>
-                                <path
-                                    d="M49.7196 35.445C49.7196 37.3564 49.3415 39.2491 48.6068 41.015C47.8721 42.7809 46.7952 44.3854 45.4376 45.737C44.0801 47.0885 42.4684 48.1606 40.6947 48.8921C38.921 49.6235 37.0199 50 35.1 50C31.2227 50 27.5041 48.4665 24.7624 45.737C22.0207 43.0074 20.4805 39.3052 20.4805 35.445C20.4805 31.5848 22.0207 27.8827 24.7624 25.1531C27.5041 22.4235 31.2227 20.89 35.1 20.89C37.0199 20.89 38.921 21.2665 40.6947 21.9979C42.4684 22.7294 44.0801 23.8015 45.4376 25.1531C46.7952 26.5046 47.8721 28.1092 48.6068 29.8751C49.3415 31.641 49.7196 33.5336 49.7196 35.445Z"
-                                    fill=""></path>
-                                <path opacity="0.05" fill-rule="evenodd" clip-rule="evenodd"
-                                    d="M0.176758 15.795C0.40376 18.5441 1.40597 21.1727 3.06724 23.3762C4.72852 25.5797 6.98086 27.2679 9.56328 28.2451C12.1457 29.2224 14.9525 29.4487 17.6584 28.8978C20.3643 28.347 22.8585 27.0415 24.8521 25.1327C26.8457 23.2239 28.257 20.7899 28.9225 18.1127C29.5879 15.4356 29.4804 12.6248 28.6122 10.0062C27.744 7.38765 26.1508 5.06839 24.0171 3.3172C21.8835 1.56601 19.2967 0.454576 16.5566 0.111694C12.8361 1.35488 9.43753 3.4061 6.60533 6.11786C3.77313 8.82962 1.57765 12.1346 0.176758 15.795Z"
-                                    fill=""></path>
-                                <path opacity="0.05" fill-rule="evenodd" clip-rule="evenodd"
-                                    d="M49.6811 34.4C49.4902 31.6174 48.5055 28.9476 46.8434 26.7064C45.1813 24.4652 42.9113 22.7464 40.302 21.7534C37.6928 20.7603 34.8534 20.5345 32.1197 21.1027C29.386 21.6708 26.8724 23.0092 24.8762 24.9594C22.88 26.9097 21.4848 29.3902 20.8555 32.1076C20.2263 34.825 20.3893 37.6656 21.3254 40.2933C22.2615 42.9211 23.9315 45.226 26.1377 46.9356C28.344 48.6451 30.9943 49.6877 33.7751 49.94C37.394 48.6528 40.6902 46.5967 43.4363 43.9135C46.1824 41.2303 48.313 37.9839 49.6811 34.3983V34.4Z"
-                                    fill=""></path>
-                                <path opacity="0.1" fill-rule="evenodd" clip-rule="evenodd"
-                                    d="M0.860352 19.1216C1.62798 21.4673 2.97863 23.5801 4.78599 25.2626C6.59336 26.9451 8.79838 28.1422 11.1948 28.742C13.5913 29.3418 16.1009 29.3246 18.4889 28.6922C20.877 28.0597 23.0654 26.8326 24.8496 25.1257C26.6337 23.4187 27.9554 21.2876 28.6908 18.9317C29.4263 16.5758 29.5516 14.072 29.0549 11.6546C28.5583 9.23718 27.456 6.98506 25.8511 5.10889C24.2462 3.23271 22.1911 1.79377 19.8781 0.926636C15.32 1.8752 11.1204 4.08384 7.75796 7.30082C4.3955 10.5178 2.00549 14.6137 0.860352 19.1216Z"
-                                    fill=""></path>
-                                <path opacity="0.1" fill-rule="evenodd" clip-rule="evenodd"
-                                    d="M49.0178 30.98C48.2615 28.6066 46.9097 26.466 45.0911 24.7619C43.2726 23.0578 41.0477 21.8469 38.6282 21.2444C36.2088 20.6419 33.6752 20.6678 31.2686 21.3198C28.8621 21.9717 26.6625 23.2279 24.8793 24.9689C23.0961 26.7098 21.7885 28.8777 21.081 31.266C20.3735 33.6544 20.2896 36.1839 20.8374 38.6138C21.3851 41.0437 22.5462 43.2932 24.2101 45.1483C25.8741 47.0033 27.9856 48.4021 30.3437 49.2117C34.8435 48.203 38.9734 45.9634 42.2714 42.7435C45.5694 39.5236 47.9054 35.4505 49.0178 30.98Z"
-                                    fill=""></path>
-                                <path opacity="0.1" fill-rule="evenodd" clip-rule="evenodd"
-                                    d="M1.39746 20.5016C2.34836 22.6419 3.80103 24.522 5.63274 25.9832C7.46445 27.4444 9.62136 28.4437 11.9212 28.8967C14.2211 29.3497 16.5963 29.243 18.8462 28.5857C21.0961 27.9284 23.1545 26.7397 24.8475 25.1203C26.5406 23.5008 27.8185 21.498 28.5733 19.2811C29.328 17.0643 29.5375 14.6985 29.184 12.3838C28.8304 10.069 27.9243 7.8733 26.5421 5.98211C25.1599 4.09093 23.3423 2.55987 21.2428 1.51831C16.3875 2.27323 11.881 4.49834 8.33208 7.89315C4.78311 11.288 2.36261 15.6889 1.39746 20.5016Z"
-                                    fill=""></path>
-                                <path opacity="0.1" fill-rule="evenodd" clip-rule="evenodd"
-                                    d="M48.4788 29.5717C47.5328 27.4066 46.0747 25.5033 44.2299 24.0253C42.385 22.5473 40.2086 21.5387 37.8874 21.0863C35.5663 20.6338 33.1699 20.7509 30.9041 21.4276C28.6383 22.1043 26.5708 23.3203 24.8792 24.9712C23.1877 26.622 21.9226 28.6584 21.1927 30.9054C20.4628 33.1524 20.2899 35.5427 20.6889 37.8712C21.0878 40.1996 22.0467 42.3965 23.4831 44.2731C24.9195 46.1497 26.7905 47.65 28.9354 48.645C33.7482 47.8281 38.1973 45.5648 41.6891 42.157C45.1809 38.7492 47.5494 34.3589 48.4788 29.5717Z"
-                                    fill=""></path>
-                                <path
-                                    d="M48.0711 25.1084C48.0711 28.1347 47.4724 31.1313 46.3092 33.9273C45.1459 36.7232 43.4409 39.2637 41.2914 41.4036C39.142 43.5436 36.5903 45.241 33.7819 46.3992C30.9735 47.5573 27.9635 48.1534 24.9238 48.1534C21.884 48.1534 18.874 47.5573 16.0656 46.3992C13.2573 45.241 10.7055 43.5436 8.55608 41.4036C6.40665 39.2637 4.70162 36.7232 3.53836 33.9273C2.37509 31.1313 1.77637 28.1347 1.77637 25.1084C1.77637 22.082 2.37509 19.0854 3.53836 16.2894C4.70162 13.4935 6.40665 10.953 8.55608 8.81308C10.7055 6.67315 13.2573 4.97567 16.0656 3.81755C18.874 2.65943 21.884 2.06335 24.9238 2.06335C27.9635 2.06335 30.9735 2.65943 33.7819 3.81755C36.5903 4.97567 39.142 6.67315 41.2914 8.81308C43.4409 10.953 45.1459 13.4935 46.3092 16.2894C47.4724 19.0854 48.0711 22.082 48.0711 25.1084Z"
-                                    fill=""></path>
-                                <path className="fill-white group-hover:fill-sky-500 group-focus-within:fill-sky-500" fill-rule="evenodd" clip-rule="evenodd"
-                                    d="M18.4151 24.3084C17.4797 23.6934 16.6991 22.8709 16.1343 21.905C15.5889 20.8846 15.3197 19.7396 15.3534 18.5834C15.3121 17.116 15.8134 15.6849 16.7616 14.5634C17.7471 13.4371 19.0136 12.5918 20.4324 12.1134C21.9754 11.5688 23.6012 11.2954 25.2377 11.305C26.3084 11.2949 27.378 11.3769 28.4346 11.55C29.1909 11.6667 29.9337 11.8582 30.6521 12.1217C31.3117 12.3447 31.9072 12.7245 32.3873 13.2284C32.7411 13.6429 32.9315 14.172 32.9229 14.7167C32.9355 14.9997 32.8922 15.2823 32.7954 15.5486C32.6987 15.8148 32.5504 16.0594 32.359 16.2684C32.1778 16.4609 31.958 16.6131 31.7139 16.7147C31.4697 16.8164 31.2068 16.8654 30.9424 16.8584C30.5786 16.8554 30.2196 16.7747 29.8895 16.6217C29.0761 16.258 28.2381 15.9517 27.3818 15.705C26.5935 15.4974 25.7809 15.3965 24.9657 15.405C23.9033 15.366 22.8522 15.6345 21.939 16.1784C21.5537 16.4122 21.2383 16.7452 21.0258 17.1425C20.8133 17.5397 20.7115 17.9867 20.731 18.4367C20.7254 19.0275 20.9505 19.5972 21.3584 20.025C21.8431 20.5276 22.416 20.9371 23.0486 21.2334C23.7572 21.5845 24.8139 22.05 26.2188 22.63C26.3744 22.6792 26.5261 22.74 26.6726 22.8117C28.0436 23.3534 29.3581 24.0283 30.597 24.8267C31.5755 25.464 32.4006 26.3098 33.013 27.3034C33.6161 28.3476 33.9181 29.5382 33.8857 30.7434C33.9363 32.2189 33.513 33.672 32.6776 34.89C31.827 36.0433 30.6503 36.9157 29.2989 37.395C27.6702 37.9763 25.9491 38.2564 24.2199 38.2217C21.8437 38.3048 19.4788 37.8578 17.2972 36.9134C16.7395 36.6653 16.2505 36.2855 15.8723 35.8067C15.5583 35.368 15.3955 34.8392 15.4085 34.3C15.3929 34.0157 15.4393 33.7313 15.5444 33.4666C15.6495 33.2018 15.8109 32.9631 16.0175 32.7667C16.4504 32.388 17.0125 32.1899 17.5875 32.2134C18.2282 32.2221 18.8576 32.3838 19.4229 32.685C20.1259 33.0361 20.6804 33.2995 21.0864 33.475C21.5501 33.6689 22.0304 33.8207 22.5214 33.9284C23.1268 34.061 23.7453 34.1248 24.3651 34.1184C25.4611 34.1965 26.5518 33.9061 27.4635 33.2934C27.8048 33.0266 28.0776 32.6825 28.2592 32.2895C28.4408 31.8964 28.5261 31.4659 28.508 31.0334C28.509 30.4201 28.275 29.8297 27.854 29.3834C27.2975 28.8095 26.6461 28.3359 25.9285 27.9834C25.0798 27.5367 23.8862 26.9923 22.3478 26.35C20.972 25.8024 19.6545 25.1184 18.4151 24.3084Z"
-                                    fill=""></path>
-                                <defs>
-                                    <linearGradient id="paint0_linear_7092_54073" x1="12.4584" y1="0.176667" x2="17.0069" y2="28.9249"
-                                        gradientUnits="userSpaceOnUse">
-                                        <stop offset="0.012" stop-color="#00B7F0"></stop>
-                                        <stop offset="0.339" stop-color="#009DE5"></stop>
-                                        <stop offset="0.755" stop-color="#0082D9"></stop>
-                                        <stop offset="1" stop-color="#0078D4"></stop>
-                                    </linearGradient>
-                                    <linearGradient id="paint1_linear_7092_54073" x1="22.446" y1="42.7417" x2="47.7384" y2="28.124"
-                                        gradientUnits="userSpaceOnUse">
-                                        <stop stop-color="#0078D4"></stop>
-                                        <stop offset="0.37" stop-color="#007AD5"></stop>
-                                        <stop offset="0.573" stop-color="#0082D9"></stop>
-                                        <stop offset="0.735" stop-color="#0090DF"></stop>
-                                        <stop offset="0.875" stop-color="#00A3E7"></stop>
-                                        <stop offset="1" stop-color="#00BCF2"></stop>
-                                    </linearGradient>
-                                    <linearGradient id="paint2_linear_7092_54073" x1="15.8904" y1="9.48169" x2="38.9459" y2="49.4589"
-                                        gradientUnits="userSpaceOnUse">
-                                        <stop stop-color="#00B7F0"></stop>
-                                        <stop offset="1" stop-color="#007CC1"></stop>
-                                    </linearGradient>
-                                </defs>
-                            </svg>
-                            <div
-                                className="absolute top-full left-0 w-full h-full rounded-full bg-sky-500 z-0 transition-all duration-500 group-hover:top-0 group-focus-within:top-0">
-                            </div>
-                        </button>
-
-                        <button
-                            className="w-9 h-9 flex items-center justify-center border border-gray-300 rounded-full relative overflow-hidden bg-white shadow-sm shadow-gray-200 group transition-all duration-300 focus-within:outline-0">
-                            <svg className="fill-black z-10 transition-all duration-300 group-hover:fill-white group-focus-within:fill-white"
-                                xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 72 72" fill="none">
-                                <path
-                                    d="M40.7568 32.1716L59.3704 11H54.9596L38.7974 29.383L25.8887 11H11L30.5205 38.7983L11 61H15.4111L32.4788 41.5869L46.1113 61H61L40.7557 32.1716H40.7568ZM34.7152 39.0433L32.7374 36.2752L17.0005 14.2492H23.7756L36.4755 32.0249L38.4533 34.7929L54.9617 57.8986H48.1865L34.7152 39.0443V39.0433Z"
-                                    fill=""></path>
-                            </svg>
-                            <div
-                                className="absolute top-full left-0 w-full h-full rounded-full bg-black z-0 transition-all duration-500 group-hover:top-0 group-focus-within:top-0">
-                            </div>
-                        </button>
-
-                        <button
-                            className="w-9 h-9 flex items-center justify-center border border-gray-300 relative overflow-hidden rounded-full bg-white shadow-sm shadow-gray-200 group transition-all duration-300 focus-within:outline-0">
-                            <svg className="relative z-10 fill-gray-900 transition-all duration-300 group-hover:fill-white group-focus-within:fill-white"
-                                xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 72 72" fill="none">
-                                <path
-                                    d="M46.4927 38.6403L47.7973 30.3588H39.7611V24.9759C39.7611 22.7114 40.883 20.4987 44.4706 20.4987H48.1756V13.4465C46.018 13.1028 43.8378 12.9168 41.6527 12.8901C35.0385 12.8901 30.7204 16.8626 30.7204 24.0442V30.3588H23.3887V38.6403H30.7204V58.671H39.7611V38.6403H46.4927Z"
-                                    fill=""></path>
-                            </svg>
-                            <div
-                                className="absolute top-full left-0 w-full h-full rounded-full bg-blue-500 z-0 transition-all duration-500 group-hover:top-0 group-focus-within:top-0">
-                            </div>
-                        </button>
-                    </div>
-                </div>
-
+                <p className="text-gray-500 text-base font-normal">
+                  <span className="text-gray-900 font-medium">1K </span>Members
+                  Join
+                </p>
+              </div>
             </div>
-        </section>
-    )
-}
+          </div>
+          <div className="w-full mx-auto flex flex-col min-[470px]:flex-row max-[470px]:items-center min-[470px]:justify-between gap-6 sm:gap-10 xl:gap-24">
+            <div className="">
+              <h6 className="text-lg font-medium text-gray-900 mb-7 max-[470px]:text-center">
+                Resources
+              </h6>
+              <ul className="flex flex-col max-[470px]:items-center gap-6">
+                <li>
+                  <a
+                    href="javascript:;"
+                    className="text-base font-normal max-lg:text-center text-gray-600 whitespace-nowrap transition-all duration-300 hover:text-indigo-600 focus-within:outline-0 focus-within:text-indigo-600"
+                  >
+                    Home
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="javascript:;"
+                    className="text-base font-normal max-lg:text-center text-gray-600 whitespace-nowrap transition-all duration-300 hover:text-indigo-600 focus-within:outline-0 focus-within:text-indigo-600"
+                  >
+                    About
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="javascript:;"
+                    className="text-base font-normal max-lg:text-center text-gray-600 whitespace-nowrap transition-all duration-300 hover:text-indigo-600 focus-within:outline-0 focus-within:text-indigo-600"
+                  >
+                    Pricing
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="javascript:;"
+                    className="text-base font-normal max-lg:text-center text-gray-600 whitespace-nowrap transition-all duration-300 hover:text-indigo-600 focus-within:outline-0 focus-within:text-indigo-600"
+                  >
+                    Pro Version
+                  </a>
+                </li>
+              </ul>
+            </div>
+            <div className="">
+              <h6 className="text-lg font-medium text-gray-900 max-[470px]:text-center mb-7">
+                Community
+              </h6>
+              <ul className="flex flex-col max-[470px]:items-center gap-6">
+                <li>
+                  <a
+                    href="javascript:;"
+                    className="text-base font-normal max-lg:text-center text-gray-600 whitespace-nowrap transition-all duration-300 hover:text-indigo-600 focus-within:outline-0 focus-within:text-indigo-600"
+                  >
+                    Figma UI System
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="javascript:;"
+                    className="text-base font-normal max-lg:text-center text-gray-600 whitespace-nowrap transition-all duration-300 hover:text-indigo-600 focus-within:outline-0 focus-within:text-indigo-600"
+                  >
+                    Icons Assets
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="javascript:;"
+                    className="text-base font-normal max-lg:text-center text-gray-600 whitespace-nowrap transition-all duration-300 hover:text-indigo-600 focus-within:outline-0 focus-within:text-indigo-600"
+                  >
+                    Responsive Blocks
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="javascript:;"
+                    className="text-base font-normal max-lg:text-center text-gray-600 whitespace-nowrap transition-all duration-300 hover:text-indigo-600 focus-within:outline-0 focus-within:text-indigo-600"
+                  >
+                    Components Library
+                  </a>
+                </li>
+              </ul>
+            </div>
+            <div className="">
+              <h6 className="text-lg font-medium text-gray-900 max-[470px]:text-center mb-7">
+                More
+              </h6>
+              <ul className="flex flex-col max-[470px]:items-center gap-6">
+                <li>
+                  <a
+                    href="javascript:;"
+                    className="text-base font-normal max-lg:text-center text-gray-600 whitespace-nowrap transition-all duration-300 hover:text-indigo-600 focus-within:outline-0 focus-within:text-indigo-600"
+                  >
+                    FAQs
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="javascript:;"
+                    className="text-base font-normal max-lg:text-center text-gray-600 whitespace-nowrap transition-all duration-300 hover:text-indigo-600 focus-within:outline-0 focus-within:text-indigo-600"
+                  >
+                    Quick Start
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="javascript:;"
+                    className="text-base font-normal max-lg:text-center text-gray-600 whitespace-nowrap transition-all duration-300 hover:text-indigo-600 focus-within:outline-0 focus-within:text-indigo-600"
+                  >
+                    Documentation
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="javascript:;"
+                    className="text-base font-normal max-lg:text-center text-gray-600 whitespace-nowrap transition-all duration-300 hover:text-indigo-600 focus-within:outline-0 focus-within:text-indigo-600"
+                  >
+                    User Guide
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div className="flex flex-col-reverse gap-5 md:flex-row items-center first-letter:items-center justify-between pt-7">
+          <p className="font-normal text-sm text-gray-500">
+            ©<a href="https://pagedone.io/">TalentScout</a>2024, All rights
+            reserved.
+          </p>
+          <div className="flex items-center gap-4">
+            <button className="w-9 h-9 flex items-center relative border border-gray-300 overflow-hidden justify-center rounded-full bg-white shadow-sm shadow-gray-200 group transition-all duration-300 focus-within:outline-0">
+              <svg
+                className="fill-gray-900 relative z-10 transition-all duration-300 group-hover:fill-white group-focus-within:fill-white"
+                xmlns="http://www.w3.org/2000/svg"
+                width="20"
+                height="20"
+                viewBox="0 0 50 50"
+                fill="none"
+              >
+                <path
+                  d="M29.3522 14.55C29.3522 18.4089 27.8124 22.1097 25.0717 24.8384C22.3309 27.5671 18.6136 29.1 14.7376 29.1C10.8616 29.1 7.14432 27.5671 4.40356 24.8384C1.66279 22.1097 0.123047 18.4089 0.123047 14.55C0.123047 10.6911 1.66279 6.99025 4.40356 4.2616C7.14432 1.53294 10.8616 0 14.7376 0C18.6136 0 22.3309 1.53294 25.0717 4.2616C27.8124 6.99025 29.3522 10.6911 29.3522 14.55Z"
+                  fill=""
+                ></path>
+                <path
+                  d="M49.7196 35.445C49.7196 37.3564 49.3415 39.2491 48.6068 41.015C47.8721 42.7809 46.7952 44.3854 45.4376 45.737C44.0801 47.0885 42.4684 48.1606 40.6947 48.8921C38.921 49.6235 37.0199 50 35.1 50C31.2227 50 27.5041 48.4665 24.7624 45.737C22.0207 43.0074 20.4805 39.3052 20.4805 35.445C20.4805 31.5848 22.0207 27.8827 24.7624 25.1531C27.5041 22.4235 31.2227 20.89 35.1 20.89C37.0199 20.89 38.921 21.2665 40.6947 21.9979C42.4684 22.7294 44.0801 23.8015 45.4376 25.1531C46.7952 26.5046 47.8721 28.1092 48.6068 29.8751C49.3415 31.641 49.7196 33.5336 49.7196 35.445Z"
+                  fill=""
+                ></path>
+                <path
+                  opacity="0.05"
+                  fill-rule="evenodd"
+                  clip-rule="evenodd"
+                  d="M0.176758 15.795C0.40376 18.5441 1.40597 21.1727 3.06724 23.3762C4.72852 25.5797 6.98086 27.2679 9.56328 28.2451C12.1457 29.2224 14.9525 29.4487 17.6584 28.8978C20.3643 28.347 22.8585 27.0415 24.8521 25.1327C26.8457 23.2239 28.257 20.7899 28.9225 18.1127C29.5879 15.4356 29.4804 12.6248 28.6122 10.0062C27.744 7.38765 26.1508 5.06839 24.0171 3.3172C21.8835 1.56601 19.2967 0.454576 16.5566 0.111694C12.8361 1.35488 9.43753 3.4061 6.60533 6.11786C3.77313 8.82962 1.57765 12.1346 0.176758 15.795Z"
+                  fill=""
+                ></path>
+                <path
+                  opacity="0.05"
+                  fill-rule="evenodd"
+                  clip-rule="evenodd"
+                  d="M49.6811 34.4C49.4902 31.6174 48.5055 28.9476 46.8434 26.7064C45.1813 24.4652 42.9113 22.7464 40.302 21.7534C37.6928 20.7603 34.8534 20.5345 32.1197 21.1027C29.386 21.6708 26.8724 23.0092 24.8762 24.9594C22.88 26.9097 21.4848 29.3902 20.8555 32.1076C20.2263 34.825 20.3893 37.6656 21.3254 40.2933C22.2615 42.9211 23.9315 45.226 26.1377 46.9356C28.344 48.6451 30.9943 49.6877 33.7751 49.94C37.394 48.6528 40.6902 46.5967 43.4363 43.9135C46.1824 41.2303 48.313 37.9839 49.6811 34.3983V34.4Z"
+                  fill=""
+                ></path>
+                <path
+                  opacity="0.1"
+                  fill-rule="evenodd"
+                  clip-rule="evenodd"
+                  d="M0.860352 19.1216C1.62798 21.4673 2.97863 23.5801 4.78599 25.2626C6.59336 26.9451 8.79838 28.1422 11.1948 28.742C13.5913 29.3418 16.1009 29.3246 18.4889 28.6922C20.877 28.0597 23.0654 26.8326 24.8496 25.1257C26.6337 23.4187 27.9554 21.2876 28.6908 18.9317C29.4263 16.5758 29.5516 14.072 29.0549 11.6546C28.5583 9.23718 27.456 6.98506 25.8511 5.10889C24.2462 3.23271 22.1911 1.79377 19.8781 0.926636C15.32 1.8752 11.1204 4.08384 7.75796 7.30082C4.3955 10.5178 2.00549 14.6137 0.860352 19.1216Z"
+                  fill=""
+                ></path>
+                <path
+                  opacity="0.1"
+                  fill-rule="evenodd"
+                  clip-rule="evenodd"
+                  d="M49.0178 30.98C48.2615 28.6066 46.9097 26.466 45.0911 24.7619C43.2726 23.0578 41.0477 21.8469 38.6282 21.2444C36.2088 20.6419 33.6752 20.6678 31.2686 21.3198C28.8621 21.9717 26.6625 23.2279 24.8793 24.9689C23.0961 26.7098 21.7885 28.8777 21.081 31.266C20.3735 33.6544 20.2896 36.1839 20.8374 38.6138C21.3851 41.0437 22.5462 43.2932 24.2101 45.1483C25.8741 47.0033 27.9856 48.4021 30.3437 49.2117C34.8435 48.203 38.9734 45.9634 42.2714 42.7435C45.5694 39.5236 47.9054 35.4505 49.0178 30.98Z"
+                  fill=""
+                ></path>
+                <path
+                  opacity="0.1"
+                  fill-rule="evenodd"
+                  clip-rule="evenodd"
+                  d="M1.39746 20.5016C2.34836 22.6419 3.80103 24.522 5.63274 25.9832C7.46445 27.4444 9.62136 28.4437 11.9212 28.8967C14.2211 29.3497 16.5963 29.243 18.8462 28.5857C21.0961 27.9284 23.1545 26.7397 24.8475 25.1203C26.5406 23.5008 27.8185 21.498 28.5733 19.2811C29.328 17.0643 29.5375 14.6985 29.184 12.3838C28.8304 10.069 27.9243 7.8733 26.5421 5.98211C25.1599 4.09093 23.3423 2.55987 21.2428 1.51831C16.3875 2.27323 11.881 4.49834 8.33208 7.89315C4.78311 11.288 2.36261 15.6889 1.39746 20.5016Z"
+                  fill=""
+                ></path>
+                <path
+                  opacity="0.1"
+                  fill-rule="evenodd"
+                  clip-rule="evenodd"
+                  d="M48.4788 29.5717C47.5328 27.4066 46.0747 25.5033 44.2299 24.0253C42.385 22.5473 40.2086 21.5387 37.8874 21.0863C35.5663 20.6338 33.1699 20.7509 30.9041 21.4276C28.6383 22.1043 26.5708 23.3203 24.8792 24.9712C23.1877 26.622 21.9226 28.6584 21.1927 30.9054C20.4628 33.1524 20.2899 35.5427 20.6889 37.8712C21.0878 40.1996 22.0467 42.3965 23.4831 44.2731C24.9195 46.1497 26.7905 47.65 28.9354 48.645C33.7482 47.8281 38.1973 45.5648 41.6891 42.157C45.1809 38.7492 47.5494 34.3589 48.4788 29.5717Z"
+                  fill=""
+                ></path>
+                <path
+                  d="M48.0711 25.1084C48.0711 28.1347 47.4724 31.1313 46.3092 33.9273C45.1459 36.7232 43.4409 39.2637 41.2914 41.4036C39.142 43.5436 36.5903 45.241 33.7819 46.3992C30.9735 47.5573 27.9635 48.1534 24.9238 48.1534C21.884 48.1534 18.874 47.5573 16.0656 46.3992C13.2573 45.241 10.7055 43.5436 8.55608 41.4036C6.40665 39.2637 4.70162 36.7232 3.53836 33.9273C2.37509 31.1313 1.77637 28.1347 1.77637 25.1084C1.77637 22.082 2.37509 19.0854 3.53836 16.2894C4.70162 13.4935 6.40665 10.953 8.55608 8.81308C10.7055 6.67315 13.2573 4.97567 16.0656 3.81755C18.874 2.65943 21.884 2.06335 24.9238 2.06335C27.9635 2.06335 30.9735 2.65943 33.7819 3.81755C36.5903 4.97567 39.142 6.67315 41.2914 8.81308C43.4409 10.953 45.1459 13.4935 46.3092 16.2894C47.4724 19.0854 48.0711 22.082 48.0711 25.1084Z"
+                  fill=""
+                ></path>
+                <path
+                  className="fill-white group-hover:fill-sky-500 group-focus-within:fill-sky-500"
+                  fill-rule="evenodd"
+                  clip-rule="evenodd"
+                  d="M18.4151 24.3084C17.4797 23.6934 16.6991 22.8709 16.1343 21.905C15.5889 20.8846 15.3197 19.7396 15.3534 18.5834C15.3121 17.116 15.8134 15.6849 16.7616 14.5634C17.7471 13.4371 19.0136 12.5918 20.4324 12.1134C21.9754 11.5688 23.6012 11.2954 25.2377 11.305C26.3084 11.2949 27.378 11.3769 28.4346 11.55C29.1909 11.6667 29.9337 11.8582 30.6521 12.1217C31.3117 12.3447 31.9072 12.7245 32.3873 13.2284C32.7411 13.6429 32.9315 14.172 32.9229 14.7167C32.9355 14.9997 32.8922 15.2823 32.7954 15.5486C32.6987 15.8148 32.5504 16.0594 32.359 16.2684C32.1778 16.4609 31.958 16.6131 31.7139 16.7147C31.4697 16.8164 31.2068 16.8654 30.9424 16.8584C30.5786 16.8554 30.2196 16.7747 29.8895 16.6217C29.0761 16.258 28.2381 15.9517 27.3818 15.705C26.5935 15.4974 25.7809 15.3965 24.9657 15.405C23.9033 15.366 22.8522 15.6345 21.939 16.1784C21.5537 16.4122 21.2383 16.7452 21.0258 17.1425C20.8133 17.5397 20.7115 17.9867 20.731 18.4367C20.7254 19.0275 20.9505 19.5972 21.3584 20.025C21.8431 20.5276 22.416 20.9371 23.0486 21.2334C23.7572 21.5845 24.8139 22.05 26.2188 22.63C26.3744 22.6792 26.5261 22.74 26.6726 22.8117C28.0436 23.3534 29.3581 24.0283 30.597 24.8267C31.5755 25.464 32.4006 26.3098 33.013 27.3034C33.6161 28.3476 33.9181 29.5382 33.8857 30.7434C33.9363 32.2189 33.513 33.672 32.6776 34.89C31.827 36.0433 30.6503 36.9157 29.2989 37.395C27.6702 37.9763 25.9491 38.2564 24.2199 38.2217C21.8437 38.3048 19.4788 37.8578 17.2972 36.9134C16.7395 36.6653 16.2505 36.2855 15.8723 35.8067C15.5583 35.368 15.3955 34.8392 15.4085 34.3C15.3929 34.0157 15.4393 33.7313 15.5444 33.4666C15.6495 33.2018 15.8109 32.9631 16.0175 32.7667C16.4504 32.388 17.0125 32.1899 17.5875 32.2134C18.2282 32.2221 18.8576 32.3838 19.4229 32.685C20.1259 33.0361 20.6804 33.2995 21.0864 33.475C21.5501 33.6689 22.0304 33.8207 22.5214 33.9284C23.1268 34.061 23.7453 34.1248 24.3651 34.1184C25.4611 34.1965 26.5518 33.9061 27.4635 33.2934C27.8048 33.0266 28.0776 32.6825 28.2592 32.2895C28.4408 31.8964 28.5261 31.4659 28.508 31.0334C28.509 30.4201 28.275 29.8297 27.854 29.3834C27.2975 28.8095 26.6461 28.3359 25.9285 27.9834C25.0798 27.5367 23.8862 26.9923 22.3478 26.35C20.972 25.8024 19.6545 25.1184 18.4151 24.3084Z"
+                  fill=""
+                ></path>
+                <defs>
+                  <linearGradient
+                    id="paint0_linear_7092_54073"
+                    x1="12.4584"
+                    y1="0.176667"
+                    x2="17.0069"
+                    y2="28.9249"
+                    gradientUnits="userSpaceOnUse"
+                  >
+                    <stop offset="0.012" stop-color="#00B7F0"></stop>
+                    <stop offset="0.339" stop-color="#009DE5"></stop>
+                    <stop offset="0.755" stop-color="#0082D9"></stop>
+                    <stop offset="1" stop-color="#0078D4"></stop>
+                  </linearGradient>
+                  <linearGradient
+                    id="paint1_linear_7092_54073"
+                    x1="22.446"
+                    y1="42.7417"
+                    x2="47.7384"
+                    y2="28.124"
+                    gradientUnits="userSpaceOnUse"
+                  >
+                    <stop stop-color="#0078D4"></stop>
+                    <stop offset="0.37" stop-color="#007AD5"></stop>
+                    <stop offset="0.573" stop-color="#0082D9"></stop>
+                    <stop offset="0.735" stop-color="#0090DF"></stop>
+                    <stop offset="0.875" stop-color="#00A3E7"></stop>
+                    <stop offset="1" stop-color="#00BCF2"></stop>
+                  </linearGradient>
+                  <linearGradient
+                    id="paint2_linear_7092_54073"
+                    x1="15.8904"
+                    y1="9.48169"
+                    x2="38.9459"
+                    y2="49.4589"
+                    gradientUnits="userSpaceOnUse"
+                  >
+                    <stop stop-color="#00B7F0"></stop>
+                    <stop offset="1" stop-color="#007CC1"></stop>
+                  </linearGradient>
+                </defs>
+              </svg>
+              <div className="absolute top-full left-0 w-full h-full rounded-full bg-sky-500 z-0 transition-all duration-500 group-hover:top-0 group-focus-within:top-0"></div>
+            </button>
 
-export default Page
+            <button className="w-9 h-9 flex items-center justify-center border border-gray-300 rounded-full relative overflow-hidden bg-white shadow-sm shadow-gray-200 group transition-all duration-300 focus-within:outline-0">
+              <svg
+                className="fill-black z-10 transition-all duration-300 group-hover:fill-white group-focus-within:fill-white"
+                xmlns="http://www.w3.org/2000/svg"
+                width="20"
+                height="20"
+                viewBox="0 0 72 72"
+                fill="none"
+              >
+                <path
+                  d="M40.7568 32.1716L59.3704 11H54.9596L38.7974 29.383L25.8887 11H11L30.5205 38.7983L11 61H15.4111L32.4788 41.5869L46.1113 61H61L40.7557 32.1716H40.7568ZM34.7152 39.0433L32.7374 36.2752L17.0005 14.2492H23.7756L36.4755 32.0249L38.4533 34.7929L54.9617 57.8986H48.1865L34.7152 39.0443V39.0433Z"
+                  fill=""
+                ></path>
+              </svg>
+              <div className="absolute top-full left-0 w-full h-full rounded-full bg-black z-0 transition-all duration-500 group-hover:top-0 group-focus-within:top-0"></div>
+            </button>
+
+            <button className="w-9 h-9 flex items-center justify-center border border-gray-300 relative overflow-hidden rounded-full bg-white shadow-sm shadow-gray-200 group transition-all duration-300 focus-within:outline-0">
+              <svg
+                className="relative z-10 fill-gray-900 transition-all duration-300 group-hover:fill-white group-focus-within:fill-white"
+                xmlns="http://www.w3.org/2000/svg"
+                width="20"
+                height="20"
+                viewBox="0 0 72 72"
+                fill="none"
+              >
+                <path
+                  d="M46.4927 38.6403L47.7973 30.3588H39.7611V24.9759C39.7611 22.7114 40.883 20.4987 44.4706 20.4987H48.1756V13.4465C46.018 13.1028 43.8378 12.9168 41.6527 12.8901C35.0385 12.8901 30.7204 16.8626 30.7204 24.0442V30.3588H23.3887V38.6403H30.7204V58.671H39.7611V38.6403H46.4927Z"
+                  fill=""
+                ></path>
+              </svg>
+              <div className="absolute top-full left-0 w-full h-full rounded-full bg-blue-500 z-0 transition-all duration-500 group-hover:top-0 group-focus-within:top-0"></div>
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+};
+
+export default Page;
