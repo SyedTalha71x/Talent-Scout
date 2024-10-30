@@ -1,5 +1,5 @@
-# Stage 1: Build the Next.js application
-FROM node:20 AS builder
+# Use Node.js 18 as the base image
+FROM node:18 AS builder
 WORKDIR /app
 
 # Copy package.json and package-lock.json and install dependencies
@@ -13,7 +13,7 @@ COPY . .
 RUN npm run build
 
 # Stage 2: Set up the production environment
-FROM node:16
+FROM node:18
 WORKDIR /app
 
 # Copy the build files from the builder stage
