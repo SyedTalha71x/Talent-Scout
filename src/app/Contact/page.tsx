@@ -81,7 +81,7 @@ const Page = () => {
             </form>
           </div>
 
-          <div className="z-10 relative lg:col-span-2">
+          <div className=" relative lg:col-span-2">
             <Image
             height={1000}
             width={1000}

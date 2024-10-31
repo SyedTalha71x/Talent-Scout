@@ -66,7 +66,7 @@ const TableComponent: React.FC = () => {
   return (
     <div className="bg-white p-6 rounded-lg shadow-md">
       <h1 className="text-xl text-gray-800 font-extrabold mb-3">Database Active Users</h1>
-      <Table columns={columns} dataSource={data} className="bg-white" />
+      <Table columns={columns} dataSource={data} className="bg-white"  scroll={{ x: "max-content" }} />
     </div>
   );
 };

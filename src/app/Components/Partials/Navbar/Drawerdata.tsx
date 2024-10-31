@@ -21,24 +21,55 @@ function classNames(...classes: string[]) {
 }
 
 const Data = () => {
-  const [isLoggedIn, setIsLoggedIn] = useState<boolean | null>(null); // Use null initially
-  const router = useRouter();
-  // const { data: session, status } = useSession();
+  const [isLoggedIn, setIsLoggedIn] = useState<boolean | null>(null);
+  const [data, setData] = useState<any>(null);
+  const [isAdmin, setIsAdmin] = useState(false);
+  const [isClient, setIsClient] = useState(false);
 
   useEffect(() => {
-    // Check authentication state on component mount or session status change
-    const token = localStorage.getItem("Token");
+    setIsClient(true);
 
+    const token = localStorage.getItem("Token");
     if (token) {
       setIsLoggedIn(true);
+      const fetchData = async () => {
+        try {
+          const response = await fetch("/api/Profile/showProfile", {
+            method: "GET",
+
+            headers: {
+              Authorization: `Bearer ${token}`,
+            },
+          });
+
+          const result = await response.json();
+          setData(result);
+          console.log("checking role -----------", result.role);
+
+          if (result.role !== "Admin") {
+            setIsAdmin(false);
+          } else {
+            setIsAdmin(true);
+          }
+        } catch (error) {
+          console.error("Error fetching data:", error);
+        }
+      };
+      fetchData();
     } else {
       setIsLoggedIn(false);
     }
   }, []);
 
+  if (!isClient) {
+    return null;
+  }
+
   const logout = () => {
     localStorage.removeItem("Token");
-    setIsLoggedIn(false); // Update state to reflect logout
+    setIsLoggedIn(false);
+    setData(null);
+    setIsAdmin(false);
     window.location.reload();
   };
 
@@ -47,25 +78,36 @@ const Data = () => {
       <div className="flex-1 space-y-4 py-1">
         <div className="sm:block">
           <div className="space-y-1 px-5 pt-2 pb-3">
-            <div className="mb-5">
-              <div className="flex items-center gap-2 ml-2 ">
-                <Link href={"/Profile"}>
-                  <Image
-                    height={600}
-                    width={600}
-                    className="w-10 h-10 rounded-full"
-                    src="https://images.pexels.com/photos/4069292/pexels-photo-4069292.jpeg?auto=compress&cs=tinysrgb&w=600"
-                    alt=""
-                  />
-                </Link>
-                <div className="font-medium ">
-                  <div>Talha Hussain</div>
-                  <div className="text-sm text-gray-500 dark:text-gray-400">
-                    Joined in August 2014
+            {isLoggedIn && data ? (
+              <div className="mb-5">
+                <div className="flex items-center gap-2 ml-2">
+                  <Link href={"/Profile"}>
+                    <Image
+                      height={600}
+                      width={600}
+                      className="w-10 h-10 rounded-full"
+                      src={
+                        data.profileUrl ||
+                        "https://images.pexels.com/photos/4069292/pexels-photo-4069292.jpeg?auto=compress&cs=tinysrgb&w=600"
+                      }
+                      alt={data.name || "Profile Picture"}
+                    />
+                  </Link>
+                  <div className="font-medium">
+                    <div>{data.name}</div>
+                    <div className="text-sm text-gray-500 dark:text-gray-400">
+                      Joined in {new Date(data.createdAt).toLocaleDateString()}
+                    </div>
                   </div>
                 </div>
               </div>
-            </div>
+            ) : (
+              <div className="text-center text-gray-500">
+                {isLoggedIn === false
+                  ? "Please log in to view your profile."
+                  : "Loading..."}
+              </div>
+            )}
             {navigation.map((item) => (
               <Link
                 key={item.name}
@@ -81,7 +123,16 @@ const Data = () => {
                 {item.name}
               </Link>
             ))}
-            <div className="mt-4"></div>
+            <div className="">
+             {isAdmin === true && <Link href="/Components/Partials/DashboardComponents/MainHero">
+                <button
+                  type="button"
+                  className="text-sm bg-purple-600 w-full text-white py-2 px-8 rounded-md nav-btns font-medium"
+                >
+                  Dashboard
+                </button>
+              </Link>}
+            </div>
             {isLoggedIn ? (
               <button
                 onClick={logout}
@@ -91,17 +142,15 @@ const Data = () => {
                 Logout
               </button>
             ) : (
-              <button
-                type="button"
-                className="text-sm bg-purple-600 w-full text-white py-2 px-8 rounded-md nav-btns font-medium"
-              >
-                <Link href="/Login">Log In</Link>
-              </button>
+              <Link href="/Login">
+                <button
+                  type="button"
+                  className="text-sm bg-purple-600 w-full text-white py-2 px-8 rounded-md nav-btns font-medium"
+                >
+                  Log In
+                </button>
+              </Link>
             )}
-
-            <button className="bg-midnightblue w-full hover:bg-blue hover:text-white text-white font-medium my-2 py-2 px-4 rounded">
-              Sign up
-            </button>
           </div>
         </div>
       </div>

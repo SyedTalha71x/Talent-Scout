@@ -48,6 +48,18 @@ const Navbar = () => {
     fetchNotifications();
   }, []);
 
+  const markAllRead = async () =>{
+    try{
+      await fetch("/api/notifications/readAllNotifications", {
+        method: 'POST'
+      })
+      setNotificationCount(0)
+    }
+    catch(error: any){
+      console.log("Error while reading notifcations", error);
+    }
+  }
+
   const openModal = () => {
     setisModal(true);
   };
@@ -139,7 +151,14 @@ const Navbar = () => {
               )}
             </div>
           )}
+
+         
         </div>
+        <div className="flex justify-end items-center mt-4 ">
+            <button onClick={markAllRead} className="bg-purple-600 text-white py-1 px-6 rounded-md hover:bg-purple-800 transition-all duration-500">
+              Read All
+            </button>
+          </div>
       </Modal>
     </div>
   );

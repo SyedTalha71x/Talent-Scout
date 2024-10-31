@@ -164,6 +164,8 @@ const JobTable: React.FC = () => {
         dataSource={data}
         pagination={{ pageSize: 3 }}
         rowKey="key"
+        scroll={{ x: "max-content" }}
+        
       />
       <Modal
         title="Confirm Deletion"

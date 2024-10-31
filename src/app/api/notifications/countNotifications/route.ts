@@ -6,7 +6,7 @@ export async function GET(request: any) {
   try {
 
     await connectToDB();
-    const notifications = await Notification.countDocuments();
+    const notifications = await Notification.countDocuments({readAll: 0});
     return NextResponse.json({ notifications }, { status: 200 });
   } catch (error: any) {
     return NextResponse.json(

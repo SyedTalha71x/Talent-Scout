@@ -2,7 +2,7 @@ import Dashboard from "../../../../Dashboard/Dashboard";
 import { FaUsers, FaMoneyBill, FaChartLine, FaTasks } from "react-icons/fa";
 import TableOne from "../../DashboardPartials/TableOne/page";
 import JobTable from "../../DashboardPartials/JobTables/page";
-import SubscriptionTable from '../../DashboardPartials/SubscriptionTable/page'
+import SubscriptionTable from '../../DashboardPartials/SubscriptionTable/page';
 
 interface CardProps {
   color: "bg-gray-500" | "bg-orange-500" | "bg-blue-500" | "bg-slate-500";
@@ -30,11 +30,10 @@ const Card: React.FC<CardProps> = ({
 
 const Page: React.FC = () => {
   return (
-      <Dashboard>
-  
-      <div className="p-6">
+    <Dashboard>
+      <div className="lg:p-6 md:p-5 sm:p-2 p-2">
         {/* Cards Section */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-6 max-w-full">
           <Card
             color="bg-gray-500"
             title="Total Users"
@@ -62,17 +61,19 @@ const Page: React.FC = () => {
         </div>
 
         {/* Tables Section */}
-        <div className="">
-          <div className="">
-            <TableOne />
+        <div className="space-y-5">
+            <div className="min-w-full">
+              <TableOne />
+            </div>
+
+            <div className="min-w-full">
+              <JobTable />
+            </div>
+
+            <div className="min-w-full">
+              <SubscriptionTable />
+            </div>
           </div>
-          <div className="mt-5">
-            <JobTable />
-          </div>
-          <div className="mt-5">
-            <SubscriptionTable />
-          </div>
-        </div>
       </div>
     </Dashboard>
   );

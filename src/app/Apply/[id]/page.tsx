@@ -81,7 +81,6 @@ const JobApplyForm: React.FC = () => {
   const handleSubmit = async (values: any) => {
     setLoading(true);
 
-    // Prepare JSON data for API submission
     const jsonData = {
       jobId: id,
       name: values.name,
@@ -95,7 +94,6 @@ const JobApplyForm: React.FC = () => {
     const Token = localStorage.getItem("Token");
 
     try {
-      // Send JSON data to the API
       await axios.post("/api/Jobs/applyJob", jsonData, {
         headers: {
           "Content-Type": "application/json",
@@ -103,8 +101,10 @@ const JobApplyForm: React.FC = () => {
         },
       });
       message.success("Application submitted successfully");
+      setTimeout(() => {
+        window.location.reload();
+      }, 2000);
 
-      // Handle file uploads separately if needed
       if (resumeFile) {
         const formData = new FormData();
         if (resumeFile) formData.append("resume", resumeFile);
@@ -246,27 +246,6 @@ const JobApplyForm: React.FC = () => {
                 className="border rounded-lg"
               />
             </Form.Item>
-{/* 
-            <Form.Item label="Resume" className="mt-4">
-              <Upload
-                beforeUpload={(file) => {
-                  const isValidType = [
-                    "application/pdf",
-                    "application/msword",
-                    "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
-                  ].includes(file.type);
-                  if (!isValidType) {
-                    message.error("You can only upload PDF or DOC/DOCX files!");
-                  }
-                  return isValidType;
-                }}
-                onChange={handleResumeChange}
-                maxCount={1}
-                showUploadList={false}
-              >
-                <Button icon={<UploadOutlined />}>Upload Resume</Button>
-              </Upload>
-            </Form.Item> */}
 
             <Form.Item>
               <Button

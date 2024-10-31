@@ -1,25 +1,30 @@
 // models/notification-model.ts
-import mongoose from 'mongoose';
+import mongoose from "mongoose";
 
 const notificationSchema = new mongoose.Schema({
   userId: {
     type: mongoose.Schema.Types.ObjectId,
-    ref: 'User',
+    ref: "User",
     required: true,
   },
   jobId: {
     type: mongoose.Schema.Types.ObjectId,
-    ref: 'Job',
+    ref: "Job",
     required: true,
   },
   applicationId: {
     type: mongoose.Schema.Types.ObjectId,
-    ref: 'JobApplication',
+    ref: "JobApplication",
     required: true,
   },
   message: {
     type: String,
     required: true,
+  },
+  readAll: {
+    type: String,
+    default: 0,
+    enum: [0, 1],
   },
   createdAt: {
     type: Date,
@@ -27,5 +32,7 @@ const notificationSchema = new mongoose.Schema({
   },
 });
 
-const Notification = mongoose.models.Notification || mongoose.model('Notification', notificationSchema);
+const Notification =
+  mongoose.models.Notification ||
+  mongoose.model("Notification", notificationSchema);
 export default Notification;

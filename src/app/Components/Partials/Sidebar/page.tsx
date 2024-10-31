@@ -83,24 +83,6 @@ const Sidebar: React.FC = () => {
           backgroundPosition: 'top left',
         }}
       >
-        <div className="flex cursor-pointer p-2 rounded-lg hover:bg-blue-950 transition-all duration-500 justify-start gap-2 items-start custom-shadow">
-          <div>
-            <Link href={"/Components/Partials/DashboardComponents/MainHero"}>
-              <Image
-                src={"/images/website-logo.png"}
-                height={1000}
-                width={1000}
-                alt=""
-                className="rounded-full h-12 w-12"
-              />
-            </Link>
-          </div>
-          <div>
-            <Link href={"/Components/Partials/DashboardComponents/MainHero"}>
-              <h2 className="text-lg mt-2 font-extrabold">Talent Scout</h2>
-            </Link>
-          </div>
-        </div>
 
         {/* Close button (only for small and medium screens) */}
         <div className="lg:hidden absolute top-4 right-2">
