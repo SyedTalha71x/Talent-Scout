@@ -6,7 +6,15 @@ services:
       context: .
       dockerfile: Dockerfile
     ports:
-      - "3000:3000" 
+      - "3000:3000"
+    environment:
+      - NODE_ENV=production
+      - ALLOWED_ORIGINS=http://localhost:3000
     env_file:
       - .env
-    network_mode: "bridge"
+    networks:
+      - app_network
+
+networks:
+  app_network:
+    driver: bridge
