@@ -5,8 +5,6 @@ const UserSchema = new mongoose.Schema({
     email: { type: String, unique: true, required: true },
     password: { type: String },
     role: { type: String, default: 'user' },
-    providerId: { type: String, unique: true, sparse: true },
-    profileUrl: { type: String },
     avatarUrl: { type: String },
     provider: { type: String, default: 'credentials' }, 
     createdAt: { type: Date, default: Date.now }

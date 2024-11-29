@@ -3,7 +3,6 @@
 import React, { useState, useEffect } from "react";
 import { Button, Form, Input, Upload, message } from "antd";
 import { UploadChangeParam, RcFile } from "antd/es/upload";
-import { UploadOutlined } from "@ant-design/icons";
 import axios from "axios";
 import { useForm } from "antd/es/form/Form";
 import DOMPurify from "dompurify";

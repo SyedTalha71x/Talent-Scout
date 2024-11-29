@@ -2,12 +2,9 @@
 import React, { useState } from 'react';
 import Link from 'next/link';
 import './login.css';
-import { FaGoogle, FaGithub } from "react-icons/fa";
 import { MdError } from "react-icons/md";
-import { useRouter } from 'next/navigation';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import Image from 'next/image';
 import { signIn } from 'next-auth/react'; 
 
 const Page = () => {
@@ -132,15 +129,6 @@ const Page = () => {
                         {loading ? 'Signing in...' : 'Sign in'}
                     </button>
                 </form>
-
-                <div className="lg:flex lg:justify-center  lg:flex-row md:flex md:justify-center md:flex-row sm:flex sm:justify-center sm:flex-col flex justify-center flex-col gap-4 mt-6">
-              <button type="button" className="border-none outline-none bg-orange-400 hover:bg-orange-600 transition-all duration-700 py-2 px-8 rounded-md">
-                <FaGoogle className='text-2xl text-white m-auto' />
-              </button>
-              <button type="button" className="border-none outline-none bg-black hover:bg-[#323232] transition-all duration-700 py-2 px-8 rounded-md">
-                <FaGithub className='text-2xl text-white m-auto' />
-              </button>
-            </div>
             </div>
         </div>
     );

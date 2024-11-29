@@ -46,16 +46,13 @@ const Page = () => {
   if (loading) return <div>Loading...</div>;
   if (error) return <div>Error: {error}</div>;
 
-  // Calculate the total number of pages
   const totalPages = Math.ceil(jobs.length / itemsPerPage);
 
-  // Get the jobs to display for the current page
   const currentJobs = jobs?.slice(
     (currentPage - 1) * itemsPerPage,
     currentPage * itemsPerPage
   );
 
-  // Handle page change
   const handlePageChange = (pageNumber: any) => {
     setCurrentPage(pageNumber);
   };

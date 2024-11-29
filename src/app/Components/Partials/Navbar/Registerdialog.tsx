@@ -17,7 +17,7 @@ const Page: React.FC = () => {
           },
         });
         const resultData = await response.json();
-        if (resultData.role !== "Admin") {
+        if (resultData.role !== "admin") {
           setisAdmin(false);
         } else {
           setisAdmin(true);

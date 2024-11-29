@@ -1,6 +1,5 @@
 import {connectToDB} from "@/utils/db/route";
 import User from "@/utils/Models/user-model";
-import crypto from 'crypto-js';
 import { NextResponse } from "next/server";
 import { hashpassword } from "@/utils/Security/security"
 
@@ -19,8 +18,12 @@ export const POST = async (request: any) => {
 
         const newPass = hashpassword(password);
 
+        const checkAllRecords = await User.countDocuments();
+
+        const modifyRole = checkAllRecords === 0 ? 'admin':'user';
+
         users = new User({
-            name, email, password: newPass
+            name, email, password: newPass, role: modifyRole
         })
         await users.save();
         return NextResponse.json({

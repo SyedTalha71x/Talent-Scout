@@ -21,10 +21,6 @@ const Page = () => {
         }
     }, [controls, inView]);
 
-
-    const Monthly = 'Monthly'
-    const Hourly = 'Hour'
-
     useEffect(() => {
         const fetchData = async () => {
             try {
@@ -87,7 +83,7 @@ const Page = () => {
                         <div className='mt-5'>
                             <p className='text-sm text-gray-500'>{job.description.slice(0, 100)}...</p>
                         </div>
-                        <div className='mt-5 flex items-center gap-2'>
+                        <div className='mt-5 flex flex-wrap items-center gap-2'>
                             {job.skills.slice(0, 3).map((skill: any, i: any) => (
                                 <div key={i} className='bg-slate-200 rounded-md py-1.5 px-4 text-gray-700 text-[12px]'>{skill}</div>
                             ))}
@@ -96,9 +92,9 @@ const Page = () => {
                             <div className='flex'>
                                 <span className='text-purple-800 font-bold text-[20px]'>{job.salary}$/</span>
 
-                                <div className='text-gray-600 text-[16px] ml-0.5 mt-1'>{job.salary > 100000 ? Monthly : Hourly}</div>
+                                <div className='text-gray-600 text-[16px] ml-0.5 mt-1'>{job.salary > 100000 ?  'Yearly' : 'Monthly'}</div>
                             </div>
-                            <button className='bg-purple-600 text-white rounded-md py-1.5 px-2 text-sm'>Apply Now</button>
+                            <button className='bg-purple-600 text-white rounded-md py-2 px-3 text-sm'>Apply Now</button>
                         </div>
                     </Link>
                 ))}

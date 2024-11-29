@@ -123,9 +123,9 @@ const Page = () => {
                         <button
                           onClick={() => handleSubscriptionClick(item._id)}
                           type="button"
-                          className="appearance-none inline-flex hover:shadow-lg nav-btns transition-all duration-300 items-center group space-x-2.5 bg-purple-600 text-white py-2 sm:py-2 px-4 sm:px-5 rounded-lg md:rounded-xl lg:rounded-xl cursor-pointer"
+                          className="appearance-none inline-flex hover:shadow-lg nav-btns transition-all duration-300 items-center group space-x-2.5 bg-purple-600 text-white py-2 text-sm sm:py-2 px-4 sm:px-5 rounded-lg md:rounded-xl lg:rounded-xl cursor-pointer"
                         >
-                          <span className="font-semibold text-sm sm:text-base md:text-base lg:text-[16px]">
+                          <span className="font-semibold text-sm ">
                             Choose {item.name}
                           </span>
                           <svg
@@ -149,45 +149,6 @@ const Page = () => {
                 </div>
               </div>
             ))}
-            <div className="rounded-lg md:rounded-xl lg:rounded-xl bg-[#f7f4f4] overflow-hidden border border-gray-200 p-4 sm:p-6 md:p-6 lg:p-8 relative sm:col-span-2 lg:col-span-1">
-              <div className="h-full">
-                <div className="flex flex-col justify-between h-full space-y-4 sm:space-y-5 md:space-y-5 lg:space-y-6">
-                  <div className="flex flex-col">
-                    <div className="text-lg sm:text-xl md:text-xl lg:text-2xl font-bold text-gray-900">
-                      Enterprise
-                    </div>
-                    <div className="pt-3 sm:pt-5 text-sm sm:text-base md:text-sm lg:text-base">
-                      Contact us for a custom quote and a custom onboarding process.
-                    </div>
-                  </div>
-                  <div className="pt-4 sm:pt-6 lg:pt-6">
-                    <a
-                      href="#"
-                      type="button"
-                      className="appearance-none inline-flex hover:shadow-lg nav-btns transition-all duration-300 items-center group space-x-2.5 bg-purple-600 text-white py-2 sm:py-2 px-4 sm:px-5 rounded-lg md:rounded-xl lg:rounded-xl cursor-pointer"
-                    >
-                      <span className="font-semibold text-sm sm:text-base md:text-base lg:text-lg">
-                        Contact Sales
-                      </span>
-                      <svg
-                        className="inline-block h-5 sm:h-6 md:h-6 lg:h-7"
-                        viewBox="0 0 24 25"
-                        fill="none"
-                        xmlns="http://www.w3.org/2000/svg"
-                      >
-                        <path
-                          d="M3 12.4999H21L14 19.4999M14 5.5L18 9.5"
-                          stroke="currentColor"
-                          strokeWidth="2"
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                        ></path>
-                      </svg>
-                    </a>
-                  </div>
-                </div>
-              </div>
-            </div>
           </div>
         </div>
       </div>

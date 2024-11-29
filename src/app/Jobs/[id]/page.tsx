@@ -193,7 +193,7 @@ const SimilarJobs: React.FC = () => {
     }
 
     fetchSimilarJobs();
-  });
+  }, [id]);
 
   if (loading) {
     return <p>Loading...</p>;
@@ -262,7 +262,7 @@ const Page: React.FC = () => {
         setIsLoading(true);
         setError(null);
         const response = await axios.get(apiUrl);
-        setData(response.data.document); // Store the document object directly
+        setData(response.data.document); 
         console.log("API Response:", response.data.document);
       } catch (error: any) {
         console.error("Error fetching job data:", error);
@@ -275,9 +275,9 @@ const Page: React.FC = () => {
     if (id) {
       fetchData();
     }
-  }, [id]);  // Dependency array
+  }, [id]);  
 
-  const briefDescription = data?.briefDescription || "No description available";
+  const briefDescription = data?.briefDescription || "";
 
   const jobDetails: JobDetails = {
     industry: data?.industry || "N/A",

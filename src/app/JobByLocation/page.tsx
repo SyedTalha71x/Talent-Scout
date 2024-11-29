@@ -67,7 +67,7 @@ const JobLocations = () => {
       </p>
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-10">
-        {error && <p className="text-center text-red-500">{error}</p>}
+        {/* {error && <p className="text-center text-red-500">{error}</p>} */}
         {locations.map((location) => (
           <Link key={location.city} href={`/SingleLocationJob/${location.city}`}>
             <div
