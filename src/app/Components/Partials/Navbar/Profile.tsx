@@ -49,7 +49,7 @@ const Profile = () => {
               height={600}
               width={600}
               className="w-10 h-10 rounded-full"
-              src={data.profileUrl || 'https://images.pexels.com/photos/4069292/pexels-photo-4069292.jpeg?auto=compress&cs=tinysrgb&w=600'}
+              src={data.profileUrl || 'https://images.pexels.com/photos/1214205/pexels-photo-1214205.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1'}
               alt={data.name || 'Profile Picture'}
             />
           </Link>
